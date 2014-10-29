@@ -1,0 +1,5 @@
+# Ignore directory
+  target/
+
+# Ignore file
+  *.class
