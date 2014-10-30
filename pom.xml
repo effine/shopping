@@ -34,15 +34,23 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.2.6</version>
 		</dependency>
-		
+
 		<!-- MYSQL数据库 -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.13</version>
 		</dependency>
+
+		<!-- json -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+
 	</dependencies>
 	<build>
-		<finalName>mybatisTest</finalName>
+		<finalName>mybatis-demo</finalName>
 	</build>
 </project>
