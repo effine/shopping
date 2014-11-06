@@ -1,5 +1,5 @@
 # Ignore directory
-  /target
+  target/
 
 # Ignore file
   *.class
