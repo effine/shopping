@@ -8,7 +8,4 @@ shopping website of free time !
 
 	maven,git,junit ...
 
-------- test ---------
-
-	测试git fetch 的使用 ！
 
