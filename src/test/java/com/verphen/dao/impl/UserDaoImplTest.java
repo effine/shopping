@@ -81,5 +81,4 @@ public class UserDaoImplTest {
 		
 		return false;
 	}
-	
 }
