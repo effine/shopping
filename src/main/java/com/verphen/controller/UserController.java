@@ -14,5 +14,10 @@ public class UserController {
 
 		return null;
 	}
+	
+	
+	public String logour(HttpServletRequest request, HttpServletResponse response){
+		return null;
+	}
 
 }
