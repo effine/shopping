@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UserController {
 
 	public String login(HttpServletRequest request, HttpServletResponse response) {
-
+		System.err.println("-------------");
 		return null;
 	}
 	
