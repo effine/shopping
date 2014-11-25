@@ -1,4 +1,5 @@
 # ignore file
-  *.class
+*.class
+
 # ignore directory
- /target
+/target
