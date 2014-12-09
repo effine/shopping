@@ -5,21 +5,19 @@
 
 package com.verphen.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ReflectTest {
 	public static void main(String[] args) {
-		
-		// one
-		Class c1 = ReflectTest1.class;
-		
-		// two
-		ReflectTest1 rt = new ReflectTest1();
-		Class c2 = rt.getClass();
-		System.err.println(c1==c2);
-		
-		// three
+		 
+		List<String> list = new ArrayList<String>();
+		Class c = list.getClass();
+		Class c1 = List.class;
 		try {
-			Class c3 = Class.forName("com.verphen.dao.impl.ReflectTest1");
-			System.err.println(c3==c2);
+			Class c2 = Class.forName("java.util.List");
+			System.err.println(c==c1);
+			System.err.println(c2==c1);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
