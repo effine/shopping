@@ -18,6 +18,7 @@ public class ReflectTest {
 			Class c2 = Class.forName("java.util.List");
 			System.err.println(c==c1);
 			System.err.println(c2==c1);
+			System.err.println("========");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
