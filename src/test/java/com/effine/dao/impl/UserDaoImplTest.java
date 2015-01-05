@@ -3,7 +3,7 @@
  * @date 2014年10月2日  上午12:21:12
  */
 
-package com.verphen.dao.impl;
+package com.effine.dao.impl;
 
 import java.io.Reader;
 import java.util.List;
@@ -13,8 +13,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.verphen.inter.IUserOperation;
-import com.verphen.model.User;
+import com.effine.inter.IUserOperation;
+import com.effine.model.User;
 
 public class UserDaoImplTest {
 	private static SqlSessionFactory sqlSessionFactory;

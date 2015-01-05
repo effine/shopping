@@ -4,7 +4,7 @@
  * @date 2014年10月30日  下午11:42:14
  */
 
-package com.verphen.utils;
+package com.effine.utils;
 
 import java.io.Serializable;
 import java.util.List;

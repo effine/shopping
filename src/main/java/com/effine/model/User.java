@@ -3,7 +3,7 @@
  * @date 2014年10月2日  上午12:15:32
  */
 
-package com.verphen.model;
+package com.effine.model;
 
 public class User {
 	private int id;

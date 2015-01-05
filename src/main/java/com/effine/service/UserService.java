@@ -4,7 +4,7 @@
  * @date 2014年11月4日  下午10:56:33
  */
 
-package com.verphen.service;
+package com.effine.service;
 
 public class UserService {
 

@@ -3,7 +3,7 @@
  * @date 2014年10月4日  上午11:23:27
  */
 
-package com.verphen.model;
+package com.effine.model;
 
 public class Article {
 	private int id;

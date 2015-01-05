@@ -3,7 +3,7 @@
  * @date 2014年12月9日  上午12:41:10
  */
 
-package com.verphen.dao.impl;
+package com.effine.dao.impl;
 
 
 public class ReflectTest {

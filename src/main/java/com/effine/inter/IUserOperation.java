@@ -3,12 +3,12 @@
  * @date 2014年10月3日  下午2:16:21
  */
 
-package com.verphen.inter;
+package com.effine.inter;
 
 import java.util.List;
 
-import com.verphen.model.Article;
-import com.verphen.model.User;
+import com.effine.model.Article;
+import com.effine.model.User;
 
 public interface IUserOperation {
 

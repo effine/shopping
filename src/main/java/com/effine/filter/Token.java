@@ -5,7 +5,7 @@
  * @email verphen@163.com
  */
 
-package com.verphen.filter;
+package com.effine.filter;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
