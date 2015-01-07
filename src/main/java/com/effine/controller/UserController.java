@@ -12,6 +12,8 @@ public class UserController {
 
 	public String login(HttpServletRequest request, HttpServletResponse response) {
 		System.err.println("-------------");
+		System.err.println("-------------");
+		System.err.println("-------------");
 		return null;
 	}
 	
