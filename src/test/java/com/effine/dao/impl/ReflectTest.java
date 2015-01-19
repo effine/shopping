@@ -16,6 +16,10 @@ class ReflectTest1 {
 
 	public static void say() {
 		System.err.println("say hello !");
+		System.err.println("say hello !");
+		System.err.println("say hello !");
+		System.err.println("say hello !");
+		System.err.println("say hello !");
 	}
 
 }
