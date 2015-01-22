@@ -21,4 +21,10 @@ class ReflectTest1 {
 		//---------------------
 	}
 
+
+	public String toSay(){
+
+		System.out.println("To say !");
+	}
+
 }
