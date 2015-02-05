@@ -21,4 +21,5 @@
 	<mappers>
 		<mapper resource="com/verphen/model/User.xml" />
 	</mappers>
+	
 </configuration>
