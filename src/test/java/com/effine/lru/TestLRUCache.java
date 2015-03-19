@@ -35,7 +35,7 @@ public class TestLRUCache {
 		if (!c.get("2").equals("two")) // 2 5 4 
 			throw new Error();
 		
-		Iterator iterator = c.getAll().iterator();
+		Iterator<?> iterator = c.getAll().iterator();
 		while(iterator.hasNext()){
 			System.err.println(iterator.next());
 		}
