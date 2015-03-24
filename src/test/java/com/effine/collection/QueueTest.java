@@ -22,5 +22,13 @@ public class QueueTest {
 		}
 		System.out.println();
 		System.out.println(queue.size());
+		
+		System.err.println("--------------------");
+		Queue<String> queue1 = new LinkedList<String>();
+		queue1.add("111");
+		queue1.add("22");
+		queue1.add("33");
+		String str1 = queue1.element();
+		String str2 = queue1.peek();
 	}
 }
