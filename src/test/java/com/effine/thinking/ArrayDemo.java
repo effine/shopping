@@ -18,5 +18,6 @@ public class ArrayDemo {
 		int[] i = {12,2,3,4};
 		List<int[]> list1 = Arrays.asList(i);
 		System.out.println(list1);
+		
 	}
 }
