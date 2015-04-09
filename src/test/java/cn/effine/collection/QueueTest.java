@@ -28,7 +28,7 @@ public class QueueTest {
 		queue1.add("111");
 		queue1.add("22");
 		queue1.add("33");
-		String str1 = queue1.element();
-		String str2 = queue1.peek();
+//		String str1 = queue1.element();
+//		String str2 = queue1.peek();
 	}
 }

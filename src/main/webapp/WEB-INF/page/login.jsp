@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ page import="cn.effine.Token"%>
+<%-- <%@ page import="cn.effine.Token"%> --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>  
@@ -22,10 +22,10 @@
 </head>  
   
 <body>  
-<%
+<%-- <%
   	Token processor = Token.getInstance();
   	String token = processor.getToken(request);
-  %>  
+  %>  --%> 
 <form action="handler" name="theForm" method="post">  
    <table>  
     <tr>  
@@ -36,7 +36,7 @@
      <td>邮件地址：</td>  
      <td>  
       <input type="text" name="email" />  
-      <input type="hidden" name="ltai701" value="<%=token%>" />  
+<%--       <input type="hidden" name="ltai701" value="<%=token%>" />   --%>
      </td>  
     </tr>  
     <tr>  
