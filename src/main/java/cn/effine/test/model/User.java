@@ -1,11 +1,17 @@
 /**
- * @author verphen
- * @date 2014年10月2日  上午12:15:32
+ * @author effine
+ * @Date 2015年4月13日  上午11:17:15
+ * @email verphen#gmail.com
  */
 
-package cn.effine.model;
+package cn.effine.test.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+
+	private static final long serialVersionUID = 367647147839906259L;
+
 	private int id;
 	private String name;
 	private String passwd;
@@ -33,4 +39,5 @@ public class User {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
+
 }
