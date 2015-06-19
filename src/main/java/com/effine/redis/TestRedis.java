@@ -12,9 +12,11 @@ import redis.clients.jedis.JedisShardInfo;
 
 public class TestRedis {
 
-	private static String extranetHost = "124.192.148.18";
+	// redis本地测试IP：124.192.148.18
+	// 美团测试 ：124.192.148.18
+	private static String extranetHost = "10.128.130.118";
 	private static int extranetPort = 6379;
-//	private static String extranetPasswd = "server!@$>!(@>!$*>!*";
+	//	private static String extranetPasswd = "server!@$>!(@>!$*>!*";
 
 	// 测试
 	public static void main(String[] args) {
@@ -28,7 +30,8 @@ public class TestRedis {
 
 	public static Jedis getRedis() {
 		JedisShardInfo info = new JedisShardInfo(extranetHost, extranetPort);
-		info.setPassword("yunlu123");	//jedis.auth("yunlu123");同样能达到相同的验证效果
+		// jedis.auth("yunlu123");同样能达到相同的验证效果
+		// info.setPassword("yunlu123");	
 		Jedis jedis = new Jedis(info);
 		return jedis;
 	}
@@ -46,7 +49,7 @@ public class TestRedis {
 		@SuppressWarnings("resource")
 		JedisPool pool = new JedisPool(new JedisPoolConfig(), extranetHost);
 		Jedis jedis = pool.getResource();
-		jedis.auth("yunlu123");
+		//jedis.auth("yunlu123");
 		try {
 			// 开始使用
 			jedis.set("foo", "bar");
