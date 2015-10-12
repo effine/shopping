@@ -1,4 +1,6 @@
 .settings/
+.gradle/
+build/
 target/
 bin/
 src/main/webapp/WEB-INF/classes/
