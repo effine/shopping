@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-	// 定义版本信息常量
+	// 瀹氫箟鐗堟湰淇℃伅甯搁噺
 	def spring-version = "4.1.6.RELEASE"
 	
 	compile (
@@ -32,7 +32,7 @@ dependencies {
 	)
 }
 
-// 配置Java项目字符编码
+// 閰嶇疆Java椤圭洰瀛楃缂栫爜
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
