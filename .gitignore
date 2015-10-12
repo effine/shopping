@@ -1,15 +1,11 @@
-# ignore files
+.settings/
+target/
+bin/
+src/main/webapp/WEB-INF/classes/
+
 .classpath
 .project
-.settings
 *.class
 *.jar
 *.war
 *.ear
-
-# ignore folder
-*/.settings
-*/bin
-*/src/main/webapp/WEB-INF/classes/
-*/target
-/target/
