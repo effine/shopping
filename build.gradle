@@ -14,9 +14,11 @@ repositories {
      maven { url "http://mvnrepository.com" }
 }
 
+	
 dependencies {
+
 	// 定义版本信息常量
-	def spring-version = "4.1.6.RELEASE"
+	def spring-version = '4.1.6.RELEASE'
 	
 	compile (
 	 	'com.alibaba:fastjson:1.2.6',
