@@ -34,6 +34,12 @@ public class UserServiceImpl implements UserService{
 		return userDao.signout(uid);
 	}
 
+	@Override
+	public boolean killAccount() {
+		
+		return false;
+	}
+
 }
 
 

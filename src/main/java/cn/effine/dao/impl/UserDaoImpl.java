@@ -34,4 +34,10 @@ public class UserDaoImpl implements UserDao {
 		return false;
 	}
 
+	@Override
+	public boolean killAccount() {
+		
+		return false;
+	}
+
 }

@@ -37,4 +37,11 @@ public interface UserService {
 	 * @return 是否注销成功
 	 */
 	boolean signout(int uid);
+
+	/**
+	 * 删除账户
+	 *
+	 * @return
+	 */
+	boolean killAccount();
 }
