@@ -57,7 +57,7 @@ public class UserController {
 		// 自动登录
 		if(1 == isAuto){
 			// 将用户名密码放入Cookie
-			int expiry = 60*60*7; // 到期时间：7天
+			int expiry = 60*60*24*7; // 到期时间：7天
 			String host = request.getServerName();
 			Cookie cookie = new Cookie("COOKIE_USERNAME", username);
 			cookie.setPath("/");

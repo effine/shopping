@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="User" type="com.verphen.model.User" />
+		<typeAlias alias="User" type="cn.effine.model.User" />
 	</typeAliases>
 
 	<environments default="development">

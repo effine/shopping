@@ -6,7 +6,6 @@
 package cn.effine.filter;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +27,7 @@ public class RepeatSubmitServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		/*
 		resp.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 
@@ -46,5 +46,7 @@ public class RepeatSubmitServlet extends HttpServlet {
 			out.println("你已经提交了表单，同一表单不能两次提交");
 		}
 		out.close();
+		*/
+		System.out.println("----------------------");
 	}
 }
