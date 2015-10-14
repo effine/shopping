@@ -10,4 +10,4 @@ shopping website of free time !
 
 desc
 	the PC client
-	the mobile client(ios°¢android °¢pad) backend repository 
+	the mobile client(ios„ÄÅandroid „ÄÅpad) backend repository 
