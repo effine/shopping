@@ -1,11 +1,11 @@
-shopping website of free time !
+shopping website
 
-------- framework -------
+---
 
-	spring mvc + mybatis
+	language: java
 	
---------  utils  -------- 
-
-	maven,git,junit ...
-
-
+	build: [maven|gradle]
+	
+	utils: git \  junit
+	
+	framework: spring mvc + mybatis
