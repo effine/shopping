@@ -1,13 +1,11 @@
-shopping website of free time !
+shopping website
 
-------- framework -------
+---
 
-	spring mvc + mybatis
+	language: java
 	
---------  utils  -------- 
-
-	maven,git,junit,gradle
-
-desc
-	the PC client
-	the mobile client(ios、android 、pad) backend repository 
+	build: [maven|gradle]
+	
+	utils: git \  junit
+	
+	framework: spring mvc + mybatis
