@@ -26,18 +26,4 @@ public class ValidateCodeServlet extends HttpServlet {
 		session.setAttribute("code", vCode.getCode());
 		vCode.write(response.getOutputStream());
 	}
-/**
- * web.xml 添加servlet
-	<servlet>
-		<servlet-name>validateCodeServlet</servlet-name>
-		<servlet-class>cn.dsna.util.images.ValidateCodeServlet</servlet-class>
-	</servlet>	
-	<servlet-mapping>
-		<servlet-name>validateCodeServlet</servlet-name>
-		<url-pattern>*.images</url-pattern>
-	</servlet-mapping>
-
-在地址栏输入XXX/dsna.images 测试
- */
-
 }
