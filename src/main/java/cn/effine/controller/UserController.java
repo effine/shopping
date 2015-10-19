@@ -43,13 +43,14 @@ public class UserController {
 	 * 用户登录
 	 *
 	 * @param username
-	 *            用户名
+	 *            用户名[邮箱|昵称|手机号]
 	 * @param passwd
 	 *            密码
 	 * @param isAuto
 	 *            是否自动登录[0否|1是]
 	 * @return
 	 */
+	// TODO effine [邮箱|昵称|手机号]登录
 	@RequestMapping("signin")
 	public String signin(HttpServletRequest request, HttpServletResponse response, String username, String passwd, int isAuto) {
 		Map<String,Object> map = new HashMap<String,Object>();
