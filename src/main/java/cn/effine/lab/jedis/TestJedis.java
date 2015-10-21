@@ -63,6 +63,6 @@ public class TestJedis {
 				jedis.close(); // 使用完后，将连接放回连接池
 			}
 		}
-		pool.destroy(); // 应用退出时，关闭连接池:
+		pool.destroy(); // 应用退出时，关闭连接池
 	}
 }
