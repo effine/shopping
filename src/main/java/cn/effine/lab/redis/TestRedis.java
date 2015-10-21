@@ -3,7 +3,7 @@
  * @date 2015年1月31日  下午4:53:57
  */
 
-package cn.effine.redis;
+package cn.effine.lab.redis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;

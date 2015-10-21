@@ -5,7 +5,7 @@
  * @email verphen@163.com
  */
 
-package cn.effine.memcached;
+package cn.effine.lab.memcached;
 
 public class TestMemcached {
 

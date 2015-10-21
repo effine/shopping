@@ -1,4 +1,4 @@
-package cn.effine.todo.validateCode;
+package cn.effine.lab.validateCode;
 
 import java.awt.Color;
 import java.awt.Font;

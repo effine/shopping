@@ -1,11 +1,12 @@
-shopping website
-
+some features
 ---
 
-	language: java
+	. jedis
 	
-	build: [maven|gradle]
+	. language: java
 	
-	utils: git \  junit
+	. build: [maven|gradle]
 	
-	framework: spring mvc + mybatis
+	. utils: git \  junit
+	
+	. framework: spring mvc + mybatis
