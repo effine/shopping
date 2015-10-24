@@ -3,14 +3,14 @@
  * @date 2015年1月31日  下午4:53:57
  */
 
-package cn.effine.redis;
+package cn.effine.lab.jedis;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisShardInfo;
 
-public class TestRedis {
+public class TestJedis {
 
 	// redis本地测试IP：124.192.148.18
 	// 美团测试 ：124.192.148.18
@@ -20,7 +20,7 @@ public class TestRedis {
 
 	// 测试
 	public static void main(String[] args) {
-		TestRedis test = new TestRedis();
+		TestJedis test = new TestJedis();
 		System.out.println("----------开始调用jedis基本使用方法");
 		test.baseJedis();
 		System.out.println("----------开始调用jedis使用池方法");
@@ -38,7 +38,7 @@ public class TestRedis {
 
 	// jedis的基本使用（jedis非线程安全）
 	public void baseJedis() {
-		Jedis j = TestRedis.getRedis();
+		Jedis j = TestJedis.getRedis();
 		j.set("hello", "world");
 		String output = j.get("hello");
 		System.out.println("jedis基本使用: " + output);
@@ -63,6 +63,6 @@ public class TestRedis {
 				jedis.close(); // 使用完后，将连接放回连接池
 			}
 		}
-		pool.destroy(); // 应用退出时，关闭连接池:
+		pool.destroy(); // 应用退出时，关闭连接池
 	}
 }

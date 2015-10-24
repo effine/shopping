@@ -1,4 +1,4 @@
-package cn.effine.todo.validateCode;
+package cn.effine.lab.validateCode;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
