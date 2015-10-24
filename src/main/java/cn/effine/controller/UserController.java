@@ -36,6 +36,18 @@ public class UserController {
 	 */
 	@RequestMapping("signup")
 	public String signup(HttpServletRequest request, HttpServletResponse response) {
+		// TODO effine 查看以下方法的返回值
+		System.out.println(request.getRequestURI());
+		System.out.println(request.getRequestURL());
+		System.out.println(request.getHeaderNames());
+		System.out.println(request.getMethod());
+		System.out.println(request.getServletPath());
+		System.out.println(request.getContextPath());
+
+		
+		
+		
+		
 		return null;
 	}
 
