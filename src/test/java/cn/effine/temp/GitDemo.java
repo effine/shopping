@@ -5,10 +5,17 @@
 
 package cn.effine.temp;
 
+import java.io.File;
 import java.util.UUID;
 
 public class GitDemo {
 	public static void main(String[] args) {
 		System.out.println(UUID.randomUUID().toString().length());
+		
+		System.out.println(File.separator);
+		
+		
+		
+		
 	}
 }

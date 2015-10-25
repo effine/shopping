@@ -5,6 +5,7 @@
 
 package cn.effine.controller;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,11 +44,6 @@ public class UserController {
 		System.out.println(request.getMethod());
 		System.out.println(request.getServletPath());
 		System.out.println(request.getContextPath());
-
-		
-		
-		
-		
 		return null;
 	}
 
