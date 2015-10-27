@@ -19,7 +19,7 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource=cn/effine/model/User.xml" />
+		<mapper resource="cn/effine/model/User.xml" />
 	</mappers>
 	
 </configuration>
