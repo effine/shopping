@@ -42,6 +42,8 @@ public class Test {
 		list1.add("phone7");
 		list1.add("phone8");
 		list1.add("phone9");
+		list1.add("phone9");
+		list1.add("phone9");
 		
 		Collections.copy(list1, list);
 		
