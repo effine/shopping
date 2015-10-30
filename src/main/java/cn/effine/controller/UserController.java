@@ -137,6 +137,7 @@ public class UserController {
 	 */
 	@RequestMapping("kill")
 	public String killAccount(){
+		System.out.println("-----------");
 		return null;
 	}
 }
