@@ -11,20 +11,7 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		System.err.println(new Test().method1());
-	}
-	
-	
-	public String method1(){
-		try {
-			System.out.println("1");
-			return "1";
-		} catch (Exception e) {
-
-		} finally {
-			System.out.println("2");
-			return "2";
-		}
+		Container container = new Container("name", "effine");
 
 	}
 }
