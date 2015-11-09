@@ -13,9 +13,8 @@ public class Test {
 
 		System.err.println(new Test().method1());
 	}
-	
-	
-	public String method1(){
+
+	public String method1() {
 		try {
 			System.out.println("1");
 			return "1";
