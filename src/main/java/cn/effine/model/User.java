@@ -13,7 +13,11 @@ public class User implements Serializable {
 
 	private int id;
 	private String name;
+	private String email;
 	private String passwd;
+	private String phone;
+	private String isActive;
+	private String signupTime;
 
 	public int getId() {
 		return id;
@@ -31,6 +35,14 @@ public class User implements Serializable {
 		this.name = name;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getPasswd() {
 		return passwd;
 	}
@@ -38,4 +50,29 @@ public class User implements Serializable {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(String isActive) {
+		this.isActive = isActive;
+	}
+
+	public String getSignupTime() {
+		return signupTime;
+	}
+
+	public void setSignupTime(String signupTime) {
+		this.signupTime = signupTime;
+	}
+
 }
