@@ -4,6 +4,8 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="User" type="cn.effine.model.User" />
+		<typeAlias alias="UserInfo" type="cn.effine.model.UserInfo" />
+		<typeAlias alias="SigninHistory" type="cn.effine.model.SigninHistory" />
 	</typeAliases>
 
 	<environments default="development">
@@ -11,15 +13,18 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://127.0.0.1:3306/shopping" />
+				<property name="url"
+					value="jdbc:mysql://127.0.0.1:3306/shopping?useUnicode=true&amp;characterEncoding=utf8" />
 				<property name="username" value="root" />
 				<property name="password" value="aichuan" />
 			</dataSource>
 		</environment>
 	</environments>
-	
+
 	<mappers>
-		<mapper resource="cn/effine/model/User.xml" />
+		<mapper resource="cn/effine/model/mapper/User.xml" />
+		<mapper resource="cn/effine/model/mapper/UserInfo.xml" />
+		<mapper resource="cn/effine/model/mapper/SigninHistory.xml" />
 	</mappers>
-	
+
 </configuration>
