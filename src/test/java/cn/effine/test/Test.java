@@ -10,9 +10,7 @@ package cn.effine.test;
 public class Test {
 
 	public static void main(String[] args) {
-		Integer i = 9;
-		String str = String.valueOf(i);
-		String s = i.toString();
+
 	}
 
 	public String method1() {
