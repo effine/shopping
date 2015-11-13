@@ -8,6 +8,7 @@
 package cn.effine.dao;
 
 import java.io.InputStream;
+import java.io.Reader;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -16,15 +17,31 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class AbstractDao {
 
-	private static final String CONFIG_PATH = "configuration.xml";
+	// 数据库连接方式一
+	private static SqlSessionFactory sqlSessionFactory;
+	private static Reader reader;
 
+	static {
+		try {
+			reader = Resources.getResourceAsReader("Configuration.xml");
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static SqlSessionFactory getSession() {
+		return sqlSessionFactory;
+	}
+
+	// 数据库连接方式二
 	/*
 	 * 获取数据库访问链接
 	 */
 	public static SqlSession getSqlSession() {
 		SqlSession session = null;
 		try {
-			InputStream stream = Resources.getResourceAsStream(CONFIG_PATH);
+			InputStream stream = Resources.getResourceAsStream("configuration.xml");
 			// 可以根据配置的相应环境读取相应的数据库环境
 			// SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(
 			// stream, "development");
