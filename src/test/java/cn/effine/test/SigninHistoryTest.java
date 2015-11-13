@@ -10,7 +10,7 @@ package cn.effine.test;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import cn.effine.dao.AbstractSupportDao;
+import cn.effine.dao.mybatis.AbstractSupportDao;
 import cn.effine.model.SigninHistory;
 
 public class SigninHistoryTest {

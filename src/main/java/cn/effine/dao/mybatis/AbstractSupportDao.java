@@ -5,7 +5,7 @@
  * @site http://www.effine.cn
  */
 
-package cn.effine.dao;
+package cn.effine.dao.mybatis;
 
 import java.io.IOException;
 import java.io.Reader;
