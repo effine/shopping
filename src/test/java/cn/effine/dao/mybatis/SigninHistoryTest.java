@@ -5,7 +5,7 @@
  * @site http://www.effine.cn
  */
 
-package cn.effine.test;
+package cn.effine.dao.mybatis;
 
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
