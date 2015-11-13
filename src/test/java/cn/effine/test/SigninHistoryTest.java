@@ -8,25 +8,19 @@
 package cn.effine.test;
 
 import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
 
 import cn.effine.dao.AbstractSupportDao;
 import cn.effine.model.SigninHistory;
 
 public class SigninHistoryTest {
 
-	public static void getSigninHistory(int id) {
+	@Test
+	public void getSigninHistory() {
 		SqlSession session = AbstractSupportDao.getSqlSession();
-		SigninHistory history = session
-				.selectOne(
-						"cn.effine.ISigninHistoryOperation.selectSigninHistoryByID",
-						id);
+		SigninHistory history = session .selectOne("cn.effine.ISigninHistoryOperation.selectSigninHistoryByID",1);
 		session.close();
-
 		System.out.println(history);
 
-	}
-
-	public static void main(String[] args) {
-		getSigninHistory(1);
 	}
 }
