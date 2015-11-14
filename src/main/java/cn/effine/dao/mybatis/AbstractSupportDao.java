@@ -5,49 +5,42 @@
  * @site http://www.effine.cn
  */
 
-package cn.effine.dao;
+package cn.effine.dao.mybatis;
 
-import java.io.InputStream;
+import java.io.IOException;
+import java.io.Reader;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class AbstractDao {
-	
-	
-	
+public class AbstractSupportDao {
 
-	private static final String CONFIG_PATH = "configuration.xml";
-
-	/*
-	 * 获取数据库访问链接
-	 */
-	public static SqlSession getSqlSession() {
-		SqlSession session = null;
+	private static String configure_path = "Configuration.xml";
+	private static SqlSessionFactory sqlSessionFactory;
+	
+	static {
 		try {
-			InputStream stream = Resources.getResourceAsStream(CONFIG_PATH);
-			// 可以根据配置的相应环境读取相应的数据库环境
-			// SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(
-			// stream, "development");
-			SqlSessionFactory factory = new SqlSessionFactoryBuilder()
-					.build(stream);
-			session = factory.openSession();
-		} catch (Exception e) {
-			// TODO: handle exception
+			// 方式1
+			Reader reader = Resources.getResourceAsReader(configure_path);
+			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			
+			// 方式2
+			// InputStream stream = Resources.getResourceAsStream(configure_path);
+			// sqlSessionFactory = new SqlSessionFactoryBuilder().build(stream);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return session;
 	}
 
 	/*
-	 * 获取数据库访问链接
+	 * 获取数据库访问会话session
 	 */
-	public static void closeSession(SqlSession session) {
-		session.close();
+	public static SqlSession getSqlSession() {
+		return sqlSessionFactory.openSession();
 	}
-
+	
 	/*
 	 * 返回操作记录消息
 	 */

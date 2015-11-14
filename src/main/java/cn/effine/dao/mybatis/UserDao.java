@@ -3,7 +3,7 @@
  * @date 2014年10月1日  下午11:17:23
  */
 
-package cn.effine.dao;
+package cn.effine.dao.mybatis;
 
 public interface UserDao {
 
