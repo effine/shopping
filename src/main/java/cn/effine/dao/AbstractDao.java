@@ -15,6 +15,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class AbstractDao {
+	
+	
+	
 
 	private static final String CONFIG_PATH = "configuration.xml";
 
