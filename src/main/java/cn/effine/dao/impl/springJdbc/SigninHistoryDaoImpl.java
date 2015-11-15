@@ -11,8 +11,7 @@ import java.util.Map;
 
 import cn.effine.dao.SigninHistoryDao;
 
-public class SigninHistoryDaoImpl extends AbstractSupportDao implements
-		SigninHistoryDao {
+public class SigninHistoryDaoImpl extends AbstractSupportDao implements SigninHistoryDao {
 
 	@Override
 	public Map<String, Object> getSigninHistory(int id) {
