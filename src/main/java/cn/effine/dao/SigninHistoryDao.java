@@ -6,7 +6,7 @@
  * @site http://www.effine.cn
  */
 
-package cn.effine.dao.mybatis;
+package cn.effine.dao;
 
 public interface SigninHistoryDao {
 

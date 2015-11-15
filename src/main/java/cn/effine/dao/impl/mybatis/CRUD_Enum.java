@@ -5,7 +5,7 @@
  * @site http://www.effine.cn
  */
 
-package cn.effine.dao.mybatis;
+package cn.effine.dao.impl.mybatis;
 
 public enum CRUD_Enum {
 

@@ -5,11 +5,11 @@
  * @site http://www.effine.cn
  */
 
-package cn.effine.dao.mybatis.impl;
+package cn.effine.dao.impl.mybatis;
 
 import org.springframework.stereotype.Repository;
 
-import cn.effine.dao.mybatis.UserDao;
+import cn.effine.dao.UserDao;
 
 @Repository
 public class UserDaoImpl implements UserDao {

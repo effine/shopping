@@ -5,9 +5,9 @@
  * @site http://www.effine.cn
  */
 
-package cn.effine.dao.mybatis.impl;
+package cn.effine.dao.impl.mybatis;
 
-import cn.effine.dao.mybatis.SigninHistoryDao;
+import cn.effine.dao.SigninHistoryDao;
 
 public class SigninHistoryDaoImpl implements SigninHistoryDao {
 
