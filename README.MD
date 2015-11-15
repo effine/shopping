@@ -1,12 +1,9 @@
-some features
----
+you maybe want to know: 
 
-	. jedis
+	the shopping is developping for java language! 
 	
-	. language: java
+	the dao implement of mybatis 、springJdbcTemplate、hibernate and jfinal ! 
 	
-	. build: [maven|gradle]
+	building in maven or gradle !
 	
-	. utils: git \  junit
-	
-	. framework: spring mvc + mybatis
+	cache in jedis(redis client for java)
