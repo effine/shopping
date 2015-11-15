@@ -13,8 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class AbstractSupportDao {
 
-	private static ApplicationContext ctx = new ClassPathXmlApplicationContext(
-			"spring-jdbcTemplate.xml");
+	private static ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-jdbcTemplate.xml");
 
 	public static JdbcTemplate getJdbcTemplate() {
 		return (JdbcTemplate) ctx.getBean("jdbcTemplate");

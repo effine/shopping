@@ -11,9 +11,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.plugin.Signature;
-
 public class AnnotationTest {
 
 	public static void main(String[] args) {
@@ -31,7 +28,6 @@ public class AnnotationTest {
 		System.out.println("old method, don't use it.");
 	}
 
-	@SuppressWarnings({ "unchecked", "deprecation" })
 	@MethodInfo(author = "Pankaj", comments = "Main method", date = "Nov 17 2012", revision = 10)
 	public static void genericsTest() throws FileNotFoundException {
 		List l = new ArrayList();
