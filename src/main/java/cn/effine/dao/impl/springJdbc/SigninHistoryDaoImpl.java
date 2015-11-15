@@ -11,12 +11,13 @@ import java.util.Map;
 
 import cn.effine.dao.SigninHistoryDao;
 
-public class SigninHistoryDaoImpl implements SigninHistoryDao {
+public class SigninHistoryDaoImpl extends AbstractSupportDao implements
+		SigninHistoryDao {
 
 	@Override
 	public Map<String, Object> getSigninHistory(int id) {
-		// TODO unimplements method stub
-		return null;
+		String sql = "select * from signin_history where id =?";
+		return getJdbcTemplate().queryForMap(sql, id);
 	}
 
 }

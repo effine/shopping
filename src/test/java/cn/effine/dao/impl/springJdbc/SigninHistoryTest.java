@@ -5,8 +5,14 @@
  * @site http://www.effine.cn
  */
 
-package cn.effine.dao.springJdbc;
+package cn.effine.dao.impl.springJdbc;
+
+import org.junit.Test;
 
 public class SigninHistoryTest {
 
+	@Test
+	public void getSigninHistory() {
+
+	}
 }
