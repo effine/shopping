@@ -8,8 +8,11 @@
 
 package cn.effine.dao;
 
+import java.util.Map;
+
 public interface SigninHistoryDao {
 
+	Map<String,Object> getSigninHistory(int id);
 }
 
 
