@@ -62,6 +62,7 @@ public class DownloadNetFile {
 		String filePath = "d:";
 
 		/* 调用函数，并且进行传参 */
+		@SuppressWarnings("static-access")
 		boolean flag = pic.saveUrlAs(photoUrl, filePath + fileName);
 
 		System.out.println("Run ok!\n Get URL file " + flag);

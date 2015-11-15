@@ -49,9 +49,6 @@
 
 技术方案
 ===========================
-- mysql
-
-- Spring MVC + mybatis 实现
 
 - Html5 + Css3
 
