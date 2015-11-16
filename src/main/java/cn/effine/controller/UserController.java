@@ -23,8 +23,8 @@ import cn.effine.utils.MD5Utils;
 /**
  * 用户操作
  */
-@RequestMapping("user")
 @Controller
+@RequestMapping("/user")
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -34,7 +34,7 @@ public class UserController {
 	 *
 	 * @return
 	 */
-	@RequestMapping("signup")
+	@RequestMapping("/signup")
 	public String signup(HttpServletRequest request, HttpServletResponse response) {
 		// TODO effine 查看以下方法的返回值
 		System.out.println(request.getRequestURI());
