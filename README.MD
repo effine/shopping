@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/effine/shopping.svg?branch=master)](https://travis-ci.org/effine/shopping)
+
 you maybe want to know: 
 
 	the shopping is developping for java language! 
