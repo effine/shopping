@@ -12,4 +12,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("goods")
 public class GoodsController {
 
+	
 }
