@@ -7,26 +7,26 @@
 
 package cn.effine.test;
 
+import java.io.UnsupportedEncodingException;
+
 public class Test {
 
 	public static void main(String[] args) {
-		System.out.println(Boolean.TRUE);
-	}
 
-	public String method1() {
+		byte[]  barr= {};
+		
 		try {
-			System.out.println("1");
-			return "1";
-		} catch (Exception e) {
-
-		} finally {
-			System.out.println("2");
-			return "2";
+			byte[] carr = new String(barr, "utf-8").getBytes();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 		}
-
+		
+		
+		try {
+			byte[] darr = barr.toString().getBytes("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
 	}
-}
-
-class ThreadTest extends Thread {
-
 }
