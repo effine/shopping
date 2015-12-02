@@ -11,12 +11,18 @@ import java.util.Map;
 
 import org.junit.Test;
 
-public class SigninHistoryTest {
+public class SigninHistoryTest extends AbstractSupportDao{
 
 	@Test
 	public void getSigninHistory() {
 		Map<String,Object> obj = new SigninHistoryDaoImpl().getSigninHistory(1);
 		System.out.println(obj);
-		
+	}
+	
+	@Test
+	public void countSigninHistory() {
+		String sql = "select count(id) from signin_history";
+		int times = getJdbcTemplate().queryForObject(sql, Integer.class);
+		System.out.println(times);
 	}
 }
