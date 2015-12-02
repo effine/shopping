@@ -7,10 +7,14 @@
 
 package cn.effine.test;
 
+import org.springframework.beans.BeanUtils;
+
 
 public class Test {
 
 	public static void main(String[] args) {
+		
+		BeanUtils.copyProperties("111","2222222");
 
 	}
 }
