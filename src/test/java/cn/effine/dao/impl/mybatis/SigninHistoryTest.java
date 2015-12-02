@@ -10,10 +10,10 @@ package cn.effine.dao.impl.mybatis;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import cn.effine.dao.impl.mybatis.AbstractSupportDao;
+import cn.effine.dao.SigninHistoryDaoTest;
 import cn.effine.model.SigninHistory;
 
-public class SigninHistoryTest {
+public class SigninHistoryTest  implements SigninHistoryDaoTest{
 
 	@Test
 	public void getSigninHistory() {

@@ -11,11 +11,15 @@ import java.util.Map;
 
 import org.junit.Test;
 
-public class SigninHistoryTest extends AbstractSupportDao{
+import cn.effine.dao.SigninHistoryDaoTest;
 
+public class SigninHistoryTest extends AbstractSupportDao implements SigninHistoryDaoTest{
+
+	@Override
 	@Test
 	public void getSigninHistory() {
-		Map<String,Object> obj = new SigninHistoryDaoImpl().getSigninHistory(1);
+		String sql = "select * from signin_history where id =?";
+		Map<String,Object> obj = getJdbcTemplate().queryForMap(sql, 1);
 		System.out.println(obj);
 	}
 	

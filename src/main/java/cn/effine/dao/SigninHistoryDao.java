@@ -7,18 +7,6 @@
 
 package cn.effine.dao;
 
-import java.util.Map;
-
 public interface SigninHistoryDao {
-
-	/**
-	 * 获取用户登录历史
-	 *
-	 * @param id
-	 *            登录历史ID
-	 * @return 历史登录信息
-	 */
-	// TODO effine 测试用例
-	Map<String, Object> getSigninHistory(int id);
 
 }
