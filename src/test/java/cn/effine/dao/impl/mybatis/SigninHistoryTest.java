@@ -23,4 +23,9 @@ public class SigninHistoryTest  implements SigninHistoryDaoTest{
 		System.out.println(history);
 
 	}
+
+	@Override
+	public void countSigninHistory() {
+		// TODO effine 统计登录历史
+	}
 }
