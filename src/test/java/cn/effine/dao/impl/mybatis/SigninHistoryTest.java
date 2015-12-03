@@ -26,6 +26,9 @@ public class SigninHistoryTest  implements SigninHistoryDaoTest{
 
 	@Override
 	public void countSigninHistory() {
-		// TODO effine 统计登录历史
+		// TODO  unimplements method stub
+		
 	}
+
+ 
 }
