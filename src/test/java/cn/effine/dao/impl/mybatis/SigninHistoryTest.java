@@ -27,7 +27,6 @@ public class SigninHistoryTest  implements SigninHistoryDaoTest{
 	@Override
 	public void countSigninHistory() {
 		// TODO  unimplements method stub
-		
 	}
 
  
