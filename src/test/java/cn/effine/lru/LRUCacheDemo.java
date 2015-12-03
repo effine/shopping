@@ -6,10 +6,10 @@
 
 package cn.effine.lru;
 
-import java.util.LinkedHashMap;
-import java.util.Collection;
-import java.util.Map;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class LRUCacheDemo<K, V> {
 
