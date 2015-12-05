@@ -43,7 +43,7 @@ public class UserController {
 		System.out.println(request.getMethod());
 		System.out.println(request.getServletPath());
 		System.out.println(request.getContextPath());
-		return "user";
+		return "signup";
 	}
 
 	/**

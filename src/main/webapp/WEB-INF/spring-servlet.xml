@@ -23,6 +23,6 @@
 	</bean>
 
 	<!-- 访问静态资源 -->
-	<mvc:resources location="/**" mapping="/**" />
+	<mvc:resources location="/static/" mapping="/static/**" />
 
 </beans>
