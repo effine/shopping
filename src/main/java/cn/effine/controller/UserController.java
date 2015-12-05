@@ -17,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.effine.contants.PageConstants;
 import cn.effine.model.User;
 import cn.effine.service.UserService;
 import cn.effine.utils.JsonUtils;
