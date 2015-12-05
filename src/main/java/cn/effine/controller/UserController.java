@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.effine.contants.PageConstants;
 import cn.effine.model.User;
@@ -36,10 +37,11 @@ public class UserController {
 	 *
 	 * @return
 	 */
-	@RequestMapping("/signup1")
+	@RequestMapping("/signup")
+	@ResponseBody
 	public String signup(User user) {
-		//. 邮箱注册
-		return  PageConstants.SIGNUP;
+		// . 邮箱注册
+		return PageConstants.SIGNUP;
 	}
 
 	/**
@@ -55,35 +57,38 @@ public class UserController {
 	 */
 	// TODO effine [邮箱|昵称|手机号]登录
 	@RequestMapping("signin")
-	public String signin(HttpServletRequest request, HttpServletResponse response, String username, String passwd, int isAuto) {
-		Map<String,Object> map = new HashMap<String,Object>();
+	public String signin(HttpServletRequest request,
+			HttpServletResponse response, String username, String passwd,
+			int isAuto) {
+		Map<String, Object> map = new HashMap<String, Object>();
 		boolean isSignin = false;
 		// 自动登录
-		if(1 == isAuto){
+		if (1 == isAuto) {
 			// 将用户名密码放入Cookie
-			int expiry = 60*60*24*7; // 到期时间：7天
+			int expiry = 60 * 60 * 24 * 7; // 到期时间：7天
 			String host = request.getServerName();
 			Cookie cookie = new Cookie("COOKIE_USERNAME", username);
 			cookie.setPath("/");
 			cookie.setDomain(host);
 			cookie.setMaxAge(expiry); // 设置cookie过期时间(秒)
-			
+
 			// 密码MD5加密并保存cookie
-			cookie = new Cookie("COOKIE_PASSWD", MD5Utils.encode(passwd, "utf-8"));   
-			cookie.setPath("/");  
-			cookie.setDomain(host);  
-			cookie.setMaxAge(expiry);  
-			response.addCookie(cookie); 
-			
+			cookie = new Cookie("COOKIE_PASSWD", MD5Utils.encode(passwd,
+					"utf-8"));
+			cookie.setPath("/");
+			cookie.setDomain(host);
+			cookie.setMaxAge(expiry);
+			response.addCookie(cookie);
+
 			isSignin = userService.signin(username, passwd);
 		}
-		
+
 		// 非自动登录
-		if(0 == isAuto){
+		if (0 == isAuto) {
 			isSignin = userService.signin(username, passwd);
 		}
-		
-		if(isSignin)
+
+		if (isSignin)
 			map.put("msg", "登录成功");
 		else
 			map.put("msg", "登录失败");
@@ -97,42 +102,44 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("signout")
-	public String signout(HttpServletRequest request, HttpServletResponse response) {
+	public String signout(HttpServletRequest request,
+			HttpServletResponse response) {
 		String host = request.getServerName();
-		
+
 		// 用户注销删除cookie
 		int execNo = 0;
 		Cookie[] cookies = request.getCookies();
-		if(null != cookies){
-			for(Cookie cookie: cookies){
-				if("COOKIE_USERNAME".equals(cookie.getName())){
+		if (null != cookies) {
+			for (Cookie cookie : cookies) {
+				if ("COOKIE_USERNAME".equals(cookie.getName())) {
 					cookie = new Cookie("COOKIE_USERNAME", "");
 					cookie.setDomain(host);
 					cookie.setPath("/");
 					cookie.setMaxAge(0);
 					response.addCookie(cookie);
-					execNo ++ ;
-				}else if("COOKIE_PASSWD".equals(cookie.getName())){
+					execNo++;
+				} else if ("COOKIE_PASSWD".equals(cookie.getName())) {
 					cookie = new Cookie("COOKIE_PASSWD", "");
 					cookie.setDomain(host);
 					cookie.setPath("/");
 					cookie.setMaxAge(0);
 					response.addCookie(cookie);
-					execNo ++ ;
+					execNo++;
 				}
-				if(2 == execNo) break; // 不再循环cookis后面的内容
+				if (2 == execNo)
+					break; // 不再循环cookis后面的内容
 			}
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 删除账户
 	 *
 	 * @return
 	 */
 	@RequestMapping("kill")
-	public String killAccount(){
+	public String killAccount() {
 		System.out.println("-----------");
 		return null;
 	}
