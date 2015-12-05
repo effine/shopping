@@ -27,6 +27,12 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 
 	@Override
 	public boolean signin(String username, String passwd) {
+		SqlSession session = DaoSupport.getSqlSession();
+		// TODO 登录
+		int uid = session.insert("cn.effine.IUserOperation.signin");
+		session.commit();
+		session.close();
+		
 		if ("effine".equals(username) && "aichuan".equals(passwd)) {
 			return true;
 		}

@@ -59,9 +59,8 @@ public class UserController {
 	 */
 	// TODO effine [邮箱|昵称|手机号]登录
 	@RequestMapping("signin")
-	public String signin(HttpServletRequest request,
-			HttpServletResponse response, String username, String passwd,
-			int isAuto) {
+	public String signin(HttpServletRequest request, HttpServletResponse response, 
+			String username, String passwd, int isAuto) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		boolean isSignin = false;
 		// 自动登录
