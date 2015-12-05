@@ -13,8 +13,7 @@
 
 	<div class="container">
 		<div class="jumbotron">
-			<h1>我的第一个 Bootstrap 页面</h1>
-			<p>重置窗口大小，查看响应式效果！</p>
+			<h1>"蜕变",给自己一次机会！</h1>
 		</div>
 		<div class="row">
 			<div class="col-sm-4">

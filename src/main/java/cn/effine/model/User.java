@@ -13,6 +13,7 @@ public class User implements Serializable {
 
 	private int id;
 	private String name;
+	private String nikename;
 	private String email;
 	private String passwd;
 	private String phone;
@@ -33,6 +34,14 @@ public class User implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getNikename() {
+		return nikename;
+	}
+
+	public void setNikename(String nikename) {
+		this.nikename = nikename;
 	}
 
 	public String getEmail() {

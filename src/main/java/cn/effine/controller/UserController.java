@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.effine.contants.PageConstants;
+import cn.effine.model.User;
 import cn.effine.service.UserService;
 import cn.effine.utils.JsonUtils;
 import cn.effine.utils.MD5Utils;
@@ -34,16 +36,10 @@ public class UserController {
 	 *
 	 * @return
 	 */
-	@RequestMapping("/signup")
-	public String signup(HttpServletRequest request, HttpServletResponse response) {
-		// TODO effine 查看以下方法的返回值
-		System.out.println(request.getRequestURI());
-		System.out.println(request.getRequestURL());
-		System.out.println(request.getHeaderNames());
-		System.out.println(request.getMethod());
-		System.out.println(request.getServletPath());
-		System.out.println(request.getContextPath());
-		return "signup";
+	@RequestMapping("/signup1")
+	public String signup(User user) {
+		//. 邮箱注册
+		return  PageConstants.SIGNUP;
 	}
 
 	/**
