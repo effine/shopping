@@ -5,18 +5,18 @@
 
 package cn.effine.service;
 
+import cn.effine.model.User;
+
 public interface UserService {
 
 	/**
 	 * 用户注册
 	 *
-	 * @param username
-	 *            用户名
-	 * @param passwd
-	 *            密码
+	 * @param user
+	 *            用户
 	 * @return 是否注册成功
 	 */
-	boolean signup(String username, String passwd);
+	boolean signup(User user);
 
 	/**
 	 * 用户登录

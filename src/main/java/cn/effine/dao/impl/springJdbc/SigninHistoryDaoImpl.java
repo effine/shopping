@@ -9,7 +9,7 @@ package cn.effine.dao.impl.springJdbc;
 
 import cn.effine.dao.SigninHistoryDao;
 
-public class SigninHistoryDaoImpl extends AbstractSupportDao implements SigninHistoryDao {
+public class SigninHistoryDaoImpl extends DaoSupport implements SigninHistoryDao {
 
 	
 }

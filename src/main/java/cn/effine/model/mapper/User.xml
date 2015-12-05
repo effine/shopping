@@ -3,7 +3,7 @@
 
 <mapper namespace="cn.effine.IUserOperation">
 	<insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="id"> 
-        insert into user(name,password) values(#{name},#{password})  
+        insert into user(name,email,passwd, signup_time) values(#{name},#{email}, #{passwd}, #{signupTime})  
     </insert>
     
 	<insert id="delete" parameterType="int"> 

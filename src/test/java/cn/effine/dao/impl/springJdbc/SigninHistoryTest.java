@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import cn.effine.dao.SigninHistoryDaoTest;
 
-public class SigninHistoryTest extends AbstractSupportDao implements SigninHistoryDaoTest{
+public class SigninHistoryTest extends DaoSupport implements SigninHistoryDaoTest{
 
 	@Override
 	@Test

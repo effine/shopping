@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.effine.dao.UserDao;
+import cn.effine.model.User;
 import cn.effine.service.UserService;
 
 @Service
@@ -20,8 +21,8 @@ public class UserServiceImpl implements UserService{
 	private UserDao userDao;
 
 	@Override
-	public boolean signup(String username, String passwd) {
-		return userDao.signup(username, passwd);
+	public boolean signup(User user) {
+		return userDao.signup(user);
 	}
 
 	@Override

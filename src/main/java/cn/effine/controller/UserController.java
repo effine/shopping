@@ -22,12 +22,13 @@ import cn.effine.model.User;
 import cn.effine.service.UserService;
 import cn.effine.utils.JsonUtils;
 import cn.effine.utils.MD5Utils;
+import cn.effine.utils.TimeUtils;
 
 /**
  * 用户操作
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 	@Autowired
 	private UserService userService;
@@ -37,11 +38,13 @@ public class UserController {
 	 *
 	 * @return
 	 */
-	@RequestMapping("/signup")
+	@RequestMapping("signup")
 	@ResponseBody
 	public String signup(User user) {
-		// . 邮箱注册
-		return PageConstants.SIGNUP;
+		// TODO 密码进行加密
+		user.setSignupTime(TimeUtils.getCurrentTime());
+		boolean status = userService.signup(user);
+		return String.valueOf(status);
 	}
 
 	/**

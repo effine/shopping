@@ -8,8 +8,8 @@
 </head>
 <body>
 
-	<form action="/user/signup">
-		昵称：<input type="text" name="nikename" >
+	<form action="/shopping/user/signup">
+		昵称：<input type="text" name="name" >
 		<br>
 		邮箱：<input type="text" name="email">
 		<br>

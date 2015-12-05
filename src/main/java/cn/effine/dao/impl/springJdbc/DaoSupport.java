@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class AbstractSupportDao {
+public class DaoSupport {
 
 	private static ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-jdbcTemplate.xml");
 

@@ -15,7 +15,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class AbstractSupportDao {
+public class DaoSupport {
 
 	private static String configure_path = "mybatis-config.xml";
 	private static SqlSessionFactory sqlSessionFactory;

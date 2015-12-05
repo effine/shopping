@@ -17,7 +17,7 @@ public class SigninHistoryTest  implements SigninHistoryDaoTest{
 
 	@Test
 	public void getSigninHistory() {
-		SqlSession session = AbstractSupportDao.getSqlSession();
+		SqlSession session = DaoSupport.getSqlSession();
 		SigninHistory history = session .selectOne("cn.effine.ISigninHistoryOperation.selectSigninHistoryByID",1);
 		session.close();
 		System.out.println(history);

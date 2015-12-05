@@ -7,17 +7,22 @@
 
 package cn.effine.dao.impl.mybatis;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import cn.effine.dao.UserDao;
+import cn.effine.model.User;
 
 @Repository
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends DaoSupport implements UserDao {
 
 	@Override
-	public boolean signup(String username, String passwd) {
-
-		return false;
+	public boolean signup(User user) {
+		SqlSession session = DaoSupport.getSqlSession();
+		int uid = session.insert("cn.effine.IUserOperation.add", user);
+		session.commit();
+		session.close();
+		return uid != 0;
 	}
 
 	@Override
@@ -36,7 +41,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean killAccount() {
-		
+
 		return false;
 	}
 
