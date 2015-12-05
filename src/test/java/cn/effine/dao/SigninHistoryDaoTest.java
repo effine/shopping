@@ -11,10 +11,11 @@ public interface SigninHistoryDaoTest {
 
 	/**
 	 * 获取用户登录历史
-	 *
-	 * @param id
-	 *            登录历史ID
-	 * @return 历史登录信息
 	 */
 	void getSigninHistory();
+
+	/**
+	 * 统计用户登录历史
+	 */
+	void countSigninHistory();
 }

@@ -23,4 +23,11 @@ public class SigninHistoryTest  implements SigninHistoryDaoTest{
 		System.out.println(history);
 
 	}
+
+	@Override
+	public void countSigninHistory() {
+		// TODO  unimplements method stub
+	}
+
+ 
 }
