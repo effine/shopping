@@ -5,11 +5,13 @@
 	id="WebApp_ID" version="3.0">  
 	
 	<display-name>shopping</display-name>
-
+	
+	<
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<!-- 应用上下文配置文件 -->
 		<param-value>/WEB-INF/spring-servlet.xml</param-value>
+		<param-value>class:conf.properties</param-value>
 	</context-param>
 	
 	<!-- 配置Spring监听 -->
