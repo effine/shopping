@@ -6,7 +6,6 @@
 	
 	<display-name>shopping</display-name>
 	
-	<
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<!-- 应用上下文配置文件 -->
