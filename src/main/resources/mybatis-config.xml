@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
+	<!-- 引用db.properties配置文件 -->
+	<properties resource="/db.properties" />
+	
 	<typeAliases>
 		<typeAlias alias="User" type="cn.effine.model.User" />
 		<typeAlias alias="UserInfo" type="cn.effine.model.UserInfo" />
@@ -12,11 +16,10 @@
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url"
-					value="jdbc:mysql://192.168.199.165:3306/shopping?useUnicode=true&amp;characterEncoding=utf8" />
-				<property name="username" value="root" />
-				<property name="password" value="aichuan" />
+				<property name="driver" value="${db.driverClassName}" />
+				<property name="url" value="${db.url}" />
+				<property name="username" value="${db.username}" />
+				<property name="password" value="${db.password}" />
 			</dataSource>
 		</environment>
 	</environments>

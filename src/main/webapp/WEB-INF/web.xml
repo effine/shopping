@@ -6,12 +6,10 @@
 	
 	<display-name>shopping</display-name>
 	
-	<
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<!-- 应用上下文配置文件 -->
 		<param-value>/WEB-INF/spring-servlet.xml</param-value>
-		<param-value>class:conf.properties</param-value>
 	</context-param>
 	
 	<!-- 配置Spring监听 -->
@@ -21,12 +19,12 @@
 
 	<!-- 配置spring核心servlet -->
 	<servlet>
-		<servlet-name>spring</servlet-name>
+		<servlet-name>springServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>spring</servlet-name>
+		<servlet-name>springServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
