@@ -6,6 +6,7 @@
 package cn.effine.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.effine.model.User;
 import cn.effine.service.UserService;
-import cn.effine.utils.JsonUtils;
 import cn.effine.utils.MD5Utils;
 import cn.effine.utils.TimeUtils;
 
@@ -59,7 +59,7 @@ public class UserController {
 	 */
 	// TODO effine [邮箱|昵称|手机号]登录
 	@RequestMapping("signin")
-	public String signin(HttpServletRequest request, HttpServletResponse response, 
+	public Map<String, Object> signin(HttpServletRequest request, HttpServletResponse response, 
 			String username, String passwd, int isAuto) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		boolean isSignin = false;
@@ -94,7 +94,7 @@ public class UserController {
 		else
 			map.put("msg", "登录失败");
 		map.put("code", 200);
-		return JsonUtils.mapToJSONString(map);
+		return map;
 	}
 
 	/**
@@ -140,8 +140,24 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping("kill")
-	public String killAccount() {
-		System.out.println("-----------");
-		return null;
+	@ResponseBody
+	public Map<String,Object> killAccount() {
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("status", 1);
+		Map<String,Object> dataMap = new HashMap<String,Object>();
+		dataMap.put("name", "effine");
+		dataMap.put("age", 25);
+		dataMap.put("email", "verphen@163.com");
+		map.put("info", dataMap);
+		
+		Map<String,Object> testMap = new HashMap<String,Object>();
+		testMap.put("nullval", "");
+		testMap.put("0val", 0);
+		List<String> lsit = null;
+		testMap.put("nulllist", lsit);
+		String str = null;
+		testMap.put("nullstring", str);
+		map.put("test", testMap);
+		return map;
 	}
 }
