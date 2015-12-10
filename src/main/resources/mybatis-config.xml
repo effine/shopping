@@ -4,7 +4,7 @@
 
 <configuration>
 	<!-- 引用db.properties配置文件 -->
-	<properties resource="/db.properties" />
+	<properties resource="db.properties" />
 	
 	<typeAliases>
 		<typeAlias alias="User" type="cn.effine.model.User" />
