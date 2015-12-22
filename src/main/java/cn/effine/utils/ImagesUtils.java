@@ -24,8 +24,8 @@ import com.alibaba.simpleimage.render.WriteRender;
 public class ImagesUtils {
 
     public static void main(String[] args) { 
-        File in = new File("/source/test/src.JPG");      //原图片
-        File out = new File("/source/test/dist.jpg");       //目的图片
+        File in = new File("d:/test/star.jpg");      //原图片
+        File out = new File("d:/test/star1.jpg");       //目的图片
         ScaleParameter scaleParam = new ScaleParameter(211, 400);  //将图像缩略到1024x1024以内，不足1024x1024则不做任何处理
         
         FileInputStream inStream = null;

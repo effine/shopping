@@ -31,7 +31,8 @@ dependencies {
 	 	'org.springframework:spring-webmvc:${spring-version}',
 	 	'org.springframework:spring-jdbc:${spring-version}',
 	 	'taglibs:standard:1.1.2',
-	 	'javax.servlet.jsp.jstl:jstl-api:1.2'
+	 	'javax.servlet.jsp.jstl:jstl-api:1.2',
+	 	'com.alibaba:simpleimage:1.2.3'
 	)
 }
 

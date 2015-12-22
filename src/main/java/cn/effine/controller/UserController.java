@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.effine.model.User;
 import cn.effine.service.UserService;
-import cn.effine.utils.MD5Utils;
+import cn.effine.utils.SecurityUtils;
 import cn.effine.utils.TimeUtils;
 
 /**
@@ -74,8 +74,7 @@ public class UserController {
 			cookie.setMaxAge(expiry); // 设置cookie过期时间(秒)
 
 			// 密码MD5加密并保存cookie
-			cookie = new Cookie("COOKIE_PASSWD", MD5Utils.encode(passwd,
-					"utf-8"));
+			cookie = new Cookie("COOKIE_PASSWD", SecurityUtils.encryption(passwd));
 			cookie.setPath("/");
 			cookie.setDomain(host);
 			cookie.setMaxAge(expiry);
