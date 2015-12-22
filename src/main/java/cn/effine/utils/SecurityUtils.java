@@ -1,6 +1,8 @@
 /**
- * @author verphen
- * @date 2014年6月10日  下午4:02:57
+ * @author effine
+ * @Date 2015年12月22日  下午11:43:57
+ * @email verphen#gmail.com
+ * @site http://www.effine.cn
  */
 
 package cn.effine.utils;
