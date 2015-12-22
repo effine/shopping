@@ -35,12 +35,13 @@ public class UserController {
 	/**
 	 * 用户注册
 	 *
-	 * @return
+	 * @param user
+	 *            用户Model
 	 */
 	@RequestMapping("signup")
 	@ResponseBody
 	public String signup(User user) {
-		// TODO 密码进行加密
+		user.setPasswd(SecurityUtils.encryption(user.getPasswd()));
 		user.setSignupTime(TimeUtils.getCurrentTime());
 		boolean status = userService.signup(user);
 		return String.valueOf(status);
@@ -57,7 +58,7 @@ public class UserController {
 	 *            是否自动登录[0否|1是]
 	 * @return
 	 */
-	// TODO effine [邮箱|昵称|手机号]登录
+	// TODO [邮箱|昵称|手机号]登录
 	@RequestMapping("signin")
 	public Map<String, Object> signin(HttpServletRequest request, HttpServletResponse response, 
 			String username, String passwd, int isAuto) {
