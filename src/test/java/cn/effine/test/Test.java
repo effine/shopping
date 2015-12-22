@@ -7,14 +7,14 @@
 
 package cn.effine.test;
 
-import org.springframework.beans.BeanUtils;
+import cn.effine.utils.ImagesUtils;
 
 
 public class Test {
 
 	public static void main(String[] args) {
 		
-		BeanUtils.copyProperties("111","2222222");
+		ImagesUtils.compress("d:/test/yun.png", "d:/test/yun1.png", 0.11);
 
 	}
 }
