@@ -29,4 +29,5 @@ public class SigninHistoryTest extends DaoSupport implements SigninHistoryDaoTes
 		int times = getJdbcTemplate().queryForObject(sql, Integer.class);
 		System.out.println(times);
 	}
+	
 }

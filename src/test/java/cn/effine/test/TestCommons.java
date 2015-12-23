@@ -9,12 +9,12 @@ package cn.effine.test;
 
 import cn.effine.utils.ImagesUtils;
 
-
-public class Test {
+public class TestCommons {
 
 	public static void main(String[] args) {
-		
+
 		ImagesUtils.compress("d:/test/yun.png", "d:/test/yun1.png", 0.11);
 
 	}
+
 }
