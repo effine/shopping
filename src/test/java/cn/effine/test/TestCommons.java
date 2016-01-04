@@ -23,7 +23,7 @@ public class TestCommons {
 		 System.out.println(File.pathSeparatorChar);
 		 
 		 // windows测试结果：\   \   ;  ; 
-		 // MAC测试结果：
+		 // MAC测试结果：/  / :  : 
 		 
 	}
 }
