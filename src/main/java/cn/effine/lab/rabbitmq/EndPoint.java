@@ -25,11 +25,8 @@ public abstract class EndPoint {
 		// Create a connection factory
 		ConnectionFactory factory = new ConnectionFactory();
 
-		// 配置rabbitmq服务的连接信息
+		// 配置rabbitmq服务的连接信息(只需配置主机即可)
 		factory.setHost("localhost");
-		factory.setUsername("");
-		factory.setPassword("");
-		
 
 		try {
 			connection = factory.newConnection();
