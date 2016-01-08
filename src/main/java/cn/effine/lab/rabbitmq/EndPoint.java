@@ -15,6 +15,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
 public abstract class EndPoint {
+
 	protected Channel channel;
 	protected Connection connection;
 	protected String endPointName;
