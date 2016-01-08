@@ -18,10 +18,10 @@ public abstract class EndPoint {
 
 	protected Channel channel;
 	protected Connection connection;
-	protected String queue;
+	protected String queueName;
 
-	public EndPoint(String queue) throws IOException {
-		this.queue = queue;
+	public EndPoint(String queueName) throws IOException {
+		this.queueName = queueName;
 
 		ConnectionFactory factory = new ConnectionFactory();
 		// 配置rabbitmq服务的连接信息(只需配置主机即可)
@@ -33,6 +33,6 @@ public abstract class EndPoint {
 		}
 
 		channel = connection.createChannel();
-		channel.queueDeclare(queue, false, false, false, null);
+		channel.queueDeclare(queueName, false, false, false, null);
 	}
 }

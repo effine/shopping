@@ -8,7 +8,6 @@
 package cn.effine.lab.rabbitmq;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.SerializationUtils;
@@ -23,14 +22,14 @@ import com.rabbitmq.client.ShutdownSignalException;
  */
 public class QueueConsumer extends EndPoint implements Runnable, Consumer {
 	
-	public QueueConsumer(String queue) throws IOException {
-		super(queue);
+	public QueueConsumer(String queueName) throws IOException {
+		super(queueName);
 	}
 
 	public void run() {
 		try {
 			// start consuming messages. Auto acknowledge messages.
-			channel.basicConsume(queue, true, this);
+			channel.basicConsume(queueName, true, this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -46,11 +45,10 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer {
 	/**
 	 * Called when new message is available.
 	 */
-	public void handleDelivery(String consumerTag, Envelope env,
-			BasicProperties props, byte[] body) throws IOException {
-		Map map = (HashMap) SerializationUtils.deserialize(body);
-		System.out.println("Message Number " + map.get("message number")
-				+ " received.");
+	public void handleDelivery(String consumerTag, Envelope env, BasicProperties props, byte[] body) throws IOException {
+		@SuppressWarnings("unchecked")
+		Map<String,Integer> map = (Map<String,Integer>) SerializationUtils.deserialize(body);
+		System.out.println("Message Number " + map.get("message number") + " received.");
 
 	}
 
@@ -63,7 +61,6 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer {
 	public void handleRecoverOk(String consumerTag) {
 	}
 
-	public void handleShutdownSignal(String consumerTag,
-			ShutdownSignalException arg1) {
+	public void handleShutdownSignal(String consumerTag, ShutdownSignalException arg1) {
 	}
 }

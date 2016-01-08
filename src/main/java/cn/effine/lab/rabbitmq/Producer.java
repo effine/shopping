@@ -17,11 +17,11 @@ import org.apache.commons.lang.SerializationUtils;
  */
 public class Producer extends EndPoint {
 
-	public Producer(String queue) throws IOException {
-		super(queue);
+	public Producer(String queueName) throws IOException {
+		super(queueName);
 	}
 
 	public void sendMessage(Serializable message) throws IOException {
-		channel.basicPublish("", queue, null, SerializationUtils.serialize(message));
+		channel.basicPublish("", queueName, null, SerializationUtils.serialize(message));
 	}
 }

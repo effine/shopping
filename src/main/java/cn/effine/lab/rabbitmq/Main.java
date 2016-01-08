@@ -21,7 +21,7 @@ public class Main {
 		Producer producer = new Producer("queue");
 
 		for (int i = 0; i < 100000; i++) {
-			HashMap message = new HashMap();
+			HashMap<String,Integer> message = new HashMap<String,Integer>();
 			message.put("message number", i);
 			producer.sendMessage(message);
 			System.out.println("Message Number " + i + " sent.");
