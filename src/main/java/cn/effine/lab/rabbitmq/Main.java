@@ -28,15 +28,7 @@ public class Main {
 		}
 	}
 
-	/**
-	 * @param args
-	 * @throws SQLException
-	 * @throws IOException
-	 */
 	public static void main(String[] args) throws Exception {
-		
-		// 测试：http://www.oschina.net/translate/getting-started-with-rabbitmq-in-java
-		
 		new Main();
 	}
 }
