@@ -18,28 +18,21 @@ public abstract class EndPoint {
 
 	protected Channel channel;
 	protected Connection connection;
-	protected String endPointName;
+	protected String queue;
 
-	public EndPoint(String endpointName) throws IOException {
-		this.endPointName = endpointName;
+	public EndPoint(String queue) throws IOException {
+		this.queue = queue;
 
-		// Create a connection factory
 		ConnectionFactory factory = new ConnectionFactory();
-
 		// 配置rabbitmq服务的连接信息(只需配置主机即可)
 		factory.setHost("localhost");
-
 		try {
 			connection = factory.newConnection();
 		} catch (TimeoutException e) {
 			e.printStackTrace();
 		}
 
-		// creating a channel
 		channel = connection.createChannel();
-
-		// declaring a queue for this channel. If queue does not exist,
-		// it will be created on the server.
-		channel.queueDeclare(endpointName, false, false, false, null);
+		channel.queueDeclare(queue, false, false, false, null);
 	}
 }

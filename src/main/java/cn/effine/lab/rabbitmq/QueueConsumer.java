@@ -23,14 +23,14 @@ import com.rabbitmq.client.ShutdownSignalException;
  */
 public class QueueConsumer extends EndPoint implements Runnable, Consumer {
 	
-	public QueueConsumer(String endPointName) throws IOException {
-		super(endPointName);
+	public QueueConsumer(String queue) throws IOException {
+		super(queue);
 	}
 
 	public void run() {
 		try {
 			// start consuming messages. Auto acknowledge messages.
-			channel.basicConsume(endPointName, true, this);
+			channel.basicConsume(queue, true, this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

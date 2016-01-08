@@ -13,17 +13,15 @@ import java.io.Serializable;
 import org.apache.commons.lang.SerializationUtils;
 
 /**
- * The producer endpoint that writes to the queue.
- *
+ * 队列生产者
  */
 public class Producer extends EndPoint {
 
-	public Producer(String endPointName) throws IOException {
-		super(endPointName);
+	public Producer(String queue) throws IOException {
+		super(queue);
 	}
 
-	public void sendMessage(Serializable object) throws IOException {
-		channel.basicPublish("", endPointName, null,
-				SerializationUtils.serialize(object));
+	public void sendMessage(Serializable message) throws IOException {
+		channel.basicPublish("", queue, null, SerializationUtils.serialize(message));
 	}
 }
