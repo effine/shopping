@@ -21,13 +21,10 @@ public class SigninHistoryTest  implements SigninHistoryDaoTest{
 		SigninHistory history = session .selectOne("cn.effine.ISigninHistoryOperation.selectSigninHistoryByID",1);
 		session.close();
 		System.out.println(history);
-
 	}
 
 	@Override
 	public void countSigninHistory() {
 		// TODO  unimplements method stub
 	}
-
- 
 }
