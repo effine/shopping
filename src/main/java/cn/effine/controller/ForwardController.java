@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ForwardController {
 
+	@RequestMapping("/")
+	public String toIndex() {
+		return "index";
+	}
+
 	@RequestMapping("{mapping}")
 	public String forwardPage(@PathVariable String mapping) {
 		return mapping;

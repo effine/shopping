@@ -6,7 +6,7 @@
 <title>注册页面</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/shopping/static/js/lib/bootstrap-3.3.5/bootstrap.min.css">
+<link rel="stylesheet" href="/static/js/lib/bootstrap-3.3.5/bootstrap.min.css">
 </head>
 
 <body>
@@ -34,8 +34,8 @@
 		</div>
 	</div>
 
-	<script src="/shopping/static/js/lib/jquery-2.1.4.min.js"></script>
-	<script src="/shopping/static/js/lib/bootstrap-3.3.5/bootstrap.min.js"></script>
+	<script src="/static/js/lib/jquery-2.1.4.min.js"></script>
+	<script src="/static/js/lib/bootstrap-3.3.5/bootstrap.min.js"></script>
 
 </body>
 </html>
