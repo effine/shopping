@@ -163,10 +163,10 @@
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0-beta-1</version>
+				<version>2.2</version>
 				<configuration>
-					<server>tomcat7</server>
-					<url>http://localhost:8080</url>
+					<url>http://localhost:9000/shopping</url>
+					<port>9000</port>
 					<path>/shopping</path>
 					<!-- 不打包 -->
 					<ignorePackaging>true</ignorePackaging>
