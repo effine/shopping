@@ -23,7 +23,13 @@ import org.dom4j.io.XMLWriter;
 /** dom4j解析xml */
 public class XmlUtils {
 
-	public void createXml(String fileName) {
+	/**
+	 * 创建XML文档
+	 *
+	 * @param fileName
+	 *            文件名
+	 */
+	public static void createXml(String fileName) {
 		Document document = DocumentHelper.createDocument();
 		Element employees = document.addElement("employees");
 		Element employee = employees.addElement("employee");
@@ -45,17 +51,25 @@ public class XmlUtils {
 
 	}
 
-	public void parserXml(String fileName) {
+	/**
+	 * 解析XML文件
+	 *
+	 * @param fileName
+	 *            待解析的XML文件
+	 */
+	public static void parserXml(String fileName) {
 		File inputXml = new File(fileName);
 		SAXReader saxReader = new SAXReader();
 		try {
 			Document document = saxReader.read(inputXml);
 			Element employees = document.getRootElement();
+
 			for (Iterator i = employees.elementIterator(); i.hasNext();) {
 				Element employee = (Element) i.next();
 				for (Iterator j = employee.elementIterator(); j.hasNext();) {
 					Element node = (Element) j.next();
 					System.out.println(node.getName() + ":" + node.getText());
+					System.out.println(node.getNodeTypeName());
 				}
 
 			}
@@ -64,5 +78,4 @@ public class XmlUtils {
 		}
 		System.out.println("dom4j parserXml");
 	}
-
 }
