@@ -1,14 +1,12 @@
 /**
  * @author effine
  * @Date 2016年1月5日  下午6:28:05
- * @email verphen#gmail.com
+ * @email iballader#gmail.com
  * @site http://www.effine.cn
  */
 
 package cn.effine.lab.rabbitmq;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.HashMap;
 
 public class Main {

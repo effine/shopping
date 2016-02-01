@@ -1,7 +1,7 @@
 /**
  * @author effine
  * @Date 2015年5月8日  下午1:47:28
- * @email verphen#gmail.com
+ * @email iballader#gmail.com
  */
 
 package cn.effine.thinking;
