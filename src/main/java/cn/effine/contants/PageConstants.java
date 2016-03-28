@@ -13,5 +13,4 @@ package cn.effine.contants;
 public class PageConstants {
 
 	public static String SIGNUP = "signup"; // 注册
-
 }
