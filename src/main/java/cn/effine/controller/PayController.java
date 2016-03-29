@@ -34,5 +34,4 @@ public class PayController {
 	public String wechatPay() {
 		return null;
 	}
-
 }
