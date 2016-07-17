@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.http.HttpException;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.;
 
 public class HttpRequestUtils {
 	/** 请求服务器前缀url */
