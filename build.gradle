@@ -9,6 +9,13 @@ description = "shopping"
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
+// 配置jar命令(java -jar ***.jar)执行的主类main-class, main方法类不能是单元测试目录
+jar {
+    manifest {
+        attributes 'Main-class': 'cn.effine.lab.gradle.ManifestTest'
+    }
+}
+
 repositories {
      maven { url "http://repo.maven.apache.org/maven2" }
      maven { url "http://mvnrepository.com" }
