@@ -28,8 +28,10 @@ public class AnnotationTest {
 		System.out.println("old method, don't use it.");
 	}
 
+	@SuppressWarnings("unchecked")
 	@MethodInfo(author = "Pankaj", comments = "Main method", date = "Nov 17 2012", revision = 10)
 	public static void genericsTest() throws FileNotFoundException {
+		@SuppressWarnings("rawtypes")
 		List l = new ArrayList();
 		l.add("abc");
 		oldMethod();

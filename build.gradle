@@ -18,21 +18,29 @@ repositories {
 dependencies {
 
 	// 定义版本信息常量
-	def spring-version = '4.1.6.RELEASE'
+	//def spring-version = '4.1.6.RELEASE'
 	
 	compile (
 	 	'com.alibaba:fastjson:1.2.6',
 	 	'junit:junit:4.12',
 	 	'javax.servlet:javax.servlet-api:3.0.1',
+	 	'taglibs:standard:1.1.2',
+	 	'javax.servlet.jsp.jstl:jstl-api:1.2',
+	 	//'org.springframework:spring-webmvc:${spring-version}',
+	 	//'org.springframework:spring-jdbc:${spring-version}',
+	 	'org.springframework:spring-webmvc:4.1.6.RELEASE',
+	 	'org.springframework:spring-jdbc:4.1.6.RELEASE',
 	 	'org.mybatis:mybatis:3.2.6',
 	 	'mysql:mysql-connector-java:5.1.13',
 	 	'org.apache.commons:commons-email:1.3.1',
 	 	'redis.clients:jedis:2.7.3',
-	 	'org.springframework:spring-webmvc:${spring-version}',
-	 	'org.springframework:spring-jdbc:${spring-version}',
-	 	'taglibs:standard:1.1.2',
-	 	'javax.servlet.jsp.jstl:jstl-api:1.2',
-	 	'com.alibaba:simpleimage:1.2.3'
+	 	'com.alibaba:simpleimage:1.2.3',
+	 	'com.google.zxing:javase:3.2.0',
+	 	'com.rabbitmq:amqp-client:3.6.0',
+	 	'commons-lang:commons-lang:2.6',
+	 	'dom4j:dom4j:1.6.1',
+	 	'org.apache.httpcomponents:httpclient:4.5.2',
+	 	'org.apache.httpcomponents:httpcore:4.4.5'
 	)
 }
 
