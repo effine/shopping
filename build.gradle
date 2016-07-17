@@ -1,6 +1,9 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 
+// 代码质量检查插件(TODO 未调试通过)
+// apply plugin: 'checkstyle'
+
 group = 'cn.effine'
 version = '1.0-dev'
 
