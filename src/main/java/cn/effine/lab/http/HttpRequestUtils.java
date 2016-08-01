@@ -11,9 +11,7 @@ package cn.effine.lab.http;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,9 +24,13 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.client.params.CookiePolicy;
+import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+
+import com.alibaba.fastjson.JSONObject;
 
 public class HttpRequestUtils {
 	/** 请求服务器前缀url */
@@ -54,7 +56,7 @@ public class HttpRequestUtils {
      * @throws IOException
      * @throws HttpException
      */
-    public static Map<String, Object> get(HttpServletRequest request, String url) throws HttpException, IOException{
+    public static HttpResponse get(HttpServletRequest request, String url) throws HttpException, IOException{
         if(null == url)
             url = request.getRequestURI();
         HttpGet method = new HttpGet(PREFIX_URL + url);
@@ -75,7 +77,7 @@ public class HttpRequestUtils {
      * @throws IOException
      * @throws HttpException
      */
-    public static Map<String, Object> post(HttpServletRequest request, String url) throws HttpException, IOException{
+    public static HttpResponse post(HttpServletRequest request, String url) throws HttpException, IOException{
         if(null == url)
             url = request.getRequestURI();
         HttpRequestBase method = new HttpPost(PREFIX_URL + url);
@@ -96,7 +98,7 @@ public class HttpRequestUtils {
      * @throws IOException
      * @throws HttpException
      */
-    public static Map<String, Object> put(HttpServletRequest request, String url) throws HttpException, IOException{
+    public static HttpResponse put(HttpServletRequest request, String url) throws HttpException, IOException{
         if(null == url)
             url = request.getRequestURI();
         HttpRequestBase method = new HttpPut(PREFIX_URL + url);
@@ -117,7 +119,7 @@ public class HttpRequestUtils {
      * @throws IOException
      * @throws HttpException
      */
-    public static Map<String, Object> delete(HttpServletRequest request, String url) throws HttpException, IOException{
+    public static HttpResponse delete(HttpServletRequest request, String url) throws HttpException, IOException{
         if(null == url)
             url = request.getRequestURI();
         HttpRequestBase method = new HttpDelete(PREFIX_URL + url);
@@ -133,12 +135,12 @@ public class HttpRequestUtils {
      *            [javax.servlet.http.HttpServletRequest]
      * @param method
      *            Apache HttpMethod
-     * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
+     * @return [cn.effine.lab.http.HttpResponse]，包含Http状态码、响应信息、及登录cookie
      *
      * @throws IOException
      * @throws HttpException
      */
-    private static Map<String, Object> passHeaderAndParam(HttpServletRequest request, HttpRequestBase method) throws HttpException, IOException{
+    private static HttpResponse passHeaderAndParam(HttpServletRequest request, HttpRequestBase method) throws HttpException, IOException{
         // 传递Header
         Enumeration<String> headerRnum = request.getHeaderNames();
         while(headerRnum.hasMoreElements()){
@@ -146,6 +148,11 @@ public class HttpRequestUtils {
             method.setHeader(key, request.getHeader(key));
         }
         method.setHeader("apiVersion", "2.0");
+        // 保持登录
+        HttpClientParams.setCookiePolicy(httpClient.getParams(), CookiePolicy.BROWSER_COMPATIBILITY);
+        String cookie = "";
+        if (null != cookie)
+        	method.setHeader("cookie", cookie);
 
         // 传递参数Param
         List<NameValuePair> params = new ArrayList<>();
@@ -162,11 +169,11 @@ public class HttpRequestUtils {
         }
         
         CloseableHttpResponse httpResponse = httpClient.execute(method);
-
-        Map<String, Object> map = new HashMap<>();
-        map.put("httpCode", httpResponse.getStatusLine());
-        map.put("responseBody", httpResponse.getEntity().toString());
-        method.releaseConnection();
-        return map;
+        
+        HttpResponse response = new HttpResponse();
+        response.setCookie(httpResponse.getFirstHeader("set-Cookie").getValue());
+        response.setHttpCode(httpResponse.getStatusLine().getStatusCode());;
+        response.setResponse(JSONObject.parseObject(String.valueOf(httpResponse.getEntity())));;
+        return response;
     }
 }
