@@ -188,6 +188,36 @@
 					<ignorePackaging>true</ignorePackaging>
 				</configuration>
 			</plugin>
+
+			<!-- database migrating for flyway -->
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>4.0.3</version>
+				<configuration>
+					<driver>com.mysql.jdbc.Driver</driver>
+					<url>jdbc:mysql://localhost/shopping?useUnicode=true&amp;characterEncoding=utf-8</url>
+					<user>root</user>
+					<password>aichuan</password>
+					<!-- 设置接受flyway进行版本管理的数据库，多个数据库以逗号分隔 -->
+					<schemas>shopping</schemas>
+					<!-- 设置存放flyway metadata数据的表名 -->
+					<table>schema_version</table>
+					<!-- 设置sql脚本文件的编码 -->
+					<encoding>UTF-8</encoding>
+					<!-- 设置执行migrate操作之前的validation行为 -->
+					<validationMode>ALL</validationMode>
+					<!-- 设置当validation失败时的系统行为 -->
+					<validationErrorMode>FAIL</validationErrorMode>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>5.1.13</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
 </project>
