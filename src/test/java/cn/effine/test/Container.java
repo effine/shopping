@@ -32,4 +32,16 @@ public class Container<K, V> {
 	public void setValue(V v) {
 		this.v = v;
 	}
+	
+	
+	public static void main(String[] args) {
+		
+		String str = "<address>过来看看</address><mobile>18119883088</mobile></orderDelivery><orderInvoice><id>100124498</id>";
+		str = str.substring(str.indexOf("<mobile>")+8, str.indexOf("</mobile>"));
+//		str = str.replaceAll("^[1]([3][0-9]{1}|59|58|88|89)[0-9]{8}$", "11111111111");
+		System.out.println(str);
+		
+		
+		
+	}
 }
