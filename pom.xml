@@ -219,6 +219,13 @@
 					<table>schema_version</table>
 					<!-- 设置sql脚本文件的编码 -->
 					<encoding>UTF-8</encoding>
+					<!-- 设置flyway扫描sql升级脚本、java升级脚本的目录路径或包路径 -->
+					<!-- 
+						<locations>
+							<location>flyway/migrations</location>
+							<location>com.kedacom.flywaydemo.migrations</location>
+						</locations>
+					 -->
 					<!-- 设置执行migrate操作之前的validation行为 -->
 					<validationMode>ALL</validationMode>
 					<!-- 设置当validation失败时的系统行为 -->
