@@ -12,5 +12,7 @@ package cn.effine.contants;
  */
 public class PageConstants {
 
+	private PageConstants(){}
+
 	public static final String SIGNUP = "signup"; // 注册
 }
