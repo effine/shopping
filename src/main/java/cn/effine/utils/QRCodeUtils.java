@@ -41,6 +41,8 @@ import com.google.zxing.common.HybridBinarizer;
  * 二维码操作类
  */
 public class QRCodeUtils {
+
+	private QRCodeUtils(){}
 	
 	/**
 	 * 生成二维码图片

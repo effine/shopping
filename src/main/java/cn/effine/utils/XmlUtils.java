@@ -23,6 +23,8 @@ import org.dom4j.io.XMLWriter;
 /** dom4j解析xml */
 public class XmlUtils {
 
+	private XmlUtils(){}
+
 	/**
 	 * 创建XML文档
 	 *

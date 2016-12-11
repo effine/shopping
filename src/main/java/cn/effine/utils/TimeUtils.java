@@ -16,6 +16,8 @@ import java.util.Date;
  */
 public class TimeUtils {
 
+	private TimeUtils(){}
+
 	/**
 	 * 获取当前时间
 	 *

@@ -14,6 +14,9 @@ import java.security.NoSuchAlgorithmException;
  * 处理安全工具
  */
 public class SecurityUtils {
+
+	private SecurityUtils(){}
+
 	// MD5加密算法
 	private final static String algorithm_MD5 = "MD5";
 	// 全局数组 

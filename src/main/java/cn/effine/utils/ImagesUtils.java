@@ -43,6 +43,8 @@ import com.alibaba.simpleimage.render.WriteRender;
  */
 public class ImagesUtils {
 
+	private ImagesUtils(){}
+
 	/**
 	 * 图片裁剪(目前支持jpg\jpeg\gif\png格式)
 	 * 

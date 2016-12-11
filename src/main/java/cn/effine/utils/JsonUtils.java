@@ -19,6 +19,9 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  * @Desc JSON 封装类(采用fastjson实现)
  */
 public class JsonUtils {
+
+	private JsonUtils(){}
+
 	/**
 	 * @desc 对象转换成json
 	 * @param obj
