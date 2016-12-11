@@ -1,5 +1,5 @@
 /**
- * @author verphen
+ * @author effine
  * @date 2014年6月11日  下午2:07:22
  */
 
@@ -24,8 +24,8 @@ public class MailConstants {
 //	public static String SENDER_USERNAME = "851474818";	/* 登录用户名 */
 //	public static String SENDER_PASSWD = "********";	/* 登录密码 */
 
-	public static String SENDER_EMAIL = "verphen@163.com";  /*邮箱 */
-	public static String SENDER_USERNAME = "verphen";	/* 登录用户名 */
+	public static String SENDER_EMAIL = "test@163.com";  /*邮箱 */
+	public static String SENDER_USERNAME = "effine";	/* 登录用户名 */
 	public static String SENDER_PASSWD = "******";	/* 登录密码 */
 	
 	/***************** 收件人信息 ******************/
