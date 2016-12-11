@@ -1,8 +1,8 @@
 
 /**
  * @Date 2014年11月25日  上午10:15:55
- * @author 张亚飞
- * @email verphen@163.com
+ * @author effine
+ * @email iballader@gmail.com
  */
 
 package cn.effine.filter;

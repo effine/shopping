@@ -1,7 +1,7 @@
 /**
  * @Date 2015年3月12日  上午11:19:39
- * @author 张亚飞
- * @email verphen@163.com
+ * @author effine
+ * @email iballader@gmail.com
  */
 
 package cn.effine.lru;

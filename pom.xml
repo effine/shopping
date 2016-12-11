@@ -25,6 +25,12 @@
 			<version>1.2.6</version>
 		</dependency>
 		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.26</version>
+		</dependency>
+
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
@@ -109,6 +115,14 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
 			<version>4.4.5</version>
+		</dependency>
+
+		<!-- mock框架mockito -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -205,6 +219,13 @@
 					<table>schema_version</table>
 					<!-- 设置sql脚本文件的编码 -->
 					<encoding>UTF-8</encoding>
+					<!-- 设置flyway扫描sql升级脚本、java升级脚本的目录路径或包路径 -->
+					<!-- 
+						<locations>
+							<location>flyway/migrations</location>
+							<location>com.kedacom.flywaydemo.migrations</location>
+						</locations>
+					 -->
 					<!-- 设置执行migrate操作之前的validation行为 -->
 					<validationMode>ALL</validationMode>
 					<!-- 设置当validation失败时的系统行为 -->

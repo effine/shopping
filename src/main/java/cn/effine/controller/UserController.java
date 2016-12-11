@@ -147,7 +147,7 @@ public class UserController {
 		Map<String,Object> dataMap = new HashMap<String,Object>();
 		dataMap.put("name", "effine");
 		dataMap.put("age", 25);
-		dataMap.put("nikename", "张亚飞");
+		dataMap.put("nikename", "effine");
 		dataMap.put("email", "verphen@163.com");
 		map.put("info", dataMap);
 		

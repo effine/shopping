@@ -26,7 +26,7 @@ public class MailConstants {
 
 	public static String SENDER_EMAIL = "verphen@163.com";  /*邮箱 */
 	public static String SENDER_USERNAME = "verphen";	/* 登录用户名 */
-	public static String SENDER_PASSWD = "wayrron90";	/* 登录密码 */
+	public static String SENDER_PASSWD = "******";	/* 登录密码 */
 	
 	/***************** 收件人信息 ******************/
 	public static String[] RECEIVED_EMAIL = {"654714226@qq.com"}; /* 收件人邮箱 */
