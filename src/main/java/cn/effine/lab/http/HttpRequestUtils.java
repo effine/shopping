@@ -32,7 +32,13 @@ import org.apache.http.message.BasicNameValuePair;
 
 import com.alibaba.fastjson.JSONObject;
 
+/**
+ * Http请求工具类
+ */
 public class HttpRequestUtils {
+
+    private HttpRequestUtils(){};
+
 	/** 请求服务器前缀url */
     private static final String PREFIX_URL = "http://localhost:8081";
     /** 编码格式*/
