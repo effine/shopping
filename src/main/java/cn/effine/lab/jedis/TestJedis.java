@@ -12,28 +12,23 @@ import redis.clients.jedis.JedisShardInfo;
 
 public class TestJedis {
 
-	// redis本地测试IP：124.192.148.18
-	// 美团测试 ：124.192.148.18
 	private static String extranetHost = "10.128.130.118";
 	private static int extranetPort = 6379;
-	//	private static String extranetPasswd = "server!@$>!(@>!$*>!*";
 
 	// 测试
-	public static void main(String[] args) {
+	@Deprecated
+	/*public static void main(String[] args) {
 		TestJedis test = new TestJedis();
 		System.out.println("----------开始调用jedis基本使用方法");
 		test.baseJedis();
 		System.out.println("----------开始调用jedis使用池方法");
 		test.poolJedis();
 		System.out.println("----------全部方法调用完成");
-	}
+	}*/
 
 	public static Jedis getRedis() {
 		JedisShardInfo info = new JedisShardInfo(extranetHost, extranetPort);
-		// jedis.auth("yunlu123");同样能达到相同的验证效果
-		// info.setPassword("yunlu123");	
-		Jedis jedis = new Jedis(info);
-		return jedis;
+		return new Jedis(info);
 	}
 
 	// jedis的基本使用（jedis非线程安全）

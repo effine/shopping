@@ -1,15 +1,20 @@
 package cn.effine.utils;
 
+import org.apache.log4j.Logger;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.Properties;
 
 /** 
  * properties工具类
  */
 public class PropertiesUtils {
-	
+
+	private static Logger logger = Logger.getLogger(PropertiesUtils.class);
+
 	private PropertiesUtils() {
 		// 构造方法私有化，外部不能实例化该类 
 	}
@@ -22,10 +27,8 @@ public class PropertiesUtils {
 			InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("conf.properties");
 			confProperties.load(is);
 			is.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 	}
 

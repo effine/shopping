@@ -37,12 +37,14 @@ import com.alibaba.simpleimage.render.ReadRender;
 import com.alibaba.simpleimage.render.ScaleParameter;
 import com.alibaba.simpleimage.render.ScaleRender;
 import com.alibaba.simpleimage.render.WriteRender;
+import org.apache.log4j.Logger;
 
 /**
  * 图片工具类
  */
 public class ImagesUtils {
 
+	private static Logger logger = Logger.getLogger(ImagesUtils.class);
 	private ImagesUtils(){}
 
 	/**
@@ -76,9 +78,9 @@ public class ImagesUtils {
 			BufferedImage bi = reader.read(0, param);
 			return ImageIO.write(bi, suffix, new File(distname));
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			logger.error(e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 		return false;
 	}
@@ -101,15 +103,15 @@ public class ImagesUtils {
         
             wr.render();                            //触发图像处理
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.error(e);
         } finally {
             IOUtils.closeQuietly(inStream);         //图片文件输入输出流必须记得关闭
             IOUtils.closeQuietly(outStream);
             if (wr != null) {
                 try {
                     wr.dispose();                   //释放simpleImage的内部资源
-                } catch (SimpleImageException ignore) {
-                	ignore.printStackTrace();
+                } catch (SimpleImageException e) {
+                	logger.error(e);
                 }
             }
         }
@@ -151,13 +153,13 @@ public class ImagesUtils {
 				// 调用write方法，就可以向输入流写图片
 				imgWrier.write(null, new IIOImage(src, null, null), imgWriteParams);
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error(e);
 			}finally{
 				try {
 					out.flush();
 					out.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error(e);
 				}
 			}
     	}

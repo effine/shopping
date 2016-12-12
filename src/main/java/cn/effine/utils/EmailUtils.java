@@ -6,8 +6,13 @@
 package cn.effine.utils;
 
 import org.apache.commons.mail.HtmlEmail;
+import org.apache.log4j.Logger;
 
 public class EmailUtils {
+
+	private static Logger logger = Logger.getLogger(EmailUtils.class);
+
+	@Deprecated
 	public static void main(String[] args) {
 		String subject = "面试邀请"; // 主题
 		HtmlEmail email = new HtmlEmail();
@@ -22,7 +27,7 @@ public class EmailUtils {
 			email.send();
 			System.err.println("邮件发送成功");
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 	}
 }

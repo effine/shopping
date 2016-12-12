@@ -16,12 +16,15 @@ import com.rabbitmq.client.AMQP.BasicProperties;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.Envelope;
 import com.rabbitmq.client.ShutdownSignalException;
+import org.apache.log4j.Logger;
 
 /**
  * 队列消费者
  */
 public class QueueConsumer extends EndPoint implements Runnable, Consumer {
-	
+
+	private static Logger logger = Logger.getLogger(QueueConsumer.class);
+
 	public QueueConsumer(String queueName) throws IOException {
 		super(queueName);
 	}
@@ -31,7 +34,7 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer {
 			// start consuming messages. Auto acknowledge messages.
 			channel.basicConsume(queueName, true, this);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 	}
 

@@ -7,6 +7,8 @@
 
 package cn.effine.utils;
 
+import org.apache.log4j.Logger;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -14,6 +16,8 @@ import java.security.NoSuchAlgorithmException;
  * 处理安全工具
  */
 public class SecurityUtils {
+
+	private static Logger logger = Logger.getLogger(SecurityUtils.class);
 
 	private SecurityUtils(){}
 
@@ -51,7 +55,7 @@ public class SecurityUtils {
 				// TODO 其他加密算法
 			}
 		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 		byte[] byteArr = src.getBytes();
 		md.update(byteArr);

@@ -37,14 +37,14 @@ import com.alibaba.fastjson.JSONObject;
  */
 public class HttpRequestUtils {
 
-    private HttpRequestUtils(){};
-
 	/** 请求服务器前缀url */
     private static final String PREFIX_URL = "http://localhost:8081";
     /** 编码格式*/
     private static final String ENCODING = "UTF-8";
     
     private static CloseableHttpClient httpClient = HttpClients.createDefault();
+
+    private HttpRequestUtils(){}
 
     /**
      * get请求处理方法

@@ -14,12 +14,16 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.log4j.Logger;
 
 public class DaoSupport {
 
 	private static String configure_path = "mybatis-config.xml";
 	private static SqlSessionFactory sqlSessionFactory;
-	
+	private static Logger logger = Logger.getLogger(DaoSupport.class);
+
+	private DaoSupport(){}
+
 	static {
 		try {
 			// 方式1
@@ -30,7 +34,7 @@ public class DaoSupport {
 			// InputStream stream = Resources.getResourceAsStream(configure_path);
 			// sqlSessionFactory = new SqlSessionFactoryBuilder().build(stream);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 	}
 
@@ -43,26 +47,32 @@ public class DaoSupport {
 	
 	/*
 	 * 返回操作记录消息
+	 *
+	 * @param type 类型
+	  * @param count 统计数量
 	 */
-	public static void showMessages(CRUD_Enum type, int count) {
+	@Deprecated
+	public static String showMessages(CRUD_Enum type, int count) {
+
 		switch (type) {
 		case Add:
-			System.out.println("添加了" + count + "条记录。");
+			logger.info("添加了" + count + "条记录。");
 			break;
 		case Delete:
-			System.out.println("删除了" + count + "条记录。");
+			logger.info("删除了" + count + "条记录。");
 			break;
 		case Update:
-			System.out.println("更新了" + count + "条记录。");
+			logger.info("更新了" + count + "条记录。");
 			break;
 		case Query:
-			System.out.println("匹配了" + count + "条记录。");
+			logger.info("匹配了" + count + "条记录。");
 			break;
 		case List:
-			System.out.println("共有" + count + "条记录。");
+			logger.info("共有" + count + "条记录。");
 			break;
 		default:
 			break;
 		}
+		return null;
 	}
 }

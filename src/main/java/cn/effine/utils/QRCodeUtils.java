@@ -36,11 +36,14 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
+import org.apache.log4j.Logger;
 
 /**
  * 二维码操作类
  */
 public class QRCodeUtils {
+
+	private static Logger logger = Logger.getLogger(QRCodeUtils.class);
 
 	private QRCodeUtils(){}
 	
@@ -77,7 +80,7 @@ public class QRCodeUtils {
 			// 输出图像
 			MatrixToImageWriter.writeToPath(bitMatrix, format, fullName);
 		} catch (IOException|WriterException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 		return fileName;
 	}
@@ -111,7 +114,7 @@ public class QRCodeUtils {
 			result = new MultiFormatReader().decode(binaryBitmap, hints);
 			return result.getText();
 		} catch (NotFoundException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
         return null;
     }  

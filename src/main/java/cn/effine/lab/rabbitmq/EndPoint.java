@@ -13,12 +13,14 @@ import java.util.concurrent.TimeoutException;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import org.apache.log4j.Logger;
 
 public abstract class EndPoint {
 
 	protected Channel channel;
 	protected Connection connection;
 	protected String queueName;
+	private static Logger logger = Logger.getLogger(EndPoint.class);
 
 	public EndPoint(String queueName) throws IOException {
 		this.queueName = queueName;
@@ -29,7 +31,7 @@ public abstract class EndPoint {
 		try {
 			connection = factory.newConnection();
 		} catch (TimeoutException e) {
-			e.printStackTrace();
+			logger.error(e);
 		}
 
 		channel = connection.createChannel();

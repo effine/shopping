@@ -1,5 +1,7 @@
 package cn.effine.test;
 
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,6 +12,8 @@ import java.util.Map;
  * Created by effine on 19/10/2016.
  */
 public class FieldTest {
+
+	private static Logger logger = Logger.getLogger(FieldTest.class);
 
 	/**
 	 * 将实体转化为Map
@@ -44,7 +48,7 @@ public class FieldTest {
 						}
 						map.put(field.getName(), field.get(bean));
 					} catch (IllegalArgumentException | IllegalAccessException e) {
-						e.printStackTrace();
+						logger.error(e);
 					}
 				}
 				return map;
@@ -53,6 +57,7 @@ public class FieldTest {
 		return null;
 	}
 
+	@Deprecated
 	public static void main(String[] args) {
 		OrderDataConsistency test = new OrderDataConsistency();
 		test.setCreateTime(new Date());

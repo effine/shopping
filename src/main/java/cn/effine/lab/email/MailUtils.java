@@ -21,19 +21,14 @@ import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 
 public class MailUtils {
 
-	public static void main(String[] args) {
-		try {
-			sendmail(MailConstants.TITLE, MailConstants.SENDER_EMAIL,
-					MailConstants.RECEIVED_EMAIL, MailConstants.CONTENT,
-					MailConstants.ANNEX, MailConstants.MIMETYPE);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-  
+	private static Logger logger = Logger.getLogger(MailUtils.class);
+
+	private MailUtils(){}
+
 	/**
 	 * 发送邮件方法
 	 * 
@@ -116,7 +111,7 @@ public class MailUtils {
 		mimeMsg.setSentDate(new Date()); /* 设置信件头的发送日期 */
 		mimeMsg.saveChanges();
 		transport.send(mimeMsg); /* 发送邮件 */
-		System.out.println("邮件发送成功");
+		logger.info("邮件发送成功");
 		transport.close();
 	}
 }
