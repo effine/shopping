@@ -17,13 +17,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ForwardController {
 
-	@RequestMapping("/")
-	public String toIndex() {
-		return "index";
-	}
+    String index = "index";
 
-	@RequestMapping("{mapping}")
-	public String forwardPage(@PathVariable String mapping) {
-		return mapping;
-	}
+    /**
+     * @return
+     */
+    @RequestMapping("/")
+    public String toIndex() {
+        return index;
+    }
+
+    /**
+     * @param mapping 访问路径
+     * @return
+     */
+    @RequestMapping("{mapping}")
+    public String forwardPage(@PathVariable String mapping) {
+        return mapping;
+    }
 }
