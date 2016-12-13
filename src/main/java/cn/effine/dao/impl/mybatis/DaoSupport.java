@@ -16,6 +16,9 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.log4j.Logger;
 
+/**
+ * DAO包装类
+ */
 public class DaoSupport {
 
 	private static String configure_path = "mybatis-config.xml";
