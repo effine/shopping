@@ -19,22 +19,22 @@ public class SecurityUtils {
 
 	private static Logger logger = Logger.getLogger(SecurityUtils.class);
 
-	private SecurityUtils(){}
-
 	// MD5加密算法
-	private final static String algorithm_MD5 = "MD5";
+	private static final String algorithmMD5 = "MD5";
 	// 全局数组 
-	private final static String[] strDigits = { "0", "1", "2", "3", "4", "5",
+	private static final String[] strDigits = { "0", "1", "2", "3", "4", "5",
 			"6", "7", "8", "9", "A", "B", "C", "D", "E", "F" };
+
+	private SecurityUtils(){}
 
 	// 转换字节数组为16进制字串 
 	private static String byteToString(byte[] b) {
-		StringBuffer strBuffer = new StringBuffer();
+		StringBuilder stringBuilder = new StringBuilder();
 		for (int i = 0; i < b.length; i++) {
-			strBuffer.append(strDigits[(b[i] & 0xf0) >>> 4]);
-			strBuffer.append(strDigits[b[i] & 0x0f]);
+			stringBuilder.append(strDigits[(b[i] & 0xf0) >>> 4]);
+			stringBuilder.append(strDigits[b[i] & 0x0f]);
 		}
-		return strBuffer.toString();
+		return stringBuilder.toString();
 	}
 
 	/**
@@ -50,15 +50,16 @@ public class SecurityUtils {
 		MessageDigest md  = null;
 		try {
 			if(null == algorithm){
-				md = MessageDigest.getInstance(algorithm_MD5);
+				md = MessageDigest.getInstance(algorithmMD5);
+				byte[] byteArr = src.getBytes();
+				md.update(byteArr);
+				return byteToString(md.digest(byteArr));
 			}else{
 				// TODO 其他加密算法
 			}
 		} catch (NoSuchAlgorithmException e) {
 			logger.error(e);
 		}
-		byte[] byteArr = src.getBytes();
-		md.update(byteArr);
-		return byteToString(md.digest(byteArr));
+		return null;
 	}
 }
