@@ -16,40 +16,45 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Desc	防止表单重复提交
+ * @Desc 防止表单重复提交
  */
 public class RepeatSubmitServlet extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
-	private static int count = 0;
-	private static Logger logger = Logger.getLogger(RepeatSubmitServlet.class);
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try {
-			doPost(req, resp);
-		}catch (Exception e){
-			logger.error("doPost方法异常：" + e);
-		}
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = resp.getWriter();
+    private static final long serialVersionUID = 1L;
+    private static Logger logger = Logger.getLogger(RepeatSubmitServlet.class);
 
-		Token token = Token.getInstance();
-		if (token.isTokenValid(req)) {
-			if (count % 2 == 1)
-				count = 0;
-			else
-				count++;
-			out.println("success");
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try {
+            doPost(req, resp);
+        } catch (Exception e) {
+            logger.error("doPost方法异常：" + e);
+        }
+    }
 
-		} else {
-			token.saveToken(req);
-			out.println("你已经提交了表单，同一表单不能两次提交");
-		}
-		out.close();
-	}
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = null;
+        int count = 0;
+        try {
+            out = resp.getWriter();
+            Token token = Token.getInstance();
+            if (token.isTokenValid(req)) {
+                if (count % 2 == 1)
+                    count = 0;
+                else
+                    count++;
+                logger.info("测试：" + count);
+                out.println("success");
+
+            } else {
+                token.saveToken(req);
+                out.println("你已经提交了表单，同一表单不能两次提交");
+            }
+            out.close();
+        } catch (Exception e) {
+            logger.error(e);
+        }
+    }
 }

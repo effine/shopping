@@ -1,4 +1,4 @@
-package cn.effine.lab.validateCode;
+package cn.effine.lab.validatecode;
 import java.awt.Font;
 import java.io.ByteArrayInputStream;
 

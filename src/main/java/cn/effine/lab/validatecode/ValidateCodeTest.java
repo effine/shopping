@@ -1,4 +1,4 @@
-package cn.effine.lab.validateCode;
+package cn.effine.lab.validatecode;
 
 import org.apache.log4j.Logger;
 

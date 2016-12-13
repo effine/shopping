@@ -71,7 +71,7 @@ public class QRCodeUtils {
 		String format = "png";	// 图片类型
 		String fileName = System.currentTimeMillis()+"."+ format;	// 文件名
 		
-		 Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();  
+		 Map<EncodeHintType, String> hints = new HashMap<>();
 	     hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");  
 	     Path fullName = FileSystems.getDefault().getPath(filePath, fileName);  
 		try {
@@ -101,12 +101,12 @@ public class QRCodeUtils {
 		try {
 			image = ImageIO.read(new File(fullName));
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			logger.error(e1);
 		}  
         LuminanceSource source = new BufferedImageLuminanceSource(image);  
         Binarizer binarizer = new HybridBinarizer(source);  
-        BinaryBitmap binaryBitmap = new BinaryBitmap(binarizer);  
-        Map<DecodeHintType, Object> hints = new HashMap<DecodeHintType, Object>();  
+        BinaryBitmap binaryBitmap = new BinaryBitmap(binarizer);
+        Map<DecodeHintType, String> hints = new HashMap<>();
         hints.put(DecodeHintType.CHARACTER_SET, "UTF-8");  
         Result result;
 		try {

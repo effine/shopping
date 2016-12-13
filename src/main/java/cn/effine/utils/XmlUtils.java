@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Iterator;
 
+import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -22,6 +23,8 @@ import org.dom4j.io.XMLWriter;
 
 /** dom4j解析xml */
 public class XmlUtils {
+
+	private static Logger logger = Logger.getLogger(XmlUtils.class);
 
 	private XmlUtils(){}
 
@@ -47,8 +50,7 @@ public class XmlUtils {
 			xmlWriter.write(document);
 			xmlWriter.close();
 		} catch (IOException e) {
-
-			System.out.println(e.getMessage());
+			logger.error(e);
 		}
 
 	}
@@ -70,14 +72,13 @@ public class XmlUtils {
 				Element employee = (Element) i.next();
 				for (Iterator<?> j = employee.elementIterator(); j.hasNext();) {
 					Element node = (Element) j.next();
-					System.out.println(node.getName() + ":" + node.getText());
-					System.out.println(node.getNodeTypeName());
+					logger.info(node.getName() + ":" + node.getText());
+					logger.info(node.getNodeTypeName());
 				}
 
 			}
 		} catch (DocumentException e) {
-			System.out.println(e.getMessage());
+			logger.error(e);
 		}
-		System.out.println("dom4j parserXml");
 	}
 }

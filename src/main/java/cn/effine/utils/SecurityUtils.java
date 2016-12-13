@@ -20,7 +20,7 @@ public class SecurityUtils {
 	private static Logger logger = Logger.getLogger(SecurityUtils.class);
 
 	// MD5加密算法
-	private static final String algorithmMD5 = "MD5";
+	private static final String ALGORITHM_MD5 = "MD5";
 	// 全局数组 
 	private static final String[] strDigits = { "0", "1", "2", "3", "4", "5",
 			"6", "7", "8", "9", "A", "B", "C", "D", "E", "F" };
@@ -50,7 +50,7 @@ public class SecurityUtils {
 		MessageDigest md  = null;
 		try {
 			if(null == algorithm){
-				md = MessageDigest.getInstance(algorithmMD5);
+				md = MessageDigest.getInstance(ALGORITHM_MD5);
 				byte[] byteArr = src.getBytes();
 				md.update(byteArr);
 				return byteToString(md.digest(byteArr));
