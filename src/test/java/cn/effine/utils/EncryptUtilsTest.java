@@ -12,7 +12,7 @@ public class EncryptUtilsTest {
 
     @Test
     public void testEncryptionString() {
-        String target = EncryptUtils.encryptionString("password", AlgorithmEnum.MD5);
+        String target = EncryptUtils.encryptString("password", AlgorithmEnum.MD5);
         assertEquals("9DBB300E28BC21C8DAB41B01883918EB", target);
     }
 

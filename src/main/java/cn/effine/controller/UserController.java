@@ -41,7 +41,7 @@ public class UserController {
     @RequestMapping("signup")
     @ResponseBody
     public String signup(User user) {
-        user.setPasswd(EncryptUtils.encryptionString(user.getPasswd(), AlgorithmEnum.MD5));
+        user.setPasswd(EncryptUtils.encryptString(user.getPasswd(), AlgorithmEnum.MD5));
         user.setSignupTime(TimeUtils.getCurrentTime());
         boolean status = userService.signup(user);
         return String.valueOf(status);
@@ -74,7 +74,7 @@ public class UserController {
             cookie.setMaxAge(expiry); // 设置cookie过期时间(秒)
 
             // 密码MD5加密并保存cookie
-            cookie = new Cookie("COOKIE_PASSWD", EncryptUtils.encryptionString(password,AlgorithmEnum.MD5));
+            cookie = new Cookie("COOKIE_PASSWD", EncryptUtils.encryptString(password,AlgorithmEnum.MD5));
             cookie.setSecure(true);
             cookie.setPath("/");
             cookie.setDomain(host);

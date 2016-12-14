@@ -1,61 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-	id="WebApp_ID" version="3.1">
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         id="WebApp_ID" version="3.1">
 
-	<display-name>shopping</display-name>
+    <display-name>shopping</display-name>
 
-	<!-- 配置Spring监听 -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<!-- 应用上下文配置文件 -->
-		<param-value>/WEB-INF/spring-servlet.xml</param-value>
-	</context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <!-- 应用上下文配置文件 -->
+        <param-value>
+            classpath:spring-servlet.xml,
+            classpath:spring-security.xml
+        </param-value>
+    </context-param>
 
-	<!-- 配置spring核心servlet -->
-	<servlet>
-		<!-- 该处servlet-name(*)对应配置文件/WEB_INF/*-servlet.xml -->
-		<servlet-name>spring</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>spring</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+    <!-- 配置Spring监听 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
-	<!-- spring encoding filter -->
-	<filter>
-		<filter-name>SpringEncodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-		<init-param>
-			<param-name>forceEncoding</param-name>
-			<param-value>true</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
-		<filter-name>SpringEncodingFilter</filter-name>
-		<url-pattern>*</url-pattern>
-	</filter-mapping>
+    <!-- 配置spring核心servlet -->
+    <servlet>
+        <!-- 该处servlet-name(*)对应配置文件/WEB_INF/*-servlet.xml -->
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
-	<!-- 注释测试的过滤器 -->
-	<!-- <servlet> <servlet-name>RepeatSubmitFilter</servlet-name> <servlet-class>cn.effine.filter.RepeatSubmitServlet</servlet-class> 
-		</servlet> <servlet-mapping> <servlet-name>RepeatSubmitFilter</servlet-name> 
-		<url-pattern>*</url-pattern> </servlet-mapping> -->
+    <!-- spring encoding filter -->
+    <filter>
+        <filter-name>SpringEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>SpringEncodingFilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
 
-	<welcome-file-list>
-		<welcome-file>/WEB-INF/pages/index.jsp</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>index.html</welcome-file>
-	</welcome-file-list>
+    <!-- 注释测试的过滤器 -->
+    <!-- <servlet> <servlet-name>RepeatSubmitFilter</servlet-name> <servlet-class>cn.effine.filter.RepeatSubmitServlet</servlet-class>
+        </servlet> <servlet-mapping> <servlet-name>RepeatSubmitFilter</servlet-name>
+        <url-pattern>*</url-pattern> </servlet-mapping> -->
+
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/pages/index.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 
 </web-app>

@@ -45,7 +45,7 @@ public class EncryptUtils {
      * @param algorithm 加密算法(默认为MD5)
      * @return 加密完成字符串
      */
-    public static String encryptionString(String source, AlgorithmEnum algorithm) {
+    public static String encryptString(String source, AlgorithmEnum algorithm) {
         if (StringUtils.isNotBlank(source)) {
             switch (algorithm) {
                 case MD5:
@@ -57,6 +57,8 @@ public class EncryptUtils {
                     } catch (NoSuchAlgorithmException e) {
                         logger.error(e);
                     }
+                case BCRYPT:
+                    // TODO 待实现
             }
         }
         return null;

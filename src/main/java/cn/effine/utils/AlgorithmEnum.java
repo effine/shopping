@@ -5,6 +5,5 @@ package cn.effine.utils;
  * Created by effine on 14/12/2016.
  */
 public enum AlgorithmEnum {
-    MD5
-
+    MD5, BCRYPT
 }
