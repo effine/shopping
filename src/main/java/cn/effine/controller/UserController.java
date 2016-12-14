@@ -13,21 +13,21 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.effine.utils.AlgorithmEnum;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.effine.model.User;
 import cn.effine.service.UserService;
-import cn.effine.utils.SecurityUtils;
+import cn.effine.utils.EncryptUtils;
 import cn.effine.utils.TimeUtils;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 用户操作
  */
-@Controller
-@RequestMapping("user")
+@RestController("user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -41,7 +41,7 @@ public class UserController {
     @RequestMapping("signup")
     @ResponseBody
     public String signup(User user) {
-        user.setPasswd(SecurityUtils.encryption(user.getPasswd()));
+        user.setPasswd(EncryptUtils.encryptionString(user.getPasswd(), AlgorithmEnum.MD5));
         user.setSignupTime(TimeUtils.getCurrentTime());
         boolean status = userService.signup(user);
         return String.valueOf(status);
@@ -53,14 +53,14 @@ public class UserController {
      * @param request
      * @param response
      * @param username 用户名[邮箱|昵称|手机号]
-     * @param passwd   密码
+     * @param password   密码
      * @param isAuto   是否自动登录[0否|1是]
      * @return
      */
     // TODO [邮箱|昵称|手机号]登录
     @RequestMapping("signin")
     public Map<String, Object> signin(HttpServletRequest request, HttpServletResponse response,
-                                      String username, String passwd, int isAuto) {
+                                      String username, String password, int isAuto) {
         Map<String, Object> map = new HashMap<>();
         boolean isSignin = false;
         // 自动登录
@@ -74,19 +74,19 @@ public class UserController {
             cookie.setMaxAge(expiry); // 设置cookie过期时间(秒)
 
             // 密码MD5加密并保存cookie
-            cookie = new Cookie("COOKIE_PASSWD", SecurityUtils.encryption(passwd));
+            cookie = new Cookie("COOKIE_PASSWD", EncryptUtils.encryptionString(password,AlgorithmEnum.MD5));
             cookie.setSecure(true);
             cookie.setPath("/");
             cookie.setDomain(host);
             cookie.setMaxAge(expiry);
             response.addCookie(cookie);
 
-            isSignin = userService.signin(username, passwd);
+            isSignin = userService.signin(username, password);
         }
 
         // 非自动登录
         if (0 == isAuto) {
-            isSignin = userService.signin(username, passwd);
+            isSignin = userService.signin(username, password);
         }
 
         if (isSignin)
