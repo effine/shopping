@@ -25,9 +25,6 @@ public class DaoSupport {
     private static SqlSessionFactory sqlSessionFactory;
     private static Logger logger = Logger.getLogger(DaoSupport.class);
 
-    private DaoSupport() {
-    }
-
     static {
         try {
             // 方式1
