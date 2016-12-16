@@ -42,7 +42,7 @@ public class EncryptUtils {
      * 按指定算法加密字符串
      *
      * @param source    源字符串
-     * @param algorithm 加密算法(默认为MD5)
+     * @param algorithm 加密算法
      * @return 加密完成字符串
      */
     public static String encryptString(String source, AlgorithmEnum algorithm) {
