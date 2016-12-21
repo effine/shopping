@@ -41,8 +41,9 @@ public class UserController {
     @RequestMapping("signup")
     @ResponseBody
     public String signup(User user) {
-        user.setPasswd(EncryptUtils.encryptString(user.getPasswd(), AlgorithmEnum.MD5));
-        user.setSignupTime(TimeUtils.getCurrentTime());
+        String current = TimeUtils.getCurrentTime();
+        user.setPasswd(EncryptUtils.encryptString(user.getPasswd(), current, AlgorithmEnum.BCRYPT));
+        user.setSignupTime(current);
         boolean status = userService.signup(user);
         return String.valueOf(status);
     }
@@ -53,7 +54,7 @@ public class UserController {
      * @param request
      * @param response
      * @param username 用户名[邮箱|昵称|手机号]
-     * @param password   密码
+     * @param password 密码
      * @param isAuto   是否自动登录[0否|1是]
      * @return
      */
@@ -74,7 +75,7 @@ public class UserController {
             cookie.setMaxAge(expiry); // 设置cookie过期时间(秒)
 
             // 密码MD5加密并保存cookie
-            cookie = new Cookie("COOKIE_PASSWD", EncryptUtils.encryptString(password,AlgorithmEnum.MD5));
+            cookie = new Cookie("COOKIE_PASSWD", EncryptUtils.encryptString(password, AlgorithmEnum.MD5));
             cookie.setSecure(true);
             cookie.setPath("/");
             cookie.setDomain(host);

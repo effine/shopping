@@ -9,13 +9,12 @@ package cn.effine.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 支付
  */
-
-@Controller
-@RequestMapping("pay")
+@RestController("pay")
 public class PayController {
 
     /**

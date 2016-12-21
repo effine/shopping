@@ -1,6 +1,7 @@
 package cn.effine.utils;
 
 import org.junit.Test;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,8 +13,12 @@ public class EncryptUtilsTest {
 
     @Test
     public void testEncryptionString() {
-        String target = EncryptUtils.encryptString("password", AlgorithmEnum.MD5);
-        assertEquals("9DBB300E28BC21C8DAB41B01883918EB", target);
+        String md5Hash = EncryptUtils.encryptString("password", AlgorithmEnum.MD5);
+        assertEquals("9DBB300E28BC21C8DAB41B01883918EB", md5Hash);
+
+        String bcrypptHash = EncryptUtils.encryptString("password", AlgorithmEnum.BCRYPT);
+        boolean flag = BCrypt.checkpw("password", bcrypptHash);
+        assertEquals(true, flag);
     }
 
 

@@ -7,7 +7,9 @@
 
 package cn.effine.dao.impl.mybatis;
 
+import cn.effine.utils.EncryptUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 
 import cn.effine.dao.UserDao;
@@ -32,8 +34,8 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 //		int uid = session.insert("cn.effine.IUserOperation.signin");
 //		session.commit();
 //		session.close();
-		
-		if ("effine".equals(username) && "aichuan".equals(passwd)) {
+		User user = new User();
+		if ("effine".equals(username) && BCrypt.checkpw(passwd, user.getPasswd())) {
 			return true;
 		}
 		return false;
