@@ -32,7 +32,7 @@ public class PayController {
      *
      * @return
      */
-    @RequestMapping("wechat")
+    //@RequestMapping("wechat")
     public String wechatPay() {
         return null;
     }
