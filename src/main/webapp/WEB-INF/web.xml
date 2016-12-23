@@ -11,7 +11,8 @@
         <!-- 应用上下文配置文件 -->
         <param-value>
             classpath:spring-servlet.xml,
-            classpath:spring-security.xml
+            classpath:spring-security.xml,
+            classpath:spring-jdbc.xml
         </param-value>
     </context-param>
 

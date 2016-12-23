@@ -17,4 +17,5 @@ public class XmlTest {
 	public void parseXmlTest() {
 		XmlUtils.parserXml("src/main/resources/test.xml");
 	}
+	
 }
