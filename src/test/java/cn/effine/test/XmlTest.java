@@ -13,9 +13,9 @@ import cn.effine.utils.XmlUtils;
 
 public class XmlTest {
 
-	@Test
-	public void parseXmlTest() {
-		XmlUtils.parserXml("src/main/resources/test.xml");
-	}
+    @Test
+    public void parseXmlTest() {
+        XmlUtils.parserXml("src/main/resources/test.xml");
+    }
 	
 }
