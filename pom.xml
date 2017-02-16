@@ -208,7 +208,7 @@
 					<scanIntervalSeconds>4</scanIntervalSeconds>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>9000</port>
+							<port>8000</port>
 						</connector>
 					</connectors>
 				</configuration>
@@ -219,7 +219,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://localhost:9000/shopping</url>
+					<url>http://localhost:8000</url>
 					<port>9000</port>
 					<path>/shopping</path>
 					<!-- 不打包 -->

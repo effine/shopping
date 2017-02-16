@@ -16,30 +16,30 @@ import cn.effine.model.User;
 import cn.effine.service.UserService;
 
 @Service
-public class UserServiceImpl implements UserService{
-	@Autowired
-	private UserDao userDao;
+public class UserServiceImpl implements UserService {
+    @Autowired
+    private UserDao userDao;
 
-	@Override
-	public boolean signup(User user) {
-		return userDao.signup(user);
-	}
+    @Override
+    public boolean signup(User user) {
+        return userDao.signup(user);
+    }
 
-	@Override
-	public boolean signin(String username, String passwd) {
-		return userDao.signin(username, passwd);
-	}
+    @Overridew
+    public boolean signin(String username, String passwd) {
+        return userDao.signin(username, passwd);
+    }
 
-	@Override
-	public boolean signout(int uid) {
-		return userDao.signout(uid);
-	}
+    @Override
+    public boolean signout(int uid) {
+        return userDao.signout(uid);
+    }
 
-	@Override
-	public boolean killAccount() {
-		
-		return false;
-	}
+    @Override
+    public boolean killAccount() {
+
+        return false;
+    }
 
 }
 

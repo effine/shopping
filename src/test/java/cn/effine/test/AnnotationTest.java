@@ -13,32 +13,32 @@ import java.util.List;
 
 public class AnnotationTest {
 
-	public static void main(String[] args) {
-	}
+    public static void main(String[] args) {
+    }
 
-	@Override
-	@MethodInfo(author = "Pankaj", comments = "Main method", date = "Nov 17 2012", revision = 1)
-	public String toString() {
-		return "Overriden toString method";
-	}
+    @Override
+    @MethodInfo(author = "Pankaj", comments = "Main method", date = "Nov 17 2012", revision = 1)
+    public String toString() {
+        return "Overriden toString method";
+    }
 
-	@Deprecated
-	@MethodInfo(comments = "deprecated method", date = "Nov 17 2012")
-	public static void oldMethod() {
-		System.out.println("old method, don't use it.");
-	}
+    @Deprecated
+    @MethodInfo(comments = "deprecated method", date = "Nov 17 2012")
+    public static void oldMethod() {
+        System.out.println("old method, don't use it.");
+    }
 
-	@SuppressWarnings("unchecked")
-	@MethodInfo(author = "Pankaj", comments = "Main method", date = "Nov 17 2012", revision = 10)
-	public static void genericsTest() throws FileNotFoundException {
-		@SuppressWarnings("rawtypes")
-		List l = new ArrayList();
-		l.add("abc");
-		oldMethod();
-	}
+    @SuppressWarnings("unchecked")
+    @MethodInfo(author = "Pankaj", comments = "Main method", date = "Nov 17 2012", revision = 10)
+    public static void genericsTest() throws FileNotFoundException {
+        @SuppressWarnings("rawtypes")
+        List l = new ArrayList();
+        l.add("abc");
+        oldMethod();
+    }
 
-	@Deprecated
-	public String method() {
-		return null;
-	}
+    @Deprecated
+    public String method() {
+        return null;
+    }
 }

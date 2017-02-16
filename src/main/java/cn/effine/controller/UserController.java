@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import cn.effine.utils.AlgorithmEnum;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.effine.model.User;
@@ -27,7 +29,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 用户操作
  */
-@RestController("user")
+@RestController
+@RequestMapping("user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -38,7 +41,7 @@ public class UserController {
      * @param user 用户Model
      * @return
      */
-    @RequestMapping("signup")
+    @RequestMapping(value = "signup", method = RequestMethod.PUT)
     @ResponseBody
     public String signup(User user) {
         String current = TimeUtils.getCurrentTime();
@@ -59,7 +62,8 @@ public class UserController {
      * @return
      */
     // TODO [邮箱|昵称|手机号]登录
-    @RequestMapping("signin")
+    @RequestMapping(value = "signin", method = RequestMethod.GET)
+    @ResponseBody
     public Map<String, Object> signin(HttpServletRequest request, HttpServletResponse response,
                                       String username, String password, int isAuto) {
         Map<String, Object> map = new HashMap<>();

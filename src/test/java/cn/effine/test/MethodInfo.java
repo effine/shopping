@@ -19,11 +19,11 @@ import java.lang.annotation.Target;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MethodInfo {
-	String author() default "Pankaj";
+    String author() default "Pankaj";
 
-	String date();
+    String date();
 
-	int revision() default 1;
+    int revision() default 1;
 
-	String comments();
+    String comments();
 }

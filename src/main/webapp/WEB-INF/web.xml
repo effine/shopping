@@ -11,7 +11,8 @@
         <!-- 应用上下文配置文件 -->
         <param-value>
             classpath:spring-servlet.xml,
-            classpath:spring-security.xml
+            classpath:spring-security.xml,
+            classpath:spring-jdbc.xml
         </param-value>
     </context-param>
 
@@ -25,6 +26,10 @@
         <!-- 该处servlet-name(*)对应配置文件/WEB_INF/*-servlet.xml -->
         <servlet-name>spring</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring-servlet.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
