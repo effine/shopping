@@ -30,7 +30,6 @@ public class UserControllerTest {
         //UserController controller = mock(UserController.class);
 //        UserService userService  = mock(UserService.class);
         when(userService.signup(any(User.class))).thenReturn(true);
-
-        Assert.assertEquals("true", userController.signup(new User()));
+        Assert.assertTrue(Boolean.parseBoolean(userController.signup(new User())));
     }
 }
