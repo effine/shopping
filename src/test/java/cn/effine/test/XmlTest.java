@@ -7,9 +7,8 @@
 
 package cn.effine.test;
 
-import org.junit.Test;
-
 import cn.effine.utils.XmlUtils;
+import org.junit.Test;
 
 public class XmlTest {
 

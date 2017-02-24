@@ -11,79 +11,79 @@ import java.io.Serializable;
 
 public class UserInfo implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private int id;
-	private int uid;
-	private String realName;
-	private String birthday;
-	private int gender;
-	private String avatar;
-	private String address;
-	private String site;
+    private int id;
+    private int uid;
+    private String realName;
+    private String birthday;
+    private int gender;
+    private String avatar;
+    private String address;
+    private String site;
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public int getUid() {
-		return uid;
-	}
+    public int getUid() {
+        return uid;
+    }
 
-	public void setUid(int uid) {
-		this.uid = uid;
-	}
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
 
-	public String getRealName() {
-		return realName;
-	}
+    public String getRealName() {
+        return realName;
+    }
 
-	public void setRealName(String realName) {
-		this.realName = realName;
-	}
+    public void setRealName(String realName) {
+        this.realName = realName;
+    }
 
-	public String getBirthday() {
-		return birthday;
-	}
+    public String getBirthday() {
+        return birthday;
+    }
 
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
 
-	public int getGender() {
-		return gender;
-	}
+    public int getGender() {
+        return gender;
+    }
 
-	public void setGender(int gender) {
-		this.gender = gender;
-	}
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
 
-	public String getAvatar() {
-		return avatar;
-	}
+    public String getAvatar() {
+        return avatar;
+    }
 
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getSite() {
-		return site;
-	}
+    public String getSite() {
+        return site;
+    }
 
-	public void setSite(String site) {
-		this.site = site;
-	}
+    public void setSite(String site) {
+        this.site = site;
+    }
 
 }

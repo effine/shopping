@@ -47,5 +47,6 @@ public class MailConstants {
         ANNEX.put("D:\\mail\\2.txt", "2.txt");
     }
 
-    private MailConstants(){}
+    private MailConstants() {
+    }
 }

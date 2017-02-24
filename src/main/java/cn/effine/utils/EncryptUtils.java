@@ -6,7 +6,6 @@
  */
 package cn.effine.utils;
 
-import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.security.crypto.bcrypt.BCrypt;

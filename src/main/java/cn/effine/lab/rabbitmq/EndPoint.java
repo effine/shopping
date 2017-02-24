@@ -7,34 +7,34 @@
 
 package cn.effine.lab.rabbitmq;
 
-import java.io.IOException;
-import java.util.concurrent.TimeoutException;
-
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import org.apache.log4j.Logger;
 
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
 public abstract class EndPoint {
 
-	protected Channel channel;
-	protected Connection connection;
-	protected String queueName;
-	private static Logger logger = Logger.getLogger(EndPoint.class);
+    protected Channel channel;
+    protected Connection connection;
+    protected String queueName;
+    private static Logger logger = Logger.getLogger(EndPoint.class);
 
-	public EndPoint(String queueName) throws IOException {
-		this.queueName = queueName;
+    public EndPoint(String queueName) throws IOException {
+        this.queueName = queueName;
 
-		ConnectionFactory factory = new ConnectionFactory();
-		// 配置rabbitmq服务的连接信息(只需配置主机即可)
-		factory.setHost("localhost");
-		try {
-			connection = factory.newConnection();
-		} catch (TimeoutException e) {
-			logger.error(e);
-		}
+        ConnectionFactory factory = new ConnectionFactory();
+        // 配置rabbitmq服务的连接信息(只需配置主机即可)
+        factory.setHost("localhost");
+        try {
+            connection = factory.newConnection();
+        } catch (TimeoutException e) {
+            logger.error(e);
+        }
 
-		channel = connection.createChannel();
-		channel.queueDeclare(queueName, false, false, false, null);
-	}
+        channel = connection.createChannel();
+        channel.queueDeclare(queueName, false, false, false, null);
+    }
 }

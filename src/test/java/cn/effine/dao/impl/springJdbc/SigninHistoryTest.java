@@ -7,25 +7,24 @@
 
 package cn.effine.dao.impl.springJdbc;
 
+import cn.effine.dao.SigninHistoryDaoTest;
 import org.junit.Test;
 
-import cn.effine.dao.SigninHistoryDaoTest;
+public class SigninHistoryTest extends DaoSupport implements SigninHistoryDaoTest {
 
-public class SigninHistoryTest extends DaoSupport implements SigninHistoryDaoTest{
-
-	@Override
-	@Test
-	public void getSigninHistory() {
+    @Override
+    @Test
+    public void getSigninHistory() {
 //		String sql = "select * from signin_history where id =?";
 //		Map<String,Object> obj = getJdbcTemplate().queryForMap(sql, 1);
 //		System.out.println(obj);
-	}
-	
-	@Test
-	public void countSigninHistory() {
+    }
+
+    @Test
+    public void countSigninHistory() {
 //		String sql = "select count(id) from signin_history";
 //		int times = getJdbcTemplate().queryForObject(sql, Integer.class);
 //		System.out.println(times);
-	}
-	
+    }
+
 }

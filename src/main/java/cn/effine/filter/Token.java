@@ -1,4 +1,3 @@
-
 /**
  * @Date 2014年11月25日  上午10:15:55
  * @author effine
@@ -9,11 +8,10 @@ package cn.effine.filter;
 
 import org.apache.log4j.Logger;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Token操作类
@@ -70,6 +68,7 @@ public class Token {
 
     /**
      * 清除session中的令牌值
+     *
      * @param request
      * @return
      */
@@ -98,6 +97,7 @@ public class Token {
 
     /**
      * 根据用户会话id和当前系统时间生成一个唯一的令牌
+     *
      * @param request
      * @return
      */
@@ -138,11 +138,11 @@ public class Token {
     }
 
     /**
-    * 从Session中得到令牌值，如果Session中没有令牌值 ，则生成一个新的令牌值
-    *
-    * @param request
-    * @return
-    */
+     * 从Session中得到令牌值，如果Session中没有令牌值 ，则生成一个新的令牌值
+     *
+     * @param request
+     * @return
+     */
     public synchronized String getToken(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (null == session)

@@ -1,4 +1,3 @@
-
 /**
  * @author effine
  * @Date 2015年10月13日  下午2:01:02
@@ -8,12 +7,11 @@
 
 package cn.effine.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import cn.effine.dao.UserDao;
 import cn.effine.model.User;
 import cn.effine.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,7 +23,7 @@ public class UserServiceImpl implements UserService {
         return userDao.signup(user);
     }
 
-    @Overridew
+    @Override
     public boolean signin(String username, String passwd) {
         return userDao.signin(username, passwd);
     }

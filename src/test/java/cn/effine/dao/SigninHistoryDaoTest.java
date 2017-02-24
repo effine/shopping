@@ -9,13 +9,13 @@ package cn.effine.dao;
 
 public interface SigninHistoryDaoTest {
 
-	/**
-	 * 获取用户登录历史
-	 */
-	void getSigninHistory();
+    /**
+     * 获取用户登录历史
+     */
+    void getSigninHistory();
 
-	/**
-	 * 统计用户登录历史
-	 */
-	void countSigninHistory();
+    /**
+     * 统计用户登录历史
+     */
+    void countSigninHistory();
 }

@@ -7,22 +7,21 @@
 
 package cn.effine.dao.impl.mybatis;
 
+import cn.effine.dao.SigninHistoryDaoTest;
 import org.junit.Test;
 
-import cn.effine.dao.SigninHistoryDaoTest;
+public class SigninHistoryTest implements SigninHistoryDaoTest {
 
-public class SigninHistoryTest  implements SigninHistoryDaoTest{
-
-	@Test
-	public void getSigninHistory() {
+    @Test
+    public void getSigninHistory() {
 //		SqlSession session = DaoSupport.getSqlSession();
 //		SigninHistory history = session .selectOne("cn.effine.ISigninHistoryOperation.selectSigninHistoryByID",1);
 //		session.close();
 //		System.out.println(history);
-	}
+    }
 
-	@Override
-	public void countSigninHistory() {
-		// TODO  unimplements method stub
-	}
+    @Override
+    public void countSigninHistory() {
+        // TODO  unimplements method stub
+    }
 }

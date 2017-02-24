@@ -3,8 +3,8 @@
 
 <mapper namespace="cn.effine.ISigninHistoryOperation">
 
-	<select id="selectSigninHistoryByID" parameterType="int" resultType="SigninHistory">
-		select * from signin_history where id = #{id}
-	</select>
-	
+    <select id="selectSigninHistoryByID" parameterType="int" resultType="SigninHistory">
+        select * from signin_history where id = #{id}
+    </select>
+
 </mapper>

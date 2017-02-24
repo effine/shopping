@@ -5,23 +5,18 @@
 
 package cn.effine.lab.email;
 
-import java.util.Date;
-import java.util.Map;
-import java.util.Properties;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.Multipart;
 import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import javax.mail.internet.MimeUtility;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import javax.mail.internet.*;
+import java.util.Date;
+import java.util.Map;
+import java.util.Properties;
 
 /**
  * 邮件工具类

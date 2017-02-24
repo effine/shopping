@@ -12,20 +12,20 @@ import java.util.Date;
 
 /**
  * 对时间和日期进行处理
- *
  */
 public class TimeUtils {
 
-	private TimeUtils(){}
+    private TimeUtils() {
+    }
 
-	/**
-	 * 获取当前时间
-	 *
-	 * @return 标准格式化时间（yyyy-MM-dd HH:mm:ss）
-	 */
-	public static String getCurrentTime() {
-		Date currentTime = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		return formatter.format(currentTime);
-	}
+    /**
+     * 获取当前时间
+     *
+     * @return 标准格式化时间（yyyy-MM-dd HH:mm:ss）
+     */
+    public static String getCurrentTime() {
+        Date currentTime = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return formatter.format(currentTime);
+    }
 }

@@ -9,5 +9,5 @@ package cn.effine.dao.impl.mybatis;
 
 public enum CRUD_Enum {
 
-	Add, Delete, Update, Query, List
+    Add, Delete, Update, Query, List
 }

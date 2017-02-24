@@ -11,5 +11,5 @@ import cn.effine.dao.SigninHistoryDao;
 
 public class SigninHistoryDaoImpl extends DaoSupport implements SigninHistoryDao {
 
-	
+
 }

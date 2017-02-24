@@ -2,29 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.effine.IUserOperation">
-	<insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="id"> 
-        insert into user(name,email,passwd, signup_time) values(#{name},#{email}, #{passwd}, #{signupTime})  
-    </insert>
-    
-	<insert id="delete" parameterType="int"> 
-            delete from user where id=#{id}
-    </insert>
-    
-	<insert id="update" parameterType="User"> 
-            update user set name=#{name},password=#{password} where id=#{id}
+    <insert id="add" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into user(name,email,passwd, signup_time) values(#{name},#{email}, #{passwd}, #{signupTime})
     </insert>
 
-	<select id="selectUserByID" parameterType="int" resultType="User">
-		select * from user where id = #{id}
-	</select>
+    <insert id="delete" parameterType="int">
+        delete from user where id=#{id}
+    </insert>
 
-	<select id="selectUserList" parameterType="string" resultMap="resultListUser">
-		select * from user where name like #{name}
-	</select>
+    <insert id="update" parameterType="User">
+        update user set name=#{name},password=#{password} where id=#{id}
+    </insert>
 
-	<resultMap type="User" id="resultListUser">
-		<id column="id" property="id" />
-		<result column="name" property="name" />
-		<result column="password" property="password" />
-	</resultMap>
+    <select id="selectUserByID" parameterType="int" resultType="User">
+        select * from user where id = #{id}
+    </select>
+
+    <select id="selectUserList" parameterType="string" resultMap="resultListUser">
+        select * from user where name like #{name}
+    </select>
+
+    <resultMap type="User" id="resultListUser">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+    </resultMap>
 </mapper>

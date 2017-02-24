@@ -1,10 +1,10 @@
 package cn.effine.lab.validatecode;
 
-import java.awt.Font;
-import java.io.ByteArrayInputStream;
-
 import cn.effine.utils.PropertiesUtils;
 import org.apache.log4j.Logger;
+
+import java.awt.*;
+import java.io.ByteArrayInputStream;
 
 /**
  * ttf字体文件

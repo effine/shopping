@@ -7,21 +7,21 @@
 
 package cn.effine.lab.rabbitmq;
 
+import org.apache.commons.lang.SerializationUtils;
+
 import java.io.IOException;
 import java.io.Serializable;
-
-import org.apache.commons.lang.SerializationUtils;
 
 /**
  * 队列生产者
  */
 public class Producer extends EndPoint {
 
-	public Producer(String queueName) throws IOException {
-		super(queueName);
-	}
+    public Producer(String queueName) throws IOException {
+        super(queueName);
+    }
 
-	public void sendMessage(Serializable message) throws IOException {
-		channel.basicPublish("", queueName, null, SerializationUtils.serialize(message));
-	}
+    public void sendMessage(Serializable message) throws IOException {
+        channel.basicPublish("", queueName, null, SerializationUtils.serialize(message));
+    }
 }
