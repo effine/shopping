@@ -15,6 +15,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by effine on 2/15/17.
  */
+// TODO 下面注解什么意思？
 @RunWith(MockitoJUnitRunner.class)
 public class UserControllerTest {
 
