@@ -7,10 +7,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static org.mockito.BDDMockito.*;
 
 /**
  * Created by effine on 2/15/17.
@@ -23,6 +24,7 @@ public class UserControllerTest {
     private UserController userController;
 
     @Mock
+    @Spy
     private UserService userService;
 
     @Test
@@ -31,6 +33,7 @@ public class UserControllerTest {
         //UserController controller = mock(UserController.class);
 //        UserService userService  = mock(UserService.class);
         when(userService.signup(any(User.class))).thenReturn(true);
+        given(userService.signup(any(User.class))).willReturn(true);
         Assert.assertTrue(Boolean.parseBoolean(userController.signup(new User())));
     }
 }
