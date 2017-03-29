@@ -1,5 +1,9 @@
 package cn.effine.lab.ehcache;
 
+import net.sf.ehcache.Ehcache;
+import net.sf.ehcache.Element;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**
  * @author effine
  * @Date 2017-03-15 10:53

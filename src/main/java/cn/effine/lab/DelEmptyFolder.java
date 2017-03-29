@@ -18,7 +18,7 @@ public class DelEmptyFolder {
     /**
      * 采用递归思想，级联删除空文件夹
      *
-     * @param srcFile 待操作的源文件夹
+     * @param dir 待操作的源文件夹
      * @return Boolean
      */
     public static void deleteEmptyForld(String dir) {
