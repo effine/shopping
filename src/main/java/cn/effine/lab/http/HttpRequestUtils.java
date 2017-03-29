@@ -30,9 +30,13 @@ import java.util.List;
  */
 public class HttpRequestUtils {
 
-    /** 请求服务器前缀url */
+    /**
+     * 请求服务器前缀url
+     */
     private static final String PREFIX_URL = "http://localhost:8081";
-    /** 编码格式*/
+    /**
+     * 编码格式
+     */
     private static final String ENCODING = "UTF-8";
 
     private static CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -43,18 +47,13 @@ public class HttpRequestUtils {
     /**
      * get请求处理方法
      *
-     * @author effine
-     *
-     * @param request
-     *            [javax.servlet.http.HttpServletRequest] 请求Request
-     * @param url
-     *            请求地址；参数为restful的query类型(请求url不包含可变参数)即为null
-     * @param param
-     *            url参数
+     * @param request [javax.servlet.http.HttpServletRequest] 请求Request
+     * @param url     请求地址；参数为restful的query类型(请求url不包含可变参数)即为null
+     * @param param   url参数
      * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
-     *
      * @throws IOException
      * @throws HttpException
+     * @author effine
      */
     public static HttpResponse get(HttpServletRequest request, String url) throws HttpException, IOException {
         if (null == url)
@@ -66,16 +65,12 @@ public class HttpRequestUtils {
     /**
      * post请求处理方法
      *
-     * @author effine
-     *
-     * @param request
-     *            [javax.servlet.http.HttpServletRequest] 请求Request
-     * @param url
-     *            请求路径(如果为空则通过request获取)
+     * @param request [javax.servlet.http.HttpServletRequest] 请求Request
+     * @param url     请求路径(如果为空则通过request获取)
      * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
-     *
      * @throws IOException
      * @throws HttpException
+     * @author effine
      */
     public static HttpResponse post(HttpServletRequest request, String url) throws HttpException, IOException {
         if (null == url)
@@ -87,16 +82,12 @@ public class HttpRequestUtils {
     /**
      * put请求处理方法
      *
-     * @author effine
-     *
-     * @param request
-     *            [javax.servlet.http.HttpServletRequest] 请求Request
-     * @param url
-     *            请求路径(如果为空则通过request获取)
+     * @param request [javax.servlet.http.HttpServletRequest] 请求Request
+     * @param url     请求路径(如果为空则通过request获取)
      * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
-     *
      * @throws IOException
      * @throws HttpException
+     * @author effine
      */
     public static HttpResponse put(HttpServletRequest request, String url) throws HttpException, IOException {
         if (null == url)
@@ -108,16 +99,12 @@ public class HttpRequestUtils {
     /**
      * delete 请求处理方法
      *
-     * @author effine
-     *
-     * @param request
-     *            [javax.servlet.http.HttpServletRequest] 请求Request
-     * @param url
-     *            请求路径(如果为空则通过request获取)
+     * @param request [javax.servlet.http.HttpServletRequest] 请求Request
+     * @param url     请求路径(如果为空则通过request获取)
      * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
-     *
      * @throws IOException
      * @throws HttpException
+     * @author effine
      */
     public static HttpResponse delete(HttpServletRequest request, String url) throws HttpException, IOException {
         if (null == url)
@@ -129,16 +116,12 @@ public class HttpRequestUtils {
     /**
      * 操作Apache HttpRequest工具方法，并返回处理结果
      *
-     * @author effine
-     *
-     * @param request
-     *            [javax.servlet.http.HttpServletRequest]
-     * @param method
-     *            Apache HttpMethod
+     * @param request [javax.servlet.http.HttpServletRequest]
+     * @param method  Apache HttpMethod
      * @return [cn.effine.lab.http.HttpResponse]，包含Http状态码、响应信息、及登录cookie
-     *
      * @throws IOException
      * @throws HttpException
+     * @author effine
      */
     private static HttpResponse passHeaderAndParam(HttpServletRequest request, HttpRequestBase method) throws HttpException, IOException {
         // 传递Header

@@ -15,6 +15,15 @@ public class FieldTest {
 
     private static Logger logger = Logger.getLogger(FieldTest.class);
 
+    @Deprecated
+    public static void main(String[] args) {
+        OrderDataConsistency test = new OrderDataConsistency();
+        test.setCreateTime(new Date());
+        FieldTest t = new FieldTest();
+        Map<String, Object> map = t.beanToMap(test, false);
+        System.out.println(map);
+    }
+
     /**
      * 将实体转化为Map
      *
@@ -52,14 +61,5 @@ public class FieldTest {
             }
         }
         return null;
-    }
-
-    @Deprecated
-    public static void main(String[] args) {
-        OrderDataConsistency test = new OrderDataConsistency();
-        test.setCreateTime(new Date());
-        FieldTest t = new FieldTest();
-        Map<String, Object> map = t.beanToMap(test, false);
-        System.out.println(map);
     }
 }

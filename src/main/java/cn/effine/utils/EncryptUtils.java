@@ -18,11 +18,10 @@ import java.security.NoSuchAlgorithmException;
  */
 public class EncryptUtils {
 
-    private static Logger logger = Logger.getLogger(EncryptUtils.class);
-
     // 全局数组
     private static final String[] strDigits = {"0", "1", "2", "3", "4", "5",
             "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
+    private static Logger logger = Logger.getLogger(EncryptUtils.class);
 
     private EncryptUtils() {
     }

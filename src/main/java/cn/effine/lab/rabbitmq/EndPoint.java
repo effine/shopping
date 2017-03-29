@@ -17,10 +17,10 @@ import java.util.concurrent.TimeoutException;
 
 public abstract class EndPoint {
 
+    private static Logger logger = Logger.getLogger(EndPoint.class);
     protected Channel channel;
     protected Connection connection;
     protected String queueName;
-    private static Logger logger = Logger.getLogger(EndPoint.class);
 
     public EndPoint(String queueName) throws IOException {
         this.queueName = queueName;

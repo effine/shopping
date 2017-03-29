@@ -3,9 +3,10 @@ package cn.effine;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
 
 import java.util.List;
+
+import static org.mockito.Mockito.*;
 
 /**
  * @author effine
@@ -16,7 +17,7 @@ import java.util.List;
 public class MockTest {
 
     @Test
-    public  void testVerify(){
+    public void testVerify() {
         List<Integer> list = mock(List.class);
         list.add(1);
         verify(list, times(1)).add(1);

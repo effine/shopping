@@ -12,6 +12,12 @@ public class AutherticatorBean extends Authenticator {
     private String username;
     private String passwd;
 
+    public AutherticatorBean(String username, String passwd) {
+        super();
+        setUsername(username);
+        setPasswd(passwd);
+    }
+
     public String getUsername() {
         return username;
     }
@@ -26,12 +32,6 @@ public class AutherticatorBean extends Authenticator {
 
     public void setPasswd(String passwd) {
         this.passwd = passwd;
-    }
-
-    public AutherticatorBean(String username, String passwd) {
-        super();
-        setUsername(username);
-        setPasswd(passwd);
     }
 
     public PasswordAuthentication getPasswordAuthentication() {

@@ -31,15 +31,12 @@ public class MailConstants {
     public static final String SENDER_USERNAME = "effine";	/* 登录用户名 */
     // TODO getEncryptedPass();
     public static final String SENDER_PASSWD = "";	/* 登录密码 */
-
-    /***************** 收件人信息 ******************/
-    protected static final String[] RECEIVED_EMAIL = {"654714226@qq.com"}; /* 收件人邮箱 */
-
-
     /***************** 邮件信息 ******************/
     public static final String MIMETYPE = "text/html;charset=utf-8"; /* 邮件内容类型  */
     public static final String TITLE = "email title"; /* 发送邮件标题 */
     public static final String CONTENT = "email content;<b><a href='#'>test</a></b>";/* 邮件内容(支持html语法) */
+    /***************** 收件人信息 ******************/
+    protected static final String[] RECEIVED_EMAIL = {"654714226@qq.com"}; /* 收件人邮箱 */
     protected static final Map<String, String> ANNEX = new HashMap<>();	/*邮件附件(key:附件完整路径名；value：附件重新命名)*/
 
     static {

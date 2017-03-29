@@ -18,9 +18,8 @@ import java.security.NoSuchAlgorithmException;
  */
 public class Token {
 
-    private static Logger logger = Logger.getLogger(Token.class);
     static final String TOKEN_KEY = "ltai701";
-
+    private static Logger logger = Logger.getLogger(Token.class);
     private static Token instance = new Token();
 
     /**

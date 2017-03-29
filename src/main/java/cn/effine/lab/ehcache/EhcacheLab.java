@@ -11,14 +11,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class EhcacheLab {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"ehcache.xml", "spring-ehcache.xml"});
         context.start();
         Ehcache ehcache = (Ehcache) context.getBean("recommendCache");
-        ehcache.put(new Element("testkey","HelloWorld"));
+        ehcache.put(new Element("testkey", "HelloWorld"));
         Element element = ehcache.get("testkey");
         if (element != null)
-            System.out.println("value:"+element.getObjectValue());
+            System.out.println("value:" + element.getObjectValue());
         System.exit(0);
     }
 }

@@ -18,7 +18,7 @@ public class TestJedis {
     // 测试
     @Deprecated
     /*public static void main(String[] args) {
-		TestJedis test = new TestJedis();
+        TestJedis test = new TestJedis();
 		System.out.println("----------开始调用jedis基本使用方法");
 		test.baseJedis();
 		System.out.println("----------开始调用jedis使用池方法");

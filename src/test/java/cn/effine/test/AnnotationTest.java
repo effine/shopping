@@ -16,12 +16,6 @@ public class AnnotationTest {
     public static void main(String[] args) {
     }
 
-    @Override
-    @MethodInfo(author = "Pankaj", comments = "Main method", date = "Nov 17 2012", revision = 1)
-    public String toString() {
-        return "Overriden toString method";
-    }
-
     @Deprecated
     @MethodInfo(comments = "deprecated method", date = "Nov 17 2012")
     public static void oldMethod() {
@@ -35,6 +29,12 @@ public class AnnotationTest {
         List l = new ArrayList();
         l.add("abc");
         oldMethod();
+    }
+
+    @Override
+    @MethodInfo(author = "Pankaj", comments = "Main method", date = "Nov 17 2012", revision = 1)
+    public String toString() {
+        return "Overriden toString method";
     }
 
     @Deprecated

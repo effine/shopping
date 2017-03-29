@@ -19,6 +19,8 @@ import java.util.Map;
  */
 public class JsonUtils {
 
+    public static final JsonUtils jsonUtil = new JsonUtils();
+
     private JsonUtils() {
     }
 
@@ -60,8 +62,6 @@ public class JsonUtils {
     public static <T extends Serializable> List<T> parseArray(String jsonStr, Class<T> clazz) {
         return JSON.parseArray(jsonStr, clazz);
     }
-
-    public static final JsonUtils jsonUtil = new JsonUtils();
 
     /***
      * 把JSON文本parse为JSONObject或者JSONArray

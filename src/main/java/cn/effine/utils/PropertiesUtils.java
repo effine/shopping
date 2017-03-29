@@ -12,11 +12,6 @@ import java.util.Properties;
 public class PropertiesUtils {
 
     private static Logger logger = Logger.getLogger(PropertiesUtils.class);
-
-    private PropertiesUtils() {
-        // 构造方法私有化，外部不能实例化该类
-    }
-
     private static Properties confProperties;
 
     static {
@@ -29,6 +24,10 @@ public class PropertiesUtils {
         } catch (IOException e) {
             logger.error(e);
         }
+    }
+
+    private PropertiesUtils() {
+        // 构造方法私有化，外部不能实例化该类
     }
 
     /**
