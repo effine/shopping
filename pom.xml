@@ -191,24 +191,6 @@
             <version>${solr.version}</version>
         </dependency>
 
-
-        <!-- 临时 -->
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-queries</artifactId>
-            <version>4.7.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-memory</artifactId>
-            <version>4.7.2</version>
-        </dependency>
-
-
-
-
-
     </dependencies>
 
     <build>
