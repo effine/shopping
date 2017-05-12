@@ -45,7 +45,7 @@
     <field name="description" type="string" indexed="true" stored="true" multiValued="false"/>
     <field name="descriptionEN" type="string" indexed="true" stored="true" multiValued="false"/>
 
-    
+
 
   </fields>  
 
