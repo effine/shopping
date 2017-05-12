@@ -24,23 +24,6 @@ public class SolrJ {
         SolrServer solrServer = new HttpSolrServer(url);
 
 
-        SolrParams solrParams = new SolrParams() {
-            @Override
-            public String get(String param) {
-                return null;
-            }
-
-            @Override
-            public String[] getParams(String param) {
-                return new String[0];
-            }
-
-            @Override
-            public Iterator<String> getParameterNamesIterator() {
-                return null;
-            }
-        }
-
         // 清空索引
         //solrServer.deleteByQuery("*:*");
 
