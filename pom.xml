@@ -20,6 +20,7 @@
         <!-- jacoco -->
         <jacoco.version>0.7.0.201403182114</jacoco.version>
         <jacoco-maven-plugin>0.7.7.201606060606</jacoco-maven-plugin>
+        <solr.version>4.7.2</solr.version>
 
     </properties>
 
@@ -166,6 +167,48 @@
             <artifactId>ehcache</artifactId>
             <version>2.8.2</version>
         </dependency>
+
+
+        <!-- solr -->
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>${solr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queryparser</artifactId>
+            <version>${solr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>${solr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-analyzers-common</artifactId>
+            <version>${solr.version}</version>
+        </dependency>
+
+
+        <!-- 临时 -->
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-queries</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-memory</artifactId>
+            <version>4.7.2</version>
+        </dependency>
+
+
+
+
+
     </dependencies>
 
     <build>
