@@ -134,8 +134,7 @@ public class HttpRequestUtils {
         // 保持登录
         HttpClientParams.setCookiePolicy(httpClient.getParams(), CookiePolicy.BROWSER_COMPATIBILITY);
         String cookie = "";
-        if (null != cookie)
-            method.setHeader("cookie", cookie);
+        method.setHeader("cookie", cookie);
 
         // 传递参数Param
         List<NameValuePair> params = new ArrayList<>();
@@ -156,9 +155,7 @@ public class HttpRequestUtils {
         HttpResponse response = new HttpResponse();
         response.setCookie(httpResponse.getFirstHeader("set-Cookie").getValue());
         response.setHttpCode(httpResponse.getStatusLine().getStatusCode());
-        ;
         response.setResponse(JSONObject.parseObject(String.valueOf(httpResponse.getEntity())));
-        ;
         return response;
     }
 }
