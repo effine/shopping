@@ -33,7 +33,6 @@ public class SolrJ {
         solrInputDocument.setField("description", "描述");
         solrInputDocument.setField("descriptionEN", "description");
         solrServer.add(solrInputDocument);
-        solrServer.commit();
         System.out.println("向solr插入数据完成");
 
 
@@ -46,14 +45,13 @@ public class SolrJ {
         po.setDescriptionEN("desc");
 
         solrServer.addBean(po);
-        solrServer.commit();
         System.out.println("Bean方式插入数据完成");
-
-
 
         // 清空索引
         //solrServer.deleteByQuery("*:*");
 
+        // 提交修改
+        solrServer.commit();
 
     }
 }
