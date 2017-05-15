@@ -3,6 +3,7 @@ package cn.effine.lab.solr;
 import org.apache.solr.client.solrj.SolrServer;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
+import org.apache.solr.common.SolrInputDocument;
 
 import java.io.IOException;
 
@@ -22,6 +23,32 @@ public class SolrJ {
     public static void main(String[] args) throws IOException, SolrServerException {
 
         SolrServer solrServer = new HttpSolrServer(baseURL);
+
+        // 插入数据: 原生方式
+        System.out.println("向solr插入数据...");
+        SolrInputDocument solrInputDocument = new SolrInputDocument();
+        solrInputDocument.setField("id", 1);
+        solrInputDocument.setField("name", "张亚飞");
+        solrInputDocument.setField("nameEN", "effine");
+        solrInputDocument.setField("description", "描述");
+        solrInputDocument.setField("descriptionEN", "description");
+        solrServer.add(solrInputDocument);
+        solrServer.commit();
+        System.out.println("向solr插入数据完成");
+
+
+        // 插入数据：Bean方式
+        ProductPO po = new ProductPO();
+        po.setId(2);
+        po.setName("刘川");
+        po.setNameEN("chuan");
+        po.setDescription("描述");
+        po.setDescriptionEN("desc");
+
+        solrServer.addBean(po);
+        solrServer.commit();
+        System.out.println("Bean方式插入数据完成");
+
 
 
         // 清空索引

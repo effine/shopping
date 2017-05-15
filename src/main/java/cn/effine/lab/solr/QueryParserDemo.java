@@ -25,7 +25,7 @@ public class QueryParserDemo {
         String field = "title";
         QueryParser parser = new QueryParser(Version.LUCENE_47, field, new WhitespaceAnalyzer(Version.LUCENE_47));
 
-        // 查找同事包含Persist及Google的文档；修改field为"Persist AND Google"也可以实现
+        // 查找同时包含Persist及Google的文档；修改field为"Persist AND Google"也可以实现
         parser.setDefaultOperator(QueryParser.AND_OPERATOR);
         //parser.setDefaultOperator(QueryParser.Operator.AND);
 

@@ -21,9 +21,9 @@ import java.util.*;
 public class SearchJobs {
 
 
-    private static String solr_url = "http://localhost:8010/solr/testblog";
+    private static String solr_url = "http://localhost:8010/solr/product";
 
-    private static String url = "jdbc:sqlserver://192.168.2.106:1433;DatabaseName=JobsOtherweb51jobDB";
+    private static String url = "jdbc:mysql://192.168.2.106:1433;DatabaseName=JobsOtherweb51jobDB";
     private static String user = "sa";
     private static String password = "sa";
     private String Corenum;
@@ -49,6 +49,7 @@ public class SearchJobs {
     // 简单的查询，取出二十个
     public void querytop20() {
         solrServer = createSolrServer();
+
         System.out.println("简单查询取出前二十个");
         String dtStart = new SimpleDateFormat("yyyyMMddHHmmssSSS")
                 .format(new Date());
