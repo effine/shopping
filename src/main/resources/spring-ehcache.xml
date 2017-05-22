@@ -1,0 +1,10 @@
+<bean id="cacheManager"
+      class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+    <property name="configLocation">
+        <value>classpath:ehcache.xml</value>
+    </property>
+</bean>
+<bean id="recommendCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+<property name="cacheManager" ref="cacheManager"/>
+<property name="cacheName" value="recommendCache"/>
+</bean>

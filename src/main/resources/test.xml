@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<CQUPT>
+    <academy value="自动化学院">
+
+        <major value="自动化">
+            <classID id="0811201班">
+                <student imgUrl="http://effine.cn" name="张亚飞" sex="男" stuid="t001"/>
+                <student imgUrl="http://effine.cn" name="刘川" sex="女" stuid="t002"/>
+            </classID>
+
+            <classID id="0811202班">
+                <student imgUrl="http://effine.cn" name="安鹏兵" sex="男" stuid="t003"/>
+                <student imgUrl="http://effine.cn" name="吉鹏" sex="男" stuid="t004"/>
+            </classID>
+        </major>
+
+    </academy>
+</CQUPT>

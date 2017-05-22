@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<schema name="product" version="1.1">
+  <types> 
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>  
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>  
+    <fieldType name="int" class="solr.TrieIntField" precisionStep="0" positionIncrementGap="0"/>  
+    <fieldType name="float" class="solr.TrieFloatField" precisionStep="0" positionIncrementGap="0"/>  
+    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>  
+    <fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" positionIncrementGap="0"/>  
+    <fieldType name="date" class="solr.TrieDateField" precisionStep="0" positionIncrementGap="0"/>  
+
+    <fieldType name="tint" class="solr.TrieIntField" precisionStep="8" positionIncrementGap="0"/>
+    <fieldType name="tfloat" class="solr.TrieFloatField" precisionStep="8" positionIncrementGap="0"/>  
+    <fieldType name="tlong" class="solr.TrieLongField" precisionStep="8" positionIncrementGap="0"/>  
+    <fieldType name="tdouble" class="solr.TrieDoubleField" precisionStep="8" positionIncrementGap="0"/>  
+    <fieldType name="tdate" class="solr.TrieDateField" precisionStep="6" positionIncrementGap="0"/>  
+
+    <!--<fieldType name="pint" class="solr.IntField"/>-->
+    <!--<fieldType name="plong" class="solr.LongField"/>  -->
+    <!--<fieldType name="pfloat" class="solr.FloatField"/>  -->
+    <!--<fieldType name="pdouble" class="solr.DoubleField"/>  -->
+    <!--<fieldType name="pdate" class="solr.DateField" sortMissingLast="true"/> -->
+  </types>  
+
+  <fields> 
+
+    <!--
+        name：必填。该field的名字。前后都有下划线的name是系统保留的名字，比如“_version_”
+        type：必填。类型，对应于fieldType的name
+        default：该field的缺省值
+        indexed：true/false，是否为该field建立索引，以让用户可以搜索它、统计它（facet）
+        stored：true/false，定义这个field是否可以返回给查询者
+        multiValued：true/false，是否可以容纳多个值（比如多个copyField的dest指向它）。如果是true，则该field不能被排序、不能作为uniqueKey
+        required：true/false，告诉solr这个field是否接受空值，缺省为false
+        docValues：true/false，建立document-to-value索引，以提高某些特殊搜索的效率（排序、统计、高亮） 
+      -->
+
+    <!-- 保留字段 -->
+    <field name="_version_" type="long" indexed="true"  stored="true" multiValued="false" />
+
+    <field name="id" type="int" indexed="true" stored="true" multiValued="false"/>
+    <field name="name" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="nameEN" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="description" type="string" indexed="true" stored="true" multiValued="false"/>
+    <field name="descriptionEN" type="string" indexed="true" stored="true" multiValued="false"/>
+
+
+
+  </fields>  
+
+  <uniqueKey>id</uniqueKey>  
+
+  <defaultSearchField>id</defaultSearchField>  
+  
+  <solrQueryParser defaultOperator="OR"/> 
+</schema>
