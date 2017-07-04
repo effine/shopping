@@ -5,6 +5,7 @@
 
 package cn.effine.lab.jedis;
 
+import org.apache.log4j.Logger;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -12,19 +13,22 @@ import redis.clients.jedis.JedisShardInfo;
 
 public class TestJedis {
 
-    private static String extranetHost = "10.128.130.118";
+    private static String extranetHost = "127.0.0.1";
     private static int extranetPort = 6379;
+
+    static Logger logger = Logger.getLogger(TestJedis.class);
+
 
     // 测试
     @Deprecated
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         TestJedis test = new TestJedis();
-		System.out.println("----------开始调用jedis基本使用方法");
+        logger.info("----------开始调用jedis基本使用方法");
 		test.baseJedis();
-		System.out.println("----------开始调用jedis使用池方法");
+		logger.info("----------开始调用jedis使用池方法");
 		test.poolJedis();
-		System.out.println("----------全部方法调用完成");
-	}*/
+		logger.info("----------全部方法调用完成");
+	}
 
     public static Jedis getRedis() {
         JedisShardInfo info = new JedisShardInfo(extranetHost, extranetPort);
