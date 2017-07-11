@@ -7,6 +7,8 @@
 
 package cn.effine.contants;
 
+import java.io.UnsupportedEncodingException;
+
 /**
  * 页面常量管理
  */
@@ -16,5 +18,16 @@ public class PageConstants {
 
     private PageConstants() {
     }
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+
+        int i = 0;
+        for (i++; i++ < 10; i++) {
+            System.out.println(i);
+        }
+
+
+    }
+
 
 }

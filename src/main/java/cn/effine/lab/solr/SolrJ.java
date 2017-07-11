@@ -20,9 +20,7 @@ import java.util.Collection;
  */
 public class SolrJ {
 
-
     // 如果不指定Core的名称product，则默认为collection1
-    //  TODO 验证上面的注释内容
     private static String baseURL = "http://localhost:8010/solr/product";
     private static SolrServer solrServer = null;
 
@@ -32,19 +30,45 @@ public class SolrJ {
 
     public static void main(String[] args) throws IOException, SolrServerException {
 
-        // 插入数据: 原生方式
-        System.out.println("向solr插入数据...");
+        createForOrigin();
+
+        createForBean();
+
+        query();
+    }
+
+    /**
+     * 原生方式创建索引
+     */
+    public static void createForOrigin() throws IOException, SolrServerException {
+        System.out.println("原生方式向solr创建索引...");
         SolrInputDocument solrInputDocument = new SolrInputDocument();
         solrInputDocument.setField("id", 1);
         solrInputDocument.setField("name", "张亚飞");
         solrInputDocument.setField("nameEN", "effine");
         solrInputDocument.setField("description", "描述");
         solrInputDocument.setField("descriptionEN", "description");
+
         solrServer.add(solrInputDocument);
-        System.out.println("向solr插入数据完成");
 
+        SolrInputDocument solrInputDocument1 = new SolrInputDocument();
+        solrInputDocument1.setField("id", 3);
+        solrInputDocument1.setField("name", "张亚飞1");
+        solrInputDocument1.setField("nameEN", "effine");
+        solrInputDocument1.setField("description", "描述");
+        solrInputDocument1.setField("descriptionEN", "description");
 
-        // 插入数据：Bean方式
+        solrServer.add(solrInputDocument1);
+
+        solrServer.commit();
+        System.out.println("原生方式向solr创建索引完成");
+    }
+
+    /**
+     * Bean方式创建索引
+     */
+    public static void createForBean() throws IOException, SolrServerException {
+        System.out.println("Bean方式向solr创建索引...");
         ProductPO po = new ProductPO();
         po.setId(2);
         po.setName("刘川");
@@ -53,21 +77,18 @@ public class SolrJ {
         po.setDescriptionEN("desc");
 
         solrServer.addBean(po);
-        System.out.println("Bean方式插入数据完成");
-
-        // 清空索引
-        // solrServer.deleteByQuery("*:*");
-        // solrServer.deleteByQuery("name:刘川");
-
-        // 提交修改
         solrServer.commit();
-
-        // 查询
-        System.out.println("开始查询索引...");
-        query();
-
+        System.out.println("Bean方式创建索引据完成");
     }
 
+    /**
+     * 删除索引
+     */
+    public static void removeIndex() throws IOException, SolrServerException {
+        // solrServer.deleteByQuery("*:*");
+        solrServer.deleteByQuery("name:刘川");
+        solrServer.commit();
+    }
 
     /**
      * 查询所有索引
