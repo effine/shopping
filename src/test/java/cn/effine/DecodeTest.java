@@ -3,8 +3,10 @@ package cn.effine;
 import org.apache.http.client.utils.URLEncodedUtils;
 
 import java.io.UnsupportedEncodingException;
+import java.math.RoundingMode;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.text.DecimalFormat;
 
 /**
  * @author effine  Email: zhangyafei#co-mall.com
@@ -16,11 +18,11 @@ public class DecodeTest {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-        java.lang.String t = "牛奶,苹果";
-        java.lang.String t1 = ",";
 
-        System.out.println(URLEncoder.encode(t, "GBK"));
-        System.out.println(URLEncoder.encode(t1, "GBK"));
-        System.out.println(URLDecoder.decode("%C5%A3%C4%CC", "GBK"));
+        System.out.println(URLEncoder.encode("土", "GBK"));
+        System.out.println(URLDecoder.decode("%253A97%25E7%2589%258C%26fq%3D", "UTF-8"));
+
+
+
     }
 }
