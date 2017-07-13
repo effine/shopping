@@ -1,0 +1,6 @@
+
+# 项目配置
+server:
+  port: 8080
+  context-path: /
+
