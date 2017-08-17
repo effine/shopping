@@ -2,12 +2,6 @@ package cn.effine.lab.solr;
 
 import org.apache.solr.client.solrj.beans.Field;
 
-/**
- * @author effine  Email: zhangyafei#co-mall.com
- * @version 3.2.1
- * @company 北京科码先锋软件技术有限公司@版权所有
- * @since 2017-05-15 17:28
- */
 public class ProductPO {
 
     @Field

@@ -6,12 +6,6 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
 
-/**
- * @author effine  Email: zhangyafei#co-mall.com
- * @version 3.2.1
- * @company 北京科码先锋软件技术有限公司@版权所有
- * @since 2017-06-20 11:48
- */
 public class FileTest {
 
     public static void main(String[] args) throws IOException {
