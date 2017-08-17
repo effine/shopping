@@ -547,10 +547,7 @@
       <str name="echoHandler">true</str>
     </lst>
   </requestHandler>
-  <!--
-  <requestHandler name="/token" class="com.comall.solr.handler.StringAnalysisHandler" />
-  -->
-  <!-- Solr Replication The SolrReplicationHandler supports replicating indexes 
+  <!-- Solr Replication The SolrReplicationHandler supports replicating indexes
     from a "master" used for indexing and "slaves" used for queries. http://wiki.apache.org/solr/SolrReplication 
     It is also neccessary for SolrCloud to function (in Cloud mode, the replication 
     handler is used to bulk transfer segments when nodes are added or need to 

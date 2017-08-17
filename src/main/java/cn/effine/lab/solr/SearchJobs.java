@@ -12,12 +12,6 @@ import org.apache.solr.common.params.GroupParams;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-/**
- * @author effine  Email: zhangyafei#co-mall.com
- * @version 3.2.1
- * @company 北京科码先锋软件技术有限公司@版权所有
- * @since 2017-05-12 14:55
- */
 public class SearchJobs {
 
 

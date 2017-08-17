@@ -12,12 +12,6 @@ import org.apache.lucene.util.Version;
 import java.io.IOException;
 import java.io.StringReader;
 
-/**
- * @author effine  Email: zhangyafei#co-mall.com
- * @version 3.2.1
- * @company 北京科码先锋软件技术有限公司@版权所有
- * @since 2017-05-10 14:53
- */
 public class QueryParserDemo {
 
     public static void main(String[] args) throws ParseException, IOException {

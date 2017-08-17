@@ -11,12 +11,6 @@ import org.testng.annotations.Test;
 
 import java.util.Collection;
 
-/**
- * @author effine  Email: zhangyafei#co-mall.com
- * @version 3.2.1
- * @company 北京科码先锋软件技术有限公司@版权所有
- * @since 2017-05-16 17:19
- */
 public class SolrJTest {
 
     private static String baseURL = "http://localhost:8010/solr/\n";
