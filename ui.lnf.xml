@@ -1,8 +1,0 @@
-<application>
-  <component name="DependencyUISettings">
-    <option name="UI_FLATTEN_PACKAGES" value="false" />
-  </component>
-  <component name="UISettings">
-    <option name="HIDE_TOOL_STRIPES" value="false" />
-  </component>
-</application>
