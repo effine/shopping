@@ -1,4 +1,4 @@
-package cn.effine.utils.tencent;
+package cn.effine.lab.nlp.tencent;
 
 import org.apache.commons.lang.StringUtils;
 import sun.misc.BASE64Encoder;
@@ -20,7 +20,7 @@ public class GenerateSignatureUtils {
      * @param param 要排序的Map对象
      * @return
      */
-    public static String formatUrlMap(Map<String, Object> param) {
+    public static String sortParam(Map<String, Object> param) {
 
         try {
             List<Map.Entry<String, Object>> infoIds = new ArrayList<Map.Entry<String, Object>>(param.entrySet());
@@ -68,24 +68,26 @@ public class GenerateSignatureUtils {
         String SecretId = "AKID555wjYkgcQWhu3luDLNFF3fAwnknQT6a";
         String SecretKey = "66xeBcyX2OZW4UTexFrdMyedT9iLpBgE";
 
-        //字典序列排序
+        // 字典序列排序
         Map<String, Object> paramsMap = new HashMap<>();
         paramsMap.put("Action", "LexicalAnalysis");
         paramsMap.put("SecretId", SecretId);
         long currentTime = System.currentTimeMillis();
-        paramsMap.put("Timestamp", currentTime);
+        paramsMap.put("Timestamp", "1504104808809");
         System.out.println("> 当前时间毫秒数：" + currentTime);
 
         paramsMap.put("Nonce", 345122);
         paramsMap.put("Region", "gz");
 
         paramsMap.put("text", "我爱洗澡");
-        String param = formatUrlMap(paramsMap);
+        paramsMap.put("code", 2097152);
+
+        String param = sortParam(paramsMap);
         System.out.println("> 请求字符串：" + param);
 
         // 2.3. 拼接签名原文字符串 (请求方法 + 请求主机 +请求路径 + ? + 请求字符串)
         String method = "GET";
-        String host = "wenzhi.api.qcloud.com";
+        String host = "cvm.api.qcloud.com";
         String path = "/v2/index.php";
 
         StringBuilder sourceStr = new StringBuilder();
@@ -97,11 +99,11 @@ public class GenerateSignatureUtils {
 
 
         // 2.4. 生成签名串
-        String signStr = HmacSHA1Encryption.HmacSHA1Encrypt(sourceStr.toString(), SecretKey);
+        String signStr = HmacSHA1Encryption.HmacSHA1Encrypt(URLEncoder.encode(sourceStr.toString(), "utf-8"), SecretKey);
         System.out.println("> 生产的签名串：" + signStr);
 
         // 使用 Base64 进行编码
-        signStr = new BASE64Encoder().encode(signStr.getBytes());
+        signStr = new BASE64Encoder().encode(signStr.getBytes("utf-8"));
         System.out.println("> 生产的签名串使用 Base64 编码：" + signStr);
 
 

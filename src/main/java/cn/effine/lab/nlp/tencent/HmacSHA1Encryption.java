@@ -1,4 +1,4 @@
-package cn.effine.utils.tencent;
+package cn.effine.lab.nlp.tencent;
 
 
 import sun.misc.BASE64Encoder;
@@ -81,8 +81,10 @@ public class HmacSHA1Encryption {
         String secretKey = "Gu5t9xGARNpq86cd98joQYCN3Cozk1qA";
         String srcStr = "GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0";
         String targetStr = HmacSHA1Encrypt(srcStr, secretKey);
-        System.out.println(new BASE64Encoder().encode(targetStr.getBytes()));
+        System.out.println(new BASE64Encoder().encode(targetStr.getBytes(ENCODING)));
 
+        // NSI3UqqD99b/UJb4tbG/xZpRW64=
     }
+
 
 }
