@@ -1,6 +1,5 @@
 package cn.effine.lab.nlp.tencent;
 
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -10,8 +9,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import sun.misc.BASE64Encoder;
 
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.*;
@@ -24,6 +21,124 @@ import java.util.regex.Pattern;
  * @author effine  Email: iballader#gmail.com
  */
 public class GenerateSignatureUtils {
+
+
+    public static void main(String[] args) throws Exception {
+
+        // 文档：https://www.qcloud.com/document/product/271/2053
+        // 腾讯提供的调试接口：http://182.254.136.27/yunapi/tools/
+
+
+        // 2.2. 拼接请求字符串 (TODO 需要去腾讯云查看SecretId、SecretKey添加此处)
+        // 密钥生成：https://console.qcloud.com/capi
+        String SecretId = "";
+        String SecretKey = "";
+
+        // 字典序列排序
+        Map<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("Action", "TextDependency");
+        paramsMap.put("Region", "bj");
+
+        String current = String.valueOf(System.currentTimeMillis());
+        paramsMap.put("Timestamp", current.substring(0, current.length() - 3));
+        paramsMap.put("Nonce", new Random().nextInt(99999999));
+        paramsMap.put("SecretId", SecretId);
+
+        paramsMap.put("content", "【自营】JASON捷森五种水果麦片1000g（德国进口 袋）");
+
+        String param = sortParam(paramsMap);
+        System.out.println("> 请求字符串：" + param);
+
+        // 2.3. 拼接签名原文字符串 (请求方法 + 请求主机 +请求路径 + ? + 请求字符串)
+        String method = "GET";
+        String host = "wenzhi.api.qcloud.com";
+        String path = "/v2/index.php?";
+
+        StringBuilder sourceStr = new StringBuilder();
+        sourceStr.append(method);
+        sourceStr.append(host);
+        sourceStr.append(path);
+
+        // 2.4. 生成签名串
+        String signStr = HmacSHA1Encryption.HmacSHA1Encrypt(sourceStr.toString(), SecretKey);
+        System.out.println("> 生产的签名串：" + signStr);
+
+        // 使用 Base64 进行编码
+        signStr = new BASE64Encoder().encode(signStr.getBytes("utf-8"));
+        System.out.println("> 生产的签名串使用 Base64 编码：" + signStr);
+
+        System.out.println("\n\n\n\n");
+
+        // 构建 http 请求的url
+        StringBuilder urlBuilder = new StringBuilder();
+        urlBuilder.append("https://");
+        urlBuilder.append(host);
+        urlBuilder.append(path);
+        for (Map.Entry<String, Object> entry : paramsMap.entrySet()) {
+            String key = entry.getKey();
+//            Object value = URLEncoder.encode(String.valueOf(paramsMap.get(key)), "utf-8");
+            Object value = paramsMap.get(key);
+            urlBuilder.append(key);
+            urlBuilder.append("=");
+            urlBuilder.append(value);
+            urlBuilder.append("&");
+        }
+        urlBuilder.append("Signature=");
+//        urlBuilder.append(URLEncoder.encode(signStr, "utf-8"));
+        urlBuilder.append(signStr);
+
+        String url = urlBuilder.toString();
+        System.out.println("\n\n 请求URL: " + url + "\n\n");
+        // 发起 http 请求
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        HttpGet httpGet = new HttpGet(url);
+        CloseableHttpResponse response = httpClient.execute(httpGet);
+        HttpEntity entity = response.getEntity();
+
+
+        System.out.println("\n\n\n响应内容：" + unicodeToChina(EntityUtils.toString(entity)));
+        System.out.println("\n\n\n");
+
+        httpClient.close();
+        response.close();
+    }
+
+
+    /**
+     * Unicode 转为汉字
+     *
+     * @param str
+     * @return
+     */
+    public static String unicodeToChina(String str) {
+        Charset set = Charset.forName("UTF-16");
+        Pattern p = Pattern.compile("\\\\u([0-9a-fA-F]{4})");
+        Matcher m = p.matcher(str);
+        int start = 0;
+        int start2 = 0;
+        StringBuffer sb = new StringBuffer();
+        while (m.find(start)) {
+            start2 = m.start();
+            if (start2 > start) {
+                String seg = str.substring(start, start2);
+                sb.append(seg);
+            }
+            String code = m.group(1);
+            int i = Integer.valueOf(code, 16);
+            byte[] bb = new byte[4];
+            bb[0] = (byte) ((i >> 8) & 0xFF);
+            bb[1] = (byte) (i & 0xFF);
+            ByteBuffer b = ByteBuffer.wrap(bb);
+            sb.append(String.valueOf(set.decode(b)).trim());
+            start = m.end();
+        }
+        start2 = str.length();
+        if (start2 > start) {
+            String seg = str.substring(start, start2);
+            sb.append(seg);
+        }
+        return sb.toString();
+    }
 
 
     /**
@@ -67,113 +182,5 @@ public class GenerateSignatureUtils {
         } catch (Exception e) {
             return null;
         }
-    }
-
-
-    public static void main(String[] args) throws Exception {
-
-        // 文档：https://www.qcloud.com/document/product/271/2053
-
-        StringBuilder resultStr = new StringBuilder();
-
-        // 2.2. 拼接请求字符串
-        String SecretId = "AKID555wjYkgcQWhu3luDLNFF3fAwnknQT6a";
-        String SecretKey = "66xeBcyX2OZW4UTexFrdMyedT9iLpBgE";
-
-        // 字典序列排序
-        Map<String, Object> paramsMap = new HashMap<>();
-        paramsMap.put("Action", "TextSentiment");
-        paramsMap.put("SecretId", SecretId);
-        paramsMap.put("Timestamp", System.currentTimeMillis());
-        paramsMap.put("Nonce", new Random().nextInt(10000));
-        paramsMap.put("Region", "gz");
-
-        paramsMap.put("content", "双万兆服务器就是好，只是内存小点");
-
-        String param = sortParam(paramsMap);
-        System.out.println("> 请求字符串：" + param);
-
-        // 2.3. 拼接签名原文字符串 (请求方法 + 请求主机 +请求路径 + ? + 请求字符串)
-        String method = "GET";
-        String host = "https://wenzhi.api.qcloud.com";
-        String path = "/v2/index.php";
-
-        StringBuilder sourceStr = new StringBuilder();
-        sourceStr.append(method);
-        sourceStr.append(host);
-        sourceStr.append(path);
-        sourceStr.append("?");
-        sourceStr.append(param);
-
-
-        // 2.4. 生成签名串
-        String signStr = HmacSHA1Encryption.HmacSHA1Encrypt(sourceStr.toString(), SecretKey);
-        System.out.println("> 生产的签名串：" + signStr);
-
-        // 使用 Base64 进行编码
-        signStr = new BASE64Encoder().encode(signStr.getBytes("utf-8"));
-        System.out.println("> 生产的签名串使用 Base64 编码：" + signStr);
-
-
-        // 使用 URL 进行编码
-        signStr = URLEncoder.encode(signStr, "utf-8");
-        System.out.println("> URL 编码：" + signStr);
-
-        sourceStr.append("&Signature=");
-        sourceStr.append(signStr);
-
-        String urlAndParam = sourceStr.toString().replace(method, "");
-        System.out.println("最终请求方法URL: " + urlAndParam);
-
-        CloseableHttpClient httpClient = HttpClients.createDefault();
-        HttpGet httpGet = new HttpGet(urlAndParam);
-        CloseableHttpResponse response = httpClient.execute(httpGet);
-        HttpEntity entity = response.getEntity();
-
-
-        System.out.println("\n\n\n响应内容：" + unicodeToChina(EntityUtils.toString(entity)));
-        System.out.println("\n\n\n");
-
-        httpClient.close();
-        response.close();
-
-
-    }
-
-
-    /**
-     * Unicode 转为汉字
-     *
-     * @param str
-     * @return
-     */
-    public static String unicodeToChina(String str) {
-        Charset set = Charset.forName("UTF-16");
-        Pattern p = Pattern.compile("\\\\u([0-9a-fA-F]{4})");
-        Matcher m = p.matcher(str);
-        int start = 0;
-        int start2 = 0;
-        StringBuffer sb = new StringBuffer();
-        while (m.find(start)) {
-            start2 = m.start();
-            if (start2 > start) {
-                String seg = str.substring(start, start2);
-                sb.append(seg);
-            }
-            String code = m.group(1);
-            int i = Integer.valueOf(code, 16);
-            byte[] bb = new byte[4];
-            bb[0] = (byte) ((i >> 8) & 0xFF);
-            bb[1] = (byte) (i & 0xFF);
-            ByteBuffer b = ByteBuffer.wrap(bb);
-            sb.append(String.valueOf(set.decode(b)).trim());
-            start = m.end();
-        }
-        start2 = str.length();
-        if (start2 > start) {
-            String seg = str.substring(start, start2);
-            sb.append(seg);
-        }
-        return sb.toString();
     }
 }

@@ -20,8 +20,7 @@ public class HmacSHA1Encryption {
      * @return 返回被加密后的字符串
      * @throws Exception
      */
-    public static String HmacSHA1Encrypt(String encryptText,
-                                         String encryptKey) throws Exception {
+    public static String HmacSHA1Encrypt(String encryptText, String encryptKey) throws Exception {
         byte[] data = encryptKey.getBytes(ENCODING);
         // 根据给定的字节数组构造一个密钥,第二参数指定一个密钥算法的名称
         SecretKey secretKey = new SecretKeySpec(data, MAC_NAME);
