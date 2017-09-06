@@ -1,6 +1,7 @@
 package cn.effine.lab.nlp.tencent;
 
 
+import org.apache.commons.codec.binary.Hex;
 import sun.misc.BASE64Encoder;
 
 import javax.crypto.Mac;
@@ -31,8 +32,10 @@ public class HmacSHA1Encryption {
         byte[] text = encryptText.getBytes(ENCODING);
         // 完成 Mac 操作
         byte[] digest = mac.doFinal(text);
-        StringBuilder sBuilder = bytesToHexString(digest);
-        return sBuilder.toString();
+
+        return new BASE64Encoder().encode(byte2hex(digest).getBytes(ENCODING));
+        // StringBuilder sBuilder = bytesToHexString(digest);
+        //return sBuilder.toString();
     }
 
     /**
@@ -50,6 +53,18 @@ public class HmacSHA1Encryption {
             sBuilder.append(hv);
         }
         return sBuilder;
+    }
+
+
+    private static String byte2hex(final byte[] b) {
+        String hs = "";
+        String stmp = "";
+        for (int n = 0; n < b.length; n++) {
+            stmp = (java.lang.Integer.toHexString(b[n] & 0xFF));
+            if (stmp.length() == 1) hs = hs + "0" + stmp;
+            else hs = hs + stmp;
+        }
+        return hs;
     }
 
     /**
@@ -77,13 +92,35 @@ public class HmacSHA1Encryption {
 
     public static void main(String[] args) throws Exception {
 
-        String secretKey = "Gu5t9xGARNpq86cd98joQYCN3Cozk1qA";
-        String srcStr = "GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0";
-        String targetStr = HmacSHA1Encrypt(srcStr, secretKey);
-        System.out.println(new BASE64Encoder().encode(targetStr.getBytes(ENCODING)));
+        String secretKey1 = "41pRkz3Um02SnxBKWWsLeoqIqRxHPNCw";
+        String srcStr = "GETwenzhi.api.qcloud.com/v2/index.php?Action=TextDependency&Nonce=46108672&Region=bj&SecretId=AKID9A3HOLgi8sZ4MSpfFqGUVKyb7jATrw69&Timestamp=1504187073&content=JASON捷森五种水果麦片";
 
-        // NSI3UqqD99b/UJb4tbG/xZpRW64=
+        byte[] data = secretKey1.getBytes();
+        // 根据给定的字节数组构造一个密钥,第二参数指定一个密钥算法的名称
+        SecretKey secretKey = new SecretKeySpec(data, MAC_NAME);
+
+        // 生成一个指定 Mac 算法 的 Mac 对象
+        Mac mac = Mac.getInstance(MAC_NAME);
+
+        // 用给定密钥初始化 Mac 对象
+        mac.init(secretKey);
+        byte[] text = srcStr.getBytes();
+        // 完成 Mac 操作
+        byte[] digest = mac.doFinal(text);
+        for (byte b : digest) {
+            System.out.format("%02x", b);
+        }
+
+//        byte[] hex = new Hex().encode(digest);
+
+        String str = new String(digest);
+
+        System.out.println();
+        System.out.println(new BASE64Encoder().encode(str.getBytes()));
+
+        System.out.println(new BASE64Encoder().encode("d4ffb02fa9cdc8d73beb0c9f22959b12d0417dd2".getBytes()));
+
+        // 1P+wL6nNyNc76wyfIpWbEtBBfdI=
     }
-
 
 }

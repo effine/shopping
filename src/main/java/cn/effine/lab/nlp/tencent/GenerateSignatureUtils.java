@@ -9,6 +9,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import sun.misc.BASE64Encoder;
 
+import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.*;
@@ -29,10 +30,10 @@ public class GenerateSignatureUtils {
         // 腾讯提供的调试接口：http://182.254.136.27/yunapi/tools/
 
 
-        // 2.2. 拼接请求字符串 (TODO 需要去腾讯云查看SecretId、SecretKey添加此处)
+        // 2.2. 拼接请求字符串 (需要去腾讯云查看SecretId、SecretKey添加此处)
         // 密钥生成：https://console.qcloud.com/capi
-        String SecretId = "";
-        String SecretKey = "";
+        String SecretId = "AKID9A3HOLgi8sZ4MSpfFqGUVKyb7jATrw69";
+        String SecretKey = "41pRkz3Um02SnxBKWWsLeoqIqRxHPNCw";
 
         // 字典序列排序
         Map<String, Object> paramsMap = new HashMap<>();
@@ -44,7 +45,7 @@ public class GenerateSignatureUtils {
         paramsMap.put("Nonce", new Random().nextInt(99999999));
         paramsMap.put("SecretId", SecretId);
 
-        paramsMap.put("content", "【自营】JASON捷森五种水果麦片1000g（德国进口 袋）");
+        paramsMap.put("content", "JASON捷森五种水果麦片");
 
         String param = sortParam(paramsMap);
         System.out.println("> 请求字符串：" + param);
@@ -76,16 +77,16 @@ public class GenerateSignatureUtils {
         urlBuilder.append(path);
         for (Map.Entry<String, Object> entry : paramsMap.entrySet()) {
             String key = entry.getKey();
-//            Object value = URLEncoder.encode(String.valueOf(paramsMap.get(key)), "utf-8");
-            Object value = paramsMap.get(key);
+            Object value = URLEncoder.encode(String.valueOf(paramsMap.get(key)), "utf-8");
+//            Object value = paramsMap.get(key);
             urlBuilder.append(key);
             urlBuilder.append("=");
             urlBuilder.append(value);
             urlBuilder.append("&");
         }
         urlBuilder.append("Signature=");
-//        urlBuilder.append(URLEncoder.encode(signStr, "utf-8"));
-        urlBuilder.append(signStr);
+        urlBuilder.append(URLEncoder.encode(signStr, "utf-8"));
+//        urlBuilder.append(signStr);
 
         String url = urlBuilder.toString();
         System.out.println("\n\n 请求URL: " + url + "\n\n");
