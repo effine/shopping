@@ -35,4 +35,5 @@ public class ForwardController {
     public String forwardPage(@PathVariable String mapping) {
         return mapping;
     }
+
 }
