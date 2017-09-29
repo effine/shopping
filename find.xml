@@ -17,12 +17,12 @@
       <mask>*。</mask>
       <mask>*</mask>
       <mask>*.jps</mask>
-      <mask>*.jp</mask>
+      <mask>*.ja</mask>
+      <mask>*.java</mask>
       <mask>*.</mask>
       <mask>*.x</mask>
       <mask>*.xml</mask>
-      <mask>*.ja</mask>
-      <mask>*.java</mask>
+      <mask>*.jp</mask>
       <mask>*.j</mask>
       <mask>*.js</mask>
       <mask>*.jsp</mask>
