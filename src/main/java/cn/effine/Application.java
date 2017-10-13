@@ -1,7 +1,8 @@
-package cn.effine.lab.springBoot;
+package cn.effine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Component;
 
 /**
  * @author effine
@@ -10,10 +11,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @site http://www.effine.cn
  * @sine 0.1
  */
+//@Configuration
+//@EnableAutoConfiguration
+//@ComponentScan(value = "cn.effine")
 @SpringBootApplication
-public class MainClass {
+@Component
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(MainClass.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
