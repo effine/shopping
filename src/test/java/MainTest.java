@@ -3,7 +3,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
 
-public class MainTest {
+public class    MainTest {
 
     public static void main(String[] args) throws ParseException {
 
