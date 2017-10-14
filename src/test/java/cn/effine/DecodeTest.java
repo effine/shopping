@@ -15,20 +15,7 @@ public class DecodeTest {
     public static void main(String[] args) throws UnsupportedEncodingException {
 
 
-        System.out.println(URLEncoder.encode("土", "GBK"));
-        System.out.println(URLDecoder.decode("*%3A*", "UTF-8"));
-
-        String str = "90,12";
-
-        String regex = "[A-Za-z0-9,\\u4e00-\\u9fa5]+$";
-
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(str);
-        if (m.find()) {
-            System.out.println(true);
-        }else
-            System.out.println(false);
-
+        System.out.println("你说的是");
 
 
     }

@@ -1,4 +1,4 @@
-package cn.effine.lab.design.dynamic.cglib;
+package cn.effine.lab.designPattern.dynamicProxy.cglib;
 
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
