@@ -36,12 +36,14 @@ public class ImgFontByte {
      * @return
      */
     private byte[] hex2byte(String font) {
-        if (font == null)
+        if (font == null) {
             return new byte[0];
+        }
         String str = font.trim();
         int len = str.length();
-        if (len == 0 || len % 2 == 1)
+        if (len == 0 || len % 2 == 1) {
             return new byte[0];
+        }
 
         byte[] b = new byte[len / 2];
         try {

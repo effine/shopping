@@ -70,9 +70,12 @@ public class ImagesUtils {
 
     // TODO 阿里simpleimage无法使用
     public static void aliCompressImg() {
-        File in = new File("d:/test/mac.jpg");      //原图片
-        File out = new File("d:/test/mac1.jpg");       //目的图片
-        ScaleParameter scaleParam = new ScaleParameter(211, 400);  //将图像缩略到1024x1024以内，不足1024x1024则不做任何处理
+        //原图片
+        File in = new File("d:/test/mac.jpg");
+        //目的图片
+        File out = new File("d:/test/mac1.jpg");
+        //将图像缩略到1024x1024以内，不足1024x1024则不做任何处理
+        ScaleParameter scaleParam = new ScaleParameter(211, 400);
 
         FileInputStream inStream = null;
         FileOutputStream outStream = null;
@@ -84,11 +87,12 @@ public class ImagesUtils {
             ImageRender sr = new ScaleRender(rr, scaleParam);
             wr = new WriteRender(sr, outStream);
 
-            wr.render();                            //触发图像处理
+            //触发图像处理
+            wr.render();
         } catch (Exception e) {
             logger.error(e);
         } finally {
-            IOUtils.closeQuietly(inStream);         //图片文件输入输出流必须记得关闭
+            IOUtils.closeQuietly(inStream);
             IOUtils.closeQuietly(outStream);
             if (wr != null) {
                 try {
@@ -116,9 +120,9 @@ public class ImagesUtils {
             ImageWriter imgWrier = ImageIO.getImageWritersByFormatName(suffix).next();
             ImageWriteParam imgWriteParams = new JPEGImageWriteParam(null);
             // 要使用压缩，必须指定压缩方式为MODE_EXPLICIT
-            imgWriteParams.setCompressionMode(imgWriteParams.MODE_EXPLICIT);
+            imgWriteParams.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
             imgWriteParams.setCompressionQuality((float) quality);
-            imgWriteParams.setProgressiveMode(imgWriteParams.MODE_DISABLED);
+            imgWriteParams.setProgressiveMode(ImageWriteParam.MODE_DISABLED);
             ColorModel colorModel = ColorModel.getRGBdefault();
             // 指定压缩时使用的色彩模式
             imgWriteParams.setDestinationType(new ImageTypeSpecifier(colorModel, colorModel.createCompatibleSampleModel(16, 16)));

@@ -9,6 +9,11 @@ import java.io.File;
 
 /**
  * 删除空文件夹工具类
+ *
+ * @author effine
+ * @Date 2017-10-15 20:37
+ * @email iballader#gmail.com
+ * @site http://www.effine.cn
  */
 public class DelEmptyFolder {
 

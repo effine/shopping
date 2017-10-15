@@ -111,7 +111,7 @@ public class Token {
             }
             previousTime = currentTime;
             byte[] now = String.valueOf(currentTime).getBytes();
-            MessageDigest md = MessageDigest.getInstance("MD5");
+            MessageDigest md = MessageDigest.getInstance("md5");
             md.update(id);
             md.update(now);
             return toHex(md.digest());
@@ -144,8 +144,9 @@ public class Token {
      */
     public synchronized String getToken(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        if (null == session)
+        if (null == session) {
             return null;
+        }
 
         String token = (String) session.getAttribute(TOKEN_KEY);
 
@@ -155,10 +156,12 @@ public class Token {
             if (token != null) {
                 session.setAttribute(TOKEN_KEY, token);
                 return token;
-            } else
+            } else {
                 return null;
-        } else
+            }
+        } else {
             return token;
+        }
     }
 }
 

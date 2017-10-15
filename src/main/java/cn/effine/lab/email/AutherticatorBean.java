@@ -34,6 +34,7 @@ public class AutherticatorBean extends Authenticator {
         this.passwd = passwd;
     }
 
+    @Override
     public PasswordAuthentication getPasswordAuthentication() {
         return new PasswordAuthentication(username, passwd);
     }

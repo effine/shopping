@@ -40,10 +40,11 @@ public class RepeatSubmitServlet extends HttpServlet {
             out = resp.getWriter();
             Token token = Token.getInstance();
             if (token.isTokenValid(req)) {
-                if (count % 2 == 1)
+                if (count % 2 == 1) {
                     count = 0;
-                else
+                } else {
                     count++;
+                }
                 logger.info("测试：" + count);
                 out.println("success");
 

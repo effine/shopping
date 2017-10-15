@@ -19,8 +19,6 @@ import java.util.Map;
  */
 public class JsonUtils {
 
-    public static final JsonUtils jsonUtil = new JsonUtils();
-
     private JsonUtils() {
     }
 
@@ -34,7 +32,7 @@ public class JsonUtils {
     }
 
     /**
-     * @param obj List对象
+     * @param list List对象
      * @return String
      * @desc List转换成json(空值返回"")
      */
@@ -44,7 +42,7 @@ public class JsonUtils {
     }
 
     /**
-     * @param obj Map对象
+     * @param map Map对象
      * @return String
      * @desc Map转换成json(空值返回"")
      */
@@ -116,7 +114,7 @@ public class JsonUtils {
     /***
      * 将JavaBean序列化为JSON文本
      *
-     * @param text
+     * @param object
      * @return
      */
     public String objectToJson(Object object) {
@@ -126,7 +124,8 @@ public class JsonUtils {
     /***
      * 将JavaBean序列化为带格式的JSON文本
      *
-     * @param text
+     * @param object
+     * @param prettyFormat
      * @return
      */
     public String modelToFMTJson(Object object, boolean prettyFormat) {
@@ -136,7 +135,7 @@ public class JsonUtils {
     /***
      * 把将JavaBean转换为JSONObject或者JSONArray。
      *
-     * @param text
+     * @param javaObject
      * @return
      */
     public Object modelToObject(Object javaObject) {

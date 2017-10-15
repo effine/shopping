@@ -15,11 +15,16 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * 加密工具类
+ *
+ * @author effine
+ * @Date 2017-10-15 20:37
+ * @email iballader#gmail.com
+ * @site http://www.effine.cn
  */
 public class EncryptUtils {
 
     // 全局数组
-    private static final String[] strDigits = {"0", "1", "2", "3", "4", "5",
+    private static final String[] DIGITS = {"0", "1", "2", "3", "4", "5",
             "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
     private static Logger logger = Logger.getLogger(EncryptUtils.class);
 
@@ -34,15 +39,14 @@ public class EncryptUtils {
      * @return 加密完成字符串
      */
     public static String encryptString(String source, AlgorithmEnum algorithm) {
-        if (StringUtils.isNotBlank(source)) {
-            switch (algorithm) {
-                case MD5:
-                    encryptMD5(source);
-                case BCRYPT:
-                    return BCrypt.hashpw(source, BCrypt.gensalt());
-            }
+        switch (algorithm) {
+            case MD5:
+                return encryptMD5(source);
+            case BCRYPT:
+                return BCrypt.hashpw(source, BCrypt.gensalt());
+            default:
+                return null;
         }
-        return null;
     }
 
     /**
@@ -54,15 +58,14 @@ public class EncryptUtils {
      * @return 加密完成字符串
      */
     public static String encryptString(String source, String salt, AlgorithmEnum algorithm) {
-        if (StringUtils.isNotBlank(source)) {
-            switch (algorithm) {
-                case MD5:
-                    encryptMD5(source, salt);
-                case BCRYPT:
-                    return BCrypt.hashpw(source, salt);
-            }
+        switch (algorithm) {
+            case MD5:
+                return encryptMD5(source, salt);
+            case BCRYPT:
+                return BCrypt.hashpw(source, salt);
+            default:
+                return null;
         }
-        return null;
     }
 
     /**
@@ -85,8 +88,8 @@ public class EncryptUtils {
                 byte[] digest = md.digest(byteArr);
                 StringBuilder stringBuilder = new StringBuilder();
                 for (int i = 0; i < digest.length; i++) {
-                    stringBuilder.append(strDigits[(digest[i] & 0xf0) >>> 4]);
-                    stringBuilder.append(strDigits[digest[i] & 0x0f]);
+                    stringBuilder.append(DIGITS[(digest[i] & 0xf0) >>> 4]);
+                    stringBuilder.append(DIGITS[digest[i] & 0x0f]);
                 }
                 return stringBuilder.toString();
             }

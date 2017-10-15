@@ -17,8 +17,9 @@ public class EhcacheLab {
         Ehcache ehcache = (Ehcache) context.getBean("recommendCache");
         ehcache.put(new Element("testkey", "HelloWorld"));
         Element element = ehcache.get("testkey");
-        if (element != null)
+        if (element != null) {
             System.out.println("value:" + element.getObjectValue());
+        }
         System.exit(0);
     }
 }

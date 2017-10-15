@@ -13,6 +13,7 @@ import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.Multipart;
 import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.*;
 import java.util.Date;
 import java.util.Map;
@@ -32,16 +33,16 @@ public class MailUtils {
      * 发送邮件方法
      *
      * @param title          邮件标题
-     * @param sender_email   发件人
-     * @param received_email 收件人
+     * @param senderEmail   发件人
+     * @param receivedEmail 收件人
      * @param content        邮件内容
      * @param annex          邮件附件
      * @param mimeType       mimeType
      * @throws Exception 异常信息
      */
     @SuppressWarnings({"static-access"})
-    public static void sendmail(String title, String sender_email,
-                                String[] received_email, String content, Map<String, String> annex,
+    public static void sendmail(String title, String senderEmail,
+                                String[] receivedEmail, String content, Map<String, String> annex,
                                 String mimeType) throws Exception {
 
         Properties props = new Properties();
@@ -64,14 +65,14 @@ public class MailUtils {
         javax.mail.Transport transport = mailSession.getTransport("smtp");
         // 设置from、to等信息
         MimeMessage mimeMsg = new javax.mail.internet.MimeMessage(mailSession);
-        if (!StringUtils.isEmpty(sender_email)) {
-            InternetAddress sentFrom = new InternetAddress(sender_email);
+        if (!StringUtils.isEmpty(senderEmail)) {
+            InternetAddress sentFrom = new InternetAddress(senderEmail);
             mimeMsg.setFrom(sentFrom); // 设置发送人地址
         }
 
-        InternetAddress[] sendTo = new InternetAddress[received_email.length];
-        for (int i = 0; i < received_email.length; i++) {
-            sendTo[i] = new InternetAddress(received_email[i]);
+        InternetAddress[] sendTo = new InternetAddress[receivedEmail.length];
+        for (int i = 0; i < receivedEmail.length; i++) {
+            sendTo[i] = new InternetAddress(receivedEmail[i]);
         }
 
         mimeMsg.setRecipients(javax.mail.internet.MimeMessage.RecipientType.TO,
@@ -102,7 +103,7 @@ public class MailUtils {
         mimeMsg.setContent(multipart);
         mimeMsg.setSentDate(new Date()); /* 设置信件头的发送日期 */
         mimeMsg.saveChanges();
-        transport.send(mimeMsg); /* 发送邮件 */
+        Transport.send(mimeMsg); /* 发送邮件 */
         logger.info("邮件发送成功");
         transport.close();
     }

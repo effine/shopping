@@ -23,7 +23,7 @@ public class ThirdSignInController {
      * @return
      */
     @RequestMapping("qq")
-    public String QQSignin() {
+    public String qqSignin() {
         return null;
     }
 
