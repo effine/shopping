@@ -1,4 +1,4 @@
-package cn.effine.lab.design.dynamic.jdk;
+package cn.effine.lab.designPattern.dynamicProxy.jdk;
 
 /**
  * 动态代理：目标对象

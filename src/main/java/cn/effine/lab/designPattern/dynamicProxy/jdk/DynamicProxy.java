@@ -1,4 +1,4 @@
-package cn.effine.lab.design.dynamic.jdk;
+package cn.effine.lab.designPattern.dynamicProxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

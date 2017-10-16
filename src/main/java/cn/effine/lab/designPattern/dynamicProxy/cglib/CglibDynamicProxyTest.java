@@ -1,4 +1,4 @@
-package cn.effine.lab.design.dynamic.cglib;
+package cn.effine.lab.designPattern.dynamicProxy.cglib;
 
 /**
  * @author effine

@@ -1,4 +1,4 @@
-package cn.effine.lab.design.dynamic.jdk;
+package cn.effine.lab.designPattern.dynamicProxy.jdk;
 
 /**
  * 动态代理 测试类
@@ -20,6 +20,7 @@ public class DynamicProxyTest {
         UserDao proxy = (UserDao) new DynamicProxy(dao).getInstance();
 
         proxy.save();
+
 
 
     }
