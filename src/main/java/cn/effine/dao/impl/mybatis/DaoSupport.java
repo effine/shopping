@@ -18,6 +18,11 @@ import java.io.Reader;
 
 /**
  * DAO包装类
+ *
+ * @author effine
+ * @Date 2017-10-15 20:37
+ * @email iballader#gmail.com
+ * @site http://www.effine.cn
  */
 public class DaoSupport {
 

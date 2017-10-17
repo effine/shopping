@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 页面跳转
+ *
+ * @author effine
+ * @Date 2017-10-15 20:37
+ * @email iballader#gmail.com
+ * @site http://www.effine.cn
  */
 @Controller
 public class ForwardController {

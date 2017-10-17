@@ -202,7 +202,7 @@
     to not work correctly. See SOLR-1366 for details. -->
   <!-- <indexReaderFactory name="IndexReaderFactory" class="package.class"> 
     <str name="someArg">Some Value</str> </indexReaderFactory > -->
-  <!-- By explicitly declaring the Factory, the termIndexDivisor can be specified. -->
+  <!-- By explicitly declaring the AbstractFactory, the termIndexDivisor can be specified. -->
   <!-- <indexReaderFactory name="IndexReaderFactory" class="solr.StandardIndexReaderFactory"> 
     <int name="setTermIndexDivisor">12</int> </indexReaderFactory > -->
 
@@ -387,7 +387,7 @@
     "standard". If a Request Handler is declared with startup="lazy", then it 
     will not be initialized until the first request that uses it. -->
   <!-- SearchHandler http://wiki.apache.org/solr/SearchHandler For processing 
-    Search Queries, the primary Request Handler provided with Solr is "SearchHandler" 
+    search Queries, the primary Request Handler provided with Solr is "SearchHandler"
     It delegates to a sequent of SearchComponents (see below) and supports distributed 
     queries across multiple shards -->
   <requestHandler name="/select" class="solr.SearchHandler">
@@ -564,7 +564,7 @@
     <str name="pollInterval">00:00:60</str> </lst> -->
 </requestHandler>
 
-  <!-- Search Components Search components are registered to SolrCore and 
+  <!-- search Components search components are registered to SolrCore and
     used by instances of SearchHandler (which can access them by name) By default, 
     the following components are available: <searchComponent name="query" class="solr.QueryComponent" 
     /> <searchComponent name="facet" class="solr.FacetComponent" /> <searchComponent 

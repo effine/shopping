@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * 队列消费者
  */
-public class QueueConsumer extends EndPoint implements Runnable, Consumer {
+public class QueueConsumer extends BaseEndPoint implements Runnable, Consumer {
 
     private static Logger logger = Logger.getLogger(QueueConsumer.class);
 
@@ -28,6 +28,7 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer {
         super(queueName);
     }
 
+    @Override
     public void run() {
         try {
             // start consuming messages. Auto acknowledge messages.
@@ -40,6 +41,7 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer {
     /**
      * Called when consumer is registered.
      */
+    @Override
     public void handleConsumeOk(String consumerTag) {
         System.out.println("Consumer " + consumerTag + " registered");
     }
@@ -47,6 +49,7 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer {
     /**
      * Called when new message is available.
      */
+    @Override
     public void handleDelivery(String consumerTag, Envelope env, BasicProperties props, byte[] body) throws IOException {
         @SuppressWarnings("unchecked")
         Map<String, Integer> map = (Map<String, Integer>) SerializationUtils.deserialize(body);
@@ -54,15 +57,19 @@ public class QueueConsumer extends EndPoint implements Runnable, Consumer {
 
     }
 
+    @Override
     public void handleCancel(String consumerTag) {
     }
 
+    @Override
     public void handleCancelOk(String consumerTag) {
     }
 
+    @Override
     public void handleRecoverOk(String consumerTag) {
     }
 
+    @Override
     public void handleShutdownSignal(String consumerTag, ShutdownSignalException arg1) {
     }
 }

@@ -63,7 +63,7 @@ public class UserController {
     @ResponseBody
     public Map<String, Object> signin(HttpServletRequest request, HttpServletResponse response,
                                       String username, String password, int isAuto) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(2);
         boolean isSignin = false;
         // 自动登录
         if (1 == isAuto) {
@@ -91,10 +91,11 @@ public class UserController {
             isSignin = userService.signin(username, password);
         }
 
-        if (isSignin)
+        if (isSignin) {
             map.put("msg", "登录成功");
-        else
+        } else {
             map.put("msg", "登录失败");
+        }
         map.put("code", 200);
         return map;
     }
@@ -131,8 +132,9 @@ public class UserController {
                     response.addCookie(cookie);
                     execNo++;
                 }
-                if (2 == execNo)
+                if (2 == execNo) {
                     break; // 不再循环cookis后面的内容
+                }
             }
         }
         return null;
@@ -146,16 +148,16 @@ public class UserController {
     @RequestMapping("kill")
     @ResponseBody
     public Map<String, Object> killAccount() {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(3);
         map.put("status", 1);
-        Map<String, Object> dataMap = new HashMap<>();
+        Map<String, Object> dataMap = new HashMap<>(5);
         dataMap.put("name", "effine");
         dataMap.put("age", 25);
         dataMap.put("nikename", "effine");
         dataMap.put("email", "test@163.com");
         map.put("info", dataMap);
 
-        Map<String, Object> testMap = new HashMap<>();
+        Map<String, Object> testMap = new HashMap<>(5);
         testMap.put("nullval", "");
         testMap.put("0val", 0);
         List<String> lsit = null;

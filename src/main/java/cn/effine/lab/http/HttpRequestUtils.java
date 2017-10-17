@@ -49,15 +49,15 @@ public class HttpRequestUtils {
      *
      * @param request [javax.servlet.http.HttpServletRequest] 请求Request
      * @param url     请求地址；参数为restful的query类型(请求url不包含可变参数)即为null
-     * @param param   url参数
      * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
      * @throws IOException
      * @throws HttpException
      * @author effine
      */
     public static HttpResponse get(HttpServletRequest request, String url) throws HttpException, IOException {
-        if (null == url)
+        if (null == url) {
             url = request.getRequestURI();
+        }
         HttpGet method = new HttpGet(PREFIX_URL + url);
         return passHeaderAndParam(request, method);
     }
@@ -73,8 +73,9 @@ public class HttpRequestUtils {
      * @author effine
      */
     public static HttpResponse post(HttpServletRequest request, String url) throws HttpException, IOException {
-        if (null == url)
+        if (null == url) {
             url = request.getRequestURI();
+        }
         HttpRequestBase method = new HttpPost(PREFIX_URL + url);
         return passHeaderAndParam(request, method);
     }
@@ -90,8 +91,9 @@ public class HttpRequestUtils {
      * @author effine
      */
     public static HttpResponse put(HttpServletRequest request, String url) throws HttpException, IOException {
-        if (null == url)
+        if (null == url) {
             url = request.getRequestURI();
+        }
         HttpRequestBase method = new HttpPut(PREFIX_URL + url);
         return passHeaderAndParam(request, method);
     }
@@ -107,8 +109,9 @@ public class HttpRequestUtils {
      * @author effine
      */
     public static HttpResponse delete(HttpServletRequest request, String url) throws HttpException, IOException {
-        if (null == url)
+        if (null == url) {
             url = request.getRequestURI();
+        }
         HttpRequestBase method = new HttpDelete(PREFIX_URL + url);
         return passHeaderAndParam(request, method);
     }

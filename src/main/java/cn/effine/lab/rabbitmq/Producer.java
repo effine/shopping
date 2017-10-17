@@ -15,7 +15,7 @@ import java.io.Serializable;
 /**
  * 队列生产者
  */
-public class Producer extends EndPoint {
+public class Producer extends BaseEndPoint {
 
     public Producer(String queueName) throws IOException {
         super(queueName);

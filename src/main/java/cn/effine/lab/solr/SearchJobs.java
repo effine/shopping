@@ -20,7 +20,7 @@ public class SearchJobs {
     private static String url = "jdbc:mysql://192.168.2.106:1433;DatabaseName=JobsOtherweb51jobDB";
     private static String user = "sa";
     private static String password = "sa";
-    private String Corenum;
+    private String corenum;
     public static int JobsId = 219443;// start jobsid
     public SolrServer solrServer = null;// new
     // HttpSolrServer("http://192.168.2.100:8080/solr/JobsOtherWeb1");
@@ -69,7 +69,7 @@ public class SearchJobs {
 
     // 删除索引
     // 据查询结果删除：
-    public void DeleteByQuery() {
+    public void deleteByQuery() {
         solrServer = createSolrServer();
         try {
             // 删除所有的索引
@@ -81,7 +81,7 @@ public class SearchJobs {
     }
 
     // 根据索引号删除索引：
-    public void DeleteByQueryJobsId() {
+    public void deleteByQueryJobsId() {
         solrServer = createSolrServer();
         try {
             solrServer.deleteById("515792");
@@ -98,7 +98,7 @@ public class SearchJobs {
      * field 查询的字段名称数组 key 查询的字段名称对应的值 start 查询的起始位置 count 一次查询出来的数量 sortfield
      * 需要排序的字段数组 flag 需要排序的字段的排序方式如果为true 升序 如果为false 降序 hightlight 是否需要高亮显示
      */
-    public QueryResponse Search(String[] field, String[] key, int start,
+    public QueryResponse search(String[] field, String[] key, int start,
                                 int count, String[] sortfield, Boolean[] flag, Boolean hightlight) {
         solrServer = createSolrServer();
         // 检测输入是否合法
@@ -160,7 +160,7 @@ public class SearchJobs {
     public String[] autoComplete(String field, String prefix, int min) {
         /*------------第一处标记------------------------*/
         solrServer = createSolrServer();
-        String words[] = null;
+        String[] words = null;
         StringBuffer sb = new StringBuffer("");
         SolrQuery query = new SolrQuery(field + ":" + prefix);
         QueryResponse rsp = new QueryResponse();
@@ -186,7 +186,7 @@ public class SearchJobs {
                 return null;
             }
             for (int i = 0; i < countList.size(); i++) {
-                String tmp[] = countList.get(i).toString().split(" ");
+                String[] tmp = countList.get(i).toString().split(" ");
                 // 排除单个字
                 if (tmp[0].length() < 2) {
                     continue;
@@ -205,42 +205,42 @@ public class SearchJobs {
     }
 
     /**
-     * @param QUERY_CONTENT 查询内容
-     * @param QUERY_ROWS    查找的数量,默认是10
-     * @param GROUP         true or false 是否按group查询
-     * @param GROUP_FIELD   查询field
-     * @param GROUP_LIMIT   The number of results (documents) to return for each group. Defaults to 1
+     * @param queryContent 查询内容
+     * @param queryRows    查找的数量,默认是10
+     * @param group        true or false 是否按group查询
+     * @param groupField   查询field
+     * @param groupLimit   The number of results (documents) to return for each group. Defaults to 1
      * @Author fjsh
-     * @Title SearchGroup
+     * @Title searchGroup
      * @Description 按group进行查找
      * @Return void
      * @Throws
      * @Date 2014-5-7
      * 输出结果的时候，由于定义的数据索引没有做很好是调整，显示的结果并不理想，不过此方法可以作为参考
      */
-    public void SearchGroup(String QUERY_CONTENT, int QUERY_ROWS, Boolean GROUP, String GROUP_FIELD, String GROUP_LIMIT) {
+    public void searchGroup(String queryContent, int queryRows, Boolean group, String groupField, String groupLimit) {
         SolrServer server = createSolrServer();
         SolrQuery param = new SolrQuery();
-        param.setQuery("jobsName:" + QUERY_CONTENT);
-        param.setRows(QUERY_ROWS);
-        param.setParam(GroupParams.GROUP, GROUP);
-        param.setParam(GroupParams.GROUP_FIELD, GROUP_FIELD);
-        param.setParam(GroupParams.GROUP_LIMIT, GROUP_LIMIT);
+        param.setQuery("jobsName:" + queryContent);
+        param.setRows(queryRows);
+        param.setParam(GroupParams.GROUP, group);
+        param.setParam(GroupParams.GROUP_FIELD, groupField);
+        param.setParam(GroupParams.GROUP_LIMIT, groupLimit);
         QueryResponse response = null;
         try {
             response = server.query(param);
         } catch (SolrServerException e) {
             // logger.error(e.getMessage(), e);
         }
-        Map<String, Integer> info = new HashMap<String, Integer>();
+        Map<String, Integer> info = new HashMap<String, Integer>(64);
         GroupResponse groupResponse = response.getGroupResponse();
         if (groupResponse != null) {
             List<GroupCommand> groupList = groupResponse.getValues();
             for (GroupCommand groupCommand : groupList) {
                 List<Group> groups = groupCommand.getValues();
-                for (Group group : groups) {
-                    info.put(group.getGroupValue(), (int) group.getResult().getNumFound());
-                    System.out.println(group.getGroupValue() + "---" + group.getResult().getNumFound());
+                for (Group item : groups) {
+                    info.put(item.getGroupValue(), (int) item.getResult().getNumFound());
+                    System.out.println(item.getGroupValue() + "---" + item.getResult().getNumFound());
                 }
             }
         }
@@ -294,7 +294,7 @@ public class SearchJobs {
      * &facet.date.start=2009-1-1T0:0:0Z &facet.date.end=2010-1-1T0:0:0Z
      * &facet.date.gap=%2B1MONTH &facet.date.other=all
      */
-    public void FacetFieldQuery() throws Exception {
+    public void facetFieldQuery() throws Exception {
         solrServer = createSolrServer();
         SolrQuery query = new SolrQuery();// 建立一个新的查询
         query.setQuery("jobsName:计算机维护");
@@ -323,7 +323,7 @@ public class SearchJobs {
     }
 
     // 时间片使用方法
-    public void FacetFieldQueryDate() throws Exception {
+    public void facetFieldQueryDate() throws Exception {
         solrServer = createSolrServer();
         SolrQuery query = new SolrQuery();// 建立一个新的查询
         query.setQuery("jobsName:计算");

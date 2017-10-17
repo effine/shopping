@@ -2,7 +2,11 @@ package cn.effine.utils;
 
 /**
  * 加密算法枚举类
- * Created by effine on 14/12/2016.
+ *
+ * @author effine
+ * @Date 2017-10-15 20:37
+ * @email iballader#gmail.com
+ * @site http://www.effine.cn
  */
 public enum AlgorithmEnum {
     MD5, BCRYPT
