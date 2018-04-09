@@ -6,6 +6,8 @@
 package cn.effine.lab.pattern.observer;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 抽象被观察者角色
  */
 public interface IWitched {

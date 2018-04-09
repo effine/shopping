@@ -12,20 +12,25 @@ import org.apache.solr.common.params.GroupParams;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ */
 public class SearchJobs {
 
 
+    public static int JobsId = 219443;
     private static String solr_url = "http://localhost:8010/solr/product";
-
     private static String url = "jdbc:mysql://192.168.2.106:1433;DatabaseName=JobsOtherweb51jobDB";
     private static String user = "sa";
     private static String password = "sa";
+    public SolrServer solrServer = null;
     private String corenum;
-    public static int JobsId = 219443;// start jobsid
-    public SolrServer solrServer = null;// new
     // HttpSolrServer("http://192.168.2.100:8080/solr/JobsOtherWeb1");
 
-    // 1、 创建solrserver对象：
+    /**
+     *  1、 创建solrserver对象：
+     */
     public SolrServer createSolrServer() {
         HttpSolrServer solr = null;
         try {
@@ -40,7 +45,9 @@ public class SearchJobs {
         return solr;
     }
 
-    // 简单的查询，取出二十个
+    /**
+     *  简单的查询，取出二十个
+     */
     public void querytop20() {
         solrServer = createSolrServer();
 
@@ -49,7 +56,8 @@ public class SearchJobs {
                 .format(new Date());
         System.out.println("开始时间：" + dtStart + "\n");
         try {
-            SolrQuery query = new SolrQuery();// 查询
+            // 查询
+            SolrQuery query = new SolrQuery();
             query.setQuery("jobsName:计算机");
             query.setRows(20);
             SolrDocumentList docs = solrServer.query(query).getResults();
@@ -67,8 +75,9 @@ public class SearchJobs {
         }
     }
 
-    // 删除索引
-    // 据查询结果删除：
+    /**
+     * 删除索引(据查询结果删除)
+     */
     public void deleteByQuery() {
         solrServer = createSolrServer();
         try {
@@ -80,7 +89,9 @@ public class SearchJobs {
         }
     }
 
-    // 根据索引号删除索引：
+    /**
+     * 根据索引号删除索引
+     */
     public void deleteByQueryJobsId() {
         solrServer = createSolrServer();
         try {
@@ -94,7 +105,7 @@ public class SearchJobs {
     // 查询
     // SolrJ提供的查询功能比较强大，可以进行结果中查询、范围查询、排序等。
     // 补充一下范围查询的格式：[star t TO end]，start与end是相应数据格式的值的字符串形式，“TO” 一定要保持大写！
-    /*
+    /**
      * field 查询的字段名称数组 key 查询的字段名称对应的值 start 查询的起始位置 count 一次查询出来的数量 sortfield
      * 需要排序的字段数组 flag 需要排序的字段的排序方式如果为true 升序 如果为false 降序 hightlight 是否需要高亮显示
      */
@@ -130,12 +141,17 @@ public class SearchJobs {
             }
             // 设置高亮
             if (null != hightlight) {
-                query.setHighlight(true); // 开启高亮组件
-                query.addHighlightField("jobsName");// 高亮字段
-                query.setHighlightSimplePre("<font color=\"red\">");// 标记
+                // 开启高亮组件
+                query.setHighlight(true);
+                // 高亮字段
+                query.addHighlightField("jobsName");
+                // 标记
+                query.setHighlightSimplePre("<font color=\"red\">");
                 query.setHighlightSimplePost("</font>");
-                query.setHighlightSnippets(1);// 结果分片数，默认为1
-                query.setHighlightFragsize(1000);// 每个分片的最大长度，默认为100
+                // 结果分片数，默认为1
+                query.setHighlightSnippets(1);
+                // 每个分片的最大长度，默认为100
+                query.setHighlightFragsize(1000);
 
             }
         } catch (Exception e) {
@@ -246,7 +262,7 @@ public class SearchJobs {
         }
     }
 
-    /*
+    /**
      * 介绍了一下facet之后，来说说怎么实现facet。facet的实现其实很简单，主要在搜索参数上带上就OK。
      *
      * facet=on/true #代表开启facet facet.field=cate #代表要统计的面（分组），比如上面的分类，品牌，可以多次出现
@@ -296,20 +312,27 @@ public class SearchJobs {
      */
     public void facetFieldQuery() throws Exception {
         solrServer = createSolrServer();
-        SolrQuery query = new SolrQuery();// 建立一个新的查询
+        // 建立一个新的查询
+        SolrQuery query = new SolrQuery();
         query.setQuery("jobsName:计算机维护");
-        query.setFacet(true);// 设置facet=on
+        // 设置facet=on
+        query.setFacet(true);
         // 分类信息分为：薪水，发布时间，教育背景，工作经验，公司类型，工作类型
+        // 设置需要facet的字段
         query.addFacetField(new String[]{"salary", "publishDate",
-                "educateBackground", "jobExperience", "companytype", "jobsType"});// 设置需要facet的字段
-        query.setFacetLimit(10);// 限制facet返回的数量
-        query.setFacetMissing(false);// 不统计null的值
-        query.setFacetMinCount(1);// 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
+                "educateBackground", "jobExperience", "companytype", "jobsType"});
+        // 限制facet返回的数量
+        query.setFacetLimit(10);
+        // 不统计null的值
+        query.setFacetMissing(false);
+        // 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
+        query.setFacetMinCount(1);
 
         // query.addFacetQuery("publishDate:[2014-04-11T00:00:00Z TO 2014-04-13T00:00:00Z]");
         QueryResponse response = solrServer.query(query);
         System.out.println("查询时间：" + response.getQTime());
-        List<FacetField> facets = response.getFacetFields();// 返回的facet列表
+        // 返回的facet列表
+        List<FacetField> facets = response.getFacetFields();
         for (FacetField facet : facets) {
             System.out.println(facet.getName());
             System.out.println("----------------");
@@ -322,17 +345,26 @@ public class SearchJobs {
 
     }
 
-    // 时间片使用方法
+    /**
+     * 时间片使用方法
+     * @throws Exception
+     */
     public void facetFieldQueryDate() throws Exception {
         solrServer = createSolrServer();
-        SolrQuery query = new SolrQuery();// 建立一个新的查询
+        // 建立一个新的查询
+        SolrQuery query = new SolrQuery();
         query.setQuery("jobsName:计算");
-        query.setFacet(true);// 设置facet=on
-        query.setFacetLimit(10);// 限制facet返回的数量
-        query.setFacetMissing(false);// 不统计null的值
-        query.setFacetMinCount(1);// 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
+        // 设置facet=on
+        query.setFacet(true);
+        // 限制facet返回的数量
+        query.setFacetLimit(10);
+        // 不统计null的值
+        query.setFacetMissing(false);
+        // 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
+        query.setFacetMinCount(1);
         query.addFacetField(new String[]{"salary", "educateBackground",
-                "jobExperience", "companytype", "jobsType"});// 设置需要facet的字段
+                // 设置需要facet的字段
+                "jobExperience", "companytype", "jobsType"});
         // query.addFacetQuery("publishDate:[2014-04-21T00:00:00Z TO 2014-04-23T00:00:00Z]");
         // query.addFacetQuery("publishDate:[2014-04-11T00:00:00Z TO 2014-04-13T00:00:00Z]");
         SimpleDateFormat time0 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -379,7 +411,8 @@ public class SearchJobs {
 
         QueryResponse response = solrServer.query(query);
         System.out.println("查询时间：" + response.getQTime());
-        List<FacetField> facets = response.getFacetFields();// 返回的facet列表
+        // 返回的facet列表
+        List<FacetField> facets = response.getFacetFields();
         for (FacetField facet : facets) {
             System.out.println(facet.getName());
             System.out.println("----------------");
@@ -400,7 +433,7 @@ public class SearchJobs {
     // 最终使用的查询方式
     // SolrJ提供的查询功能比较强大，可以进行结果中查询、范围查询、排序等。
     // 补充一下范围查询的格式：[star t TO end]，start与end是相应数据格式的值的字符串形式，“TO” 一定要保持大写！
-    /*
+    /**
      * field 查询的字段名称数组 key 查询的字段名称对应的值 start 查询的起始位置 count 一次查询出来的数量 sortfield
      * 需要排序的字段数组 flag 需要排序的字段的排序方式如果为true 升序 如果为false 降序 hightlight 是否需要高亮显示
      */
@@ -438,23 +471,33 @@ public class SearchJobs {
 
             // 设置高亮
             if (null != hightlight) {
-                query.setHighlight(true); // 开启高亮组件
-                query.addHighlightField("jobsName");// 高亮字段
-                query.setHighlightSimplePre("<font color=\"red\">");// 标记
+                // 开启高亮组件
+                query.setHighlight(true);
+                // 高亮字段
+                query.addHighlightField("jobsName");
+                // 标记
+                query.setHighlightSimplePre("<font color=\"red\">");
                 query.setHighlightSimplePost("</font>");
-                query.setHighlightSnippets(1);// 结果分片数，默认为1
-                query.setHighlightFragsize(1000);// 每个分片的最大长度，默认为100
+                // 结果分片数，默认为1
+                query.setHighlightSnippets(1);
+                // 每个分片的最大长度，默认为100
+                query.setHighlightFragsize(1000);
 
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        query.setFacet(true);// 设置facet=on
-        query.setFacetLimit(10);// 限制facet返回的数量
-        query.setFacetMissing(false);// 不统计null的值
-        query.setFacetMinCount(1);// 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
+        // 设置facet=on
+        query.setFacet(true);
+        // 限制facet返回的数量
+        query.setFacetLimit(10);
+        // 不统计null的值
+        query.setFacetMissing(false);
+        // 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
+        query.setFacetMinCount(1);
         query.addFacetField(new String[]{"salary", "educateBackground",
-                "jobExperience", "companytype", "jobsType"});// 设置需要facet的字段
+                // 设置需要facet的字段
+                "jobExperience", "companytype", "jobsType"});
         // query.addFacetQuery("publishDate:[2014-04-21T00:00:00Z TO 2014-04-23T00:00:00Z]");
         // query.addFacetQuery("publishDate:[2014-04-11T00:00:00Z TO 2014-04-13T00:00:00Z]");
         SimpleDateFormat time0 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -503,7 +546,8 @@ public class SearchJobs {
         try {
             rsp = solrServer.query(query);
             System.out.println("此次查询时间qtime :" + rsp.getQTime());
-            List<FacetField> facets = rsp.getFacetFields();// 返回的facet列表
+            // 返回的facet列表
+            List<FacetField> facets = rsp.getFacetFields();
             for (FacetField facet : facets) {
                 System.out.println(facet.getName());
                 System.out.println("----------------");

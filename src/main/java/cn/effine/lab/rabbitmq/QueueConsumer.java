@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 队列消费者
  */
 public class QueueConsumer extends BaseEndPoint implements Runnable, Consumer {

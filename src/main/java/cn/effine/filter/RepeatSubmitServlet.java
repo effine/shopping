@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * @Desc 防止表单重复提交
  */
 public class RepeatSubmitServlet extends HttpServlet {
@@ -36,11 +38,12 @@ public class RepeatSubmitServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = null;
         int count = 0;
+        int divisor = 2;
         try {
             out = resp.getWriter();
             Token token = Token.getInstance();
             if (token.isTokenValid(req)) {
-                if (count % 2 == 1) {
+                if (count % divisor == 1) {
                     count = 0;
                 } else {
                     count++;

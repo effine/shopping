@@ -28,19 +28,19 @@
 
 <solr>
 
-  <solrcloud>
-    <str name="host">${host:}</str>
-    <int name="hostPort">${jetty.port:8020}</int>
-    <str name="hostContext">${hostContext:solr}</str>
-    <int name="zkClientTimeout">${zkClientTimeout:30000}</int>
-    <bool name="genericCoreNodeNames">${genericCoreNodeNames:true}</bool>
-    <str name="zkHost">127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183/product</str>  
-  </solrcloud>
+    <solrcloud>
+        <str name="host">${host:}</str>
+        <int name="hostPort">${jetty.port:8020}</int>
+        <str name="hostContext">${hostContext:solr}</str>
+        <int name="zkClientTimeout">${zkClientTimeout:30000}</int>
+        <bool name="genericCoreNodeNames">${genericCoreNodeNames:true}</bool>
+        <str name="zkHost">127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183/product</str>
+    </solrcloud>
 
-  <shardHandlerFactory name="shardHandlerFactory"
-    class="HttpShardHandlerFactory">
-    <int name="socketTimeout">${socketTimeout:10000}</int>
-    <int name="connTimeout">${connTimeout:10000}</int>
-  </shardHandlerFactory>
+    <shardHandlerFactory name="shardHandlerFactory"
+                         class="HttpShardHandlerFactory">
+        <int name="socketTimeout">${socketTimeout:10000}</int>
+        <int name="connTimeout">${connTimeout:10000}</int>
+    </shardHandlerFactory>
 
 </solr>

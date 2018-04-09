@@ -20,6 +20,8 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 邮件工具类
  */
 public class MailUtils {
@@ -32,12 +34,12 @@ public class MailUtils {
     /**
      * 发送邮件方法
      *
-     * @param title          邮件标题
+     * @param title         邮件标题
      * @param senderEmail   发件人
      * @param receivedEmail 收件人
-     * @param content        邮件内容
-     * @param annex          邮件附件
-     * @param mimeType       mimeType
+     * @param content       邮件内容
+     * @param annex         邮件附件
+     * @param mimeType      mimeType
      * @throws Exception 异常信息
      */
     @SuppressWarnings({"static-access"})
@@ -46,9 +48,12 @@ public class MailUtils {
                                 String mimeType) throws Exception {
 
         Properties props = new Properties();
-        props = java.lang.System.getProperties(); // 获得系统属性对象
-        props.setProperty(MailConstants.SMTP_HOST, MailConstants.SMTP); // 设置SMTP主机
-        props.setProperty(MailConstants.SMTP_AUTH, "true"); // 是否到服务器用户名和密码验证
+        // 获得系统属性对象
+        props = java.lang.System.getProperties();
+        // 设置SMTP主机
+        props.setProperty(MailConstants.SMTP_HOST, MailConstants.SMTP);
+        // 是否到服务器用户名和密码验证
+        props.setProperty(MailConstants.SMTP_AUTH, "true");
 
         props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.setProperty("mail.smtp.port", "465");
@@ -67,7 +72,8 @@ public class MailUtils {
         MimeMessage mimeMsg = new javax.mail.internet.MimeMessage(mailSession);
         if (!StringUtils.isEmpty(senderEmail)) {
             InternetAddress sentFrom = new InternetAddress(senderEmail);
-            mimeMsg.setFrom(sentFrom); // 设置发送人地址
+            // 设置发送人地址
+            mimeMsg.setFrom(sentFrom);
         }
 
         InternetAddress[] sendTo = new InternetAddress[receivedEmail.length];
@@ -82,7 +88,8 @@ public class MailUtils {
         MimeBodyPart messageBodyPart1 = new MimeBodyPart();
         messageBodyPart1.setContent(content, mimeType);
 
-        Multipart multipart = new MimeMultipart();// 附件传输格式
+        // 附件传输格式
+        Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(messageBodyPart1);
 
         for (Map.Entry<String, String> entry : annex.entrySet()) {
@@ -94,16 +101,21 @@ public class MailUtils {
             }
 
             MimeBodyPart messageBodyPart2 = new MimeBodyPart();
-            FileDataSource fds = new FileDataSource(key); /* 得到数据源 */
-            messageBodyPart2.setDataHandler(new DataHandler(fds)); /* 得到附件本身并至入BodyPart */
-            messageBodyPart2.setFileName(MimeUtility.encodeText(value)); /* 得到文件名同样至入BodyPart */
+            // 得到数据源
+            FileDataSource fds = new FileDataSource(key);
+            // 得到附件本身并至入BodyPart
+            messageBodyPart2.setDataHandler(new DataHandler(fds));
+            // 得到文件名同样至入BodyPart
+            messageBodyPart2.setFileName(MimeUtility.encodeText(value));
             multipart.addBodyPart(messageBodyPart2);
         }
 
         mimeMsg.setContent(multipart);
-        mimeMsg.setSentDate(new Date()); /* 设置信件头的发送日期 */
+        // 设置信件头的发送日期
+        mimeMsg.setSentDate(new Date());
         mimeMsg.saveChanges();
-        Transport.send(mimeMsg); /* 发送邮件 */
+        // 发送邮件
+        Transport.send(mimeMsg);
         logger.info("邮件发送成功");
         transport.close();
     }

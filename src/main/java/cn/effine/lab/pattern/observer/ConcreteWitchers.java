@@ -8,8 +8,8 @@ package cn.effine.lab.pattern.observer;
 /*具体观察者角色*/
 public class ConcreteWitchers implements IWitchers {
 
-	@Override
+    @Override
     public void update(Object o) {
-		System.out.println(o);
-	}
+        System.out.println(o);
+    }
 }

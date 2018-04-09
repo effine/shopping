@@ -13,29 +13,29 @@ import redis.clients.jedis.JedisShardInfo;
 
 public class TestJedis {
 
+    static Logger logger = Logger.getLogger(TestJedis.class);
     private static String extranetHost = "127.0.0.1";
     private static int extranetPort = 6379;
-
-    static Logger logger = Logger.getLogger(TestJedis.class);
-
 
     // 测试
     @Deprecated
     public static void main(String[] args) {
         TestJedis test = new TestJedis();
         logger.info("----------开始调用jedis基本使用方法");
-		test.baseJedis();
-		logger.info("----------开始调用jedis使用池方法");
-		test.poolJedis();
-		logger.info("----------全部方法调用完成");
-	}
+        test.baseJedis();
+        logger.info("----------开始调用jedis使用池方法");
+        test.poolJedis();
+        logger.info("----------全部方法调用完成");
+    }
 
     public static Jedis getRedis() {
         JedisShardInfo info = new JedisShardInfo(extranetHost, extranetPort);
         return new Jedis(info);
     }
 
-    // jedis的基本使用（jedis非线程安全）
+    /**
+     * jedis的基本使用（jedis非线程安全）
+     */
     public void baseJedis() {
         Jedis j = TestJedis.getRedis();
         j.set("hello", "world");
@@ -43,7 +43,9 @@ public class TestJedis {
         System.out.println("jedis基本使用: " + output);
     }
 
-    // jedis使用池
+    /**
+     * jedis使用池
+     */
     public void poolJedis() {
         @SuppressWarnings("resource")
         JedisPool pool = new JedisPool(new JedisPoolConfig(), extranetHost);
@@ -59,9 +61,12 @@ public class TestJedis {
             // Set<String> sose = jedis.zrange("sose", 0, -1);
         } finally {
             if (null != jedis) {
-                jedis.close(); // 使用完后，将连接放回连接池
+                // 使用完后，将连接放回连接池
+                jedis.close();
             }
         }
-        pool.destroy(); // 应用退出时，关闭连接池
+
+        // 应用退出时，关闭连接池
+        pool.destroy();
     }
 }

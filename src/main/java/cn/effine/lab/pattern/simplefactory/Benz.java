@@ -8,13 +8,13 @@ package cn.effine.lab.pattern.simplefactory;
 /*具体产品角色类：汽车-奔驰Benz*/
 public class Benz implements ICar {
 
-	@Override
+    @Override
     public void run() {
-		System.out.println("奔驰启动");
-	}
+        System.out.println("奔驰启动");
+    }
 
-	@Override
+    @Override
     public void stop() {
-		System.out.println("奔驰停止");
-	}
+        System.out.println("奔驰停止");
+    }
 }

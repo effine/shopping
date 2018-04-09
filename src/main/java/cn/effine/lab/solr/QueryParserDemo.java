@@ -4,6 +4,10 @@ import org.apache.lucene.queryparser.classic.ParseException;
 
 import java.io.IOException;
 
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ */
 public class QueryParserDemo {
 
     public static void main(String[] args) throws ParseException, IOException {
@@ -17,7 +21,7 @@ public class QueryParserDemo {
 //
 //
 //
-//        Query query = parser.parse("-blackword:牛奶 进口");
+//        QUERY query = parser.parse("-blackword:牛奶 进口");
 //
 //        System.out.println(query.getClass().getName());
 //

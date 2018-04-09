@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * properties工具类
  */
 public class PropertiesUtils {

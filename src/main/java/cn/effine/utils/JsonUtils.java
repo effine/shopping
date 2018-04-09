@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * @Desc JSON 封装类(采用fastjson实现)
  */
 public class JsonUtils {
@@ -34,7 +36,7 @@ public class JsonUtils {
     /**
      * @param list List对象
      * @return String
-     * @desc List转换成json(空值返回"")
+     * @desc List转换成json(空值返回 " ")
      */
     public static String listToJSONString(List<?> list) {
         // TODO FEI Model转换成json时,空字符串转换成""
@@ -44,7 +46,7 @@ public class JsonUtils {
     /**
      * @param map Map对象
      * @return String
-     * @desc Map转换成json(空值返回"")
+     * @desc Map转换成json(空值返回 " ")
      */
     public static String mapToJSONString(Map<String, Object> map) {
         // TODO FEI Model转换成json时,空字符串转换成""
@@ -54,7 +56,7 @@ public class JsonUtils {
     /**
      * @param jsonStr 待转换的json字符串
      * @param clazz   目标Model Class
-     * @return List<Model>
+     * @return LIST<Model>
      * @desc Json字符串转换成Model
      */
     public static <T extends Serializable> List<T> parseArray(String jsonStr, Class<T> clazz) {

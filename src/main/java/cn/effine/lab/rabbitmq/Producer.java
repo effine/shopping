@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 队列生产者
  */
 public class Producer extends BaseEndPoint {

@@ -7,6 +7,7 @@
     <script type="text/javascript">
         <!--
         var checkSubmitFlg = true;
+
         function checkSubmit() {
             if (true == checkSubmitFlg) {
                 document.theForm.btnSubmit.disable = true;
@@ -16,6 +17,7 @@
                 alert("你已经提交 了表单，请不要重复提交！");
             }
         }
+
         //-->
     </script>
 </head>

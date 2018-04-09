@@ -9,6 +9,8 @@ import org.apache.solr.client.solrj.response.UpdateResponse;
 import java.io.IOException;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 索引加工类
  */
 public class IndexProcess<T> {

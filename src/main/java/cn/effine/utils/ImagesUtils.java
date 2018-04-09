@@ -27,6 +27,8 @@ import java.io.*;
 import java.util.Iterator;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 图片工具类
  */
 public class ImagesUtils {

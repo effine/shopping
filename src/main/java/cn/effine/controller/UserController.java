@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 用户操作
  */
 @RestController
@@ -68,12 +70,14 @@ public class UserController {
         // 自动登录
         if (1 == isAuto) {
             // 将用户名密码放入Cookie
-            int expiry = 60 * 60 * 24 * 7; // 到期时间：7天
+            // 到期时间：7天
+            int expiry = 60 * 60 * 24 * 7;
             String host = request.getServerName();
             Cookie cookie = new Cookie("COOKIE_USERNAME", username);
             cookie.setPath("/");
             cookie.setDomain(host);
-            cookie.setMaxAge(expiry); // 设置cookie过期时间(秒)
+            // 设置cookie过期时间(秒)
+            cookie.setMaxAge(expiry);
 
             // 密码MD5加密并保存cookie
             cookie = new Cookie("COOKIE_PASSWD", EncryptUtils.encryptString(password, AlgorithmEnum.MD5));

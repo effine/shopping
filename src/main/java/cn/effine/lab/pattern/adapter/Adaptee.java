@@ -7,10 +7,10 @@ package cn.effine.lab.pattern.adapter;
 
 public class Adaptee {
 
-	/**
-	 * 源类（客户端类）含有方法method1()
-	 */
-	public void method1() {
-		/* method body */
-	}
+    /**
+     * 源类（客户端类）含有方法method1()
+     */
+    public void method1() {
+        /* method body */
+    }
 }

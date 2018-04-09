@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 第三方登录
  */
 @RestController("signin")

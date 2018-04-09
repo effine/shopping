@@ -2,6 +2,10 @@ package cn.effine.lab.solr;
 
 import org.apache.solr.client.solrj.beans.Field;
 
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ */
 public class ProductPO {
 
     @Field

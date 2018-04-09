@@ -44,7 +44,7 @@ public class DaoSupport {
         }
     }
 
-    /*
+    /**
      * 获取数据库访问会话session
      */
     public static SqlSession getSqlSession() {
@@ -57,24 +57,24 @@ public class DaoSupport {
      * @param type  类型
      * @param count 统计数量
      * @return
-     * @Deprecated (查看代码处理逻辑后删除, 没有必要的代码，不再需要)
+     * @Deprecated (查看代码处理逻辑后删除, 没有必要的代码 ， 不再需要)
      */
     @Deprecated
-    public static String showMessages(CRUD_Enum type, int count) {
+    public static String showMessages(CrudEnum type, int count) {
         switch (type) {
-            case Add:
+            case ADD:
                 logger.info("添加了" + count + "条记录。");
                 break;
-            case Delete:
+            case DELETE:
                 logger.info("删除了" + count + "条记录。");
                 break;
-            case Update:
+            case UPDATE:
                 logger.info("更新了" + count + "条记录。");
                 break;
-            case Query:
+            case QUERY:
                 logger.info("匹配了" + count + "条记录。");
                 break;
-            case List:
+            case LIST:
                 logger.info("共有" + count + "条记录。");
                 break;
             default:

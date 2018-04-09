@@ -4,6 +4,10 @@ import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ */
 public class ValidateCodeTest {
 
     private static Logger logger = Logger.getLogger(ValidateCodeTest.class);

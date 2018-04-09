@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 验证码
  */
 public class ValidateCodeServlet extends HttpServlet {

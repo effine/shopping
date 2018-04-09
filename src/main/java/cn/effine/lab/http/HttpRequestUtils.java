@@ -26,6 +26,8 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * Http请求工具类
  */
 public class HttpRequestUtils {
@@ -49,7 +51,7 @@ public class HttpRequestUtils {
      *
      * @param request [javax.servlet.http.HttpServletRequest] 请求Request
      * @param url     请求地址；参数为restful的query类型(请求url不包含可变参数)即为null
-     * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
+     * @return Map(包含两个key ： Http状态码httpCode ； 方法返回值responseBody)
      * @throws IOException
      * @throws HttpException
      * @author effine
@@ -67,7 +69,7 @@ public class HttpRequestUtils {
      *
      * @param request [javax.servlet.http.HttpServletRequest] 请求Request
      * @param url     请求路径(如果为空则通过request获取)
-     * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
+     * @return Map(包含两个key ： Http状态码httpCode ； 方法返回值responseBody)
      * @throws IOException
      * @throws HttpException
      * @author effine
@@ -85,7 +87,7 @@ public class HttpRequestUtils {
      *
      * @param request [javax.servlet.http.HttpServletRequest] 请求Request
      * @param url     请求路径(如果为空则通过request获取)
-     * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
+     * @return Map(包含两个key ： Http状态码httpCode ； 方法返回值responseBody)
      * @throws IOException
      * @throws HttpException
      * @author effine
@@ -103,7 +105,7 @@ public class HttpRequestUtils {
      *
      * @param request [javax.servlet.http.HttpServletRequest] 请求Request
      * @param url     请求路径(如果为空则通过request获取)
-     * @return Map(包含两个key：Http状态码httpCode；方法返回值responseBody)
+     * @return Map(包含两个key ： Http状态码httpCode ； 方法返回值responseBody)
      * @throws IOException
      * @throws HttpException
      * @author effine

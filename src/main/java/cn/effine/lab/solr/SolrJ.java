@@ -12,6 +12,10 @@ import org.apache.solr.common.SolrInputDocument;
 import java.io.IOException;
 import java.util.Collection;
 
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ */
 public class SolrJ {
 
     // 如果不指定Core的名称product，则默认为collection1

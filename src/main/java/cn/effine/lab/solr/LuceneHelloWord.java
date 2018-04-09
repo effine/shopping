@@ -10,5 +10,4 @@ package cn.effine.lab.solr;
 public class LuceneHelloWord {
 
 
-
 }
