@@ -2,7 +2,6 @@ package cn.effine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Component;
 
 /**
  * @author effine
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
 //@EnableAutoConfiguration
 //@ComponentScan(value = "cn.effine")
 @SpringBootApplication
-@Component
 public class Application {
 
     public static void main(String[] args) {

@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
 
-    @RequestMapping("say")
+    @RequestMapping("hello")
     public String sayHello() {
-        return "hi, product";
+        return "say hello !";
+    }
+
+    @RequestMapping("hi")
+    public String sayHi() {
+        return "say hi !";
     }
 }
