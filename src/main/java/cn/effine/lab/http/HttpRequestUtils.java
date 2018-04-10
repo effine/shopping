@@ -11,6 +11,7 @@ package cn.effine.lab.http;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpException;
 import org.apache.http.NameValuePair;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.*;
 import org.apache.http.client.params.CookiePolicy;

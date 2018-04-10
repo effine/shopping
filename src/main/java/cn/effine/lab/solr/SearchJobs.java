@@ -8,6 +8,8 @@ import org.apache.solr.client.solrj.response.*;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.params.GroupParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -18,6 +20,7 @@ import java.util.*;
  */
 public class SearchJobs {
 
+    private static Logger logger = LoggerFactory.getLogger(SearchJobs.class);
 
     public static int JobsId = 219443;
     private static String solr_url = "http://localhost:8010/solr/product";
@@ -184,7 +187,7 @@ public class SearchJobs {
         /*------------第二处标记：程序从第一处标记执行到这里需要300ms所以将上面的代码进行实例化最好------------------------*/
         try {
             query.setFacet(true);
-            // query.setQuery("*:*");
+            query.setQuery("*:*");
             query = new SolrQuery(field + ":" + prefix);
             query.setFacetPrefix(prefix);
             query.addFacetField(field);
@@ -246,7 +249,7 @@ public class SearchJobs {
         try {
             response = server.query(param);
         } catch (SolrServerException e) {
-            // logger.error(e.getMessage(), e);
+             logger.error(e.getMessage(), e);
         }
         Map<String, Integer> info = new HashMap<String, Integer>(64);
         GroupResponse groupResponse = response.getGroupResponse();
@@ -327,8 +330,8 @@ public class SearchJobs {
         query.setFacetMissing(false);
         // 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
         query.setFacetMinCount(1);
+        query.addFacetQuery("publishDate:[2014-04-11T00:00:00Z TO 2014-04-13T00:00:00Z]");
 
-        // query.addFacetQuery("publishDate:[2014-04-11T00:00:00Z TO 2014-04-13T00:00:00Z]");
         QueryResponse response = solrServer.query(query);
         System.out.println("查询时间：" + response.getQTime());
         // 返回的facet列表
@@ -362,16 +365,13 @@ public class SearchJobs {
         query.setFacetMissing(false);
         // 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
         query.setFacetMinCount(1);
-        query.addFacetField(new String[]{"salary", "educateBackground",
-                // 设置需要facet的字段
-                "jobExperience", "companytype", "jobsType"});
-        // query.addFacetQuery("publishDate:[2014-04-21T00:00:00Z TO 2014-04-23T00:00:00Z]");
-        // query.addFacetQuery("publishDate:[2014-04-11T00:00:00Z TO 2014-04-13T00:00:00Z]");
+        // 设置需要facet的字段
+        query.addFacetField(new String[]{"salary", "educateBackground", "jobExperience", "companytype", "jobsType"});
+        query.addFacetQuery("publishDate:[2014-04-11T00:00:00Z TO 2014-04-13T00:00:00Z]");
+
         SimpleDateFormat time0 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         SimpleDateFormat time1 = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat time2 = new SimpleDateFormat("HH:mm:ss");
-        // return
-        // date.getYear()+"-"+date.getMonth()+"-"+date.getDay()+"T"+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
 
         Calendar c = Calendar.getInstance();
         c.setTime(time0.parse(time1.format(c.getTime()) + " 23:59:59"));
@@ -495,16 +495,13 @@ public class SearchJobs {
         query.setFacetMissing(false);
         // 设置返回的数据中每个分组的数据最小值，比如设置为1，则统计数量最小为1，不然不显示
         query.setFacetMinCount(1);
-        query.addFacetField(new String[]{"salary", "educateBackground",
-                // 设置需要facet的字段
-                "jobExperience", "companytype", "jobsType"});
-        // query.addFacetQuery("publishDate:[2014-04-21T00:00:00Z TO 2014-04-23T00:00:00Z]");
-        // query.addFacetQuery("publishDate:[2014-04-11T00:00:00Z TO 2014-04-13T00:00:00Z]");
+        // 设置需要facet的字段
+        query.addFacetField(new String[]{"salary", "educateBackground", "jobExperience", "companytype", "jobsType"});
+        query.addFacetQuery("publishDate:[2014-04-21T00:00:00Z TO 2014-04-23T00:00:00Z]");
+
         SimpleDateFormat time0 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         SimpleDateFormat time1 = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat time2 = new SimpleDateFormat("HH:mm:ss");
-        // return
-        // date.getYear()+"-"+date.getMonth()+"-"+date.getDay()+"T"+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
 
         Calendar c = Calendar.getInstance();
         c.setTime(time0.parse(time1.format(c.getTime()) + " 23:59:59"));

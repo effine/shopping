@@ -17,8 +17,8 @@ public class Main {
         consumerThread.start();
 
         Producer producer = new Producer("queue");
-
-        for (int i = 0; i < 100000; i++) {
+        int maxNum = 100000;
+        for (int i = 0; i < maxNum; i++) {
             HashMap<String, Integer> message = new HashMap<String, Integer>();
             message.put("message number", i);
             producer.sendMessage(message);

@@ -27,13 +27,13 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 
     @Override
     public boolean signin(String username, String passwd) {
-        //SqlSession session = DaoSupport.getSqlSession();
-        // TODO 登录
-//		int uid = session.insert("cn.effine.IUserOperation.signin");
-//		session.commit();
-//		session.close();
+        SqlSession session = DaoSupport.getSqlSession();
+        int uid = session.insert("cn.effine.IUserOperation.signin");
+        session.commit();
+        session.close();
+        String name = "effine";
         User user = new User();
-        if ("effine".equals(username) && BCrypt.checkpw(passwd, user.getPasswd())) {
+        if (name.equals(username) && BCrypt.checkpw(passwd, user.getPasswd())) {
             return true;
         }
         return false;
@@ -41,7 +41,6 @@ public class UserDaoImpl extends DaoSupport implements UserDao {
 
     @Override
     public boolean signout(int uid) {
-
         return false;
     }
 

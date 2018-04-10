@@ -11,6 +11,8 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisShardInfo;
 
+import java.util.Set;
+
 public class TestJedis {
 
     static Logger logger = Logger.getLogger(TestJedis.class);
@@ -50,15 +52,15 @@ public class TestJedis {
         @SuppressWarnings("resource")
         JedisPool pool = new JedisPool(new JedisPoolConfig(), extranetHost);
         Jedis jedis = pool.getResource();
-        //jedis.auth("yunlu123");
+        jedis.auth("yunlu123");
         try {
             // 开始使用
             jedis.set("foo", "bar");
             String foobar = jedis.get("foo");
             System.out.println("jedis使用池：" + foobar);
-            // jedis.zadd("sose", 0, "car");
-            // jedis.zadd("sose", 0, "bike");
-            // Set<String> sose = jedis.zrange("sose", 0, -1);
+            jedis.zadd("sose", 0, "car");
+            jedis.zadd("sose", 0, "bike");
+            Set<String> sose = jedis.zrange("sose", 0, -1);
         } finally {
             if (null != jedis) {
                 // 使用完后，将连接放回连接池

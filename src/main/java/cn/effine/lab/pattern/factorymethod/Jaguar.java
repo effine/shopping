@@ -5,7 +5,12 @@
 
 package cn.effine.lab.pattern.factorymethod;
 
-/*具体产品角色类：汽车-捷豹-Jaguar*/
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ *
+ * 具体产品角色类：汽车-捷豹-Jaguar
+ */
 public class Jaguar implements ICar {
 
     @Override

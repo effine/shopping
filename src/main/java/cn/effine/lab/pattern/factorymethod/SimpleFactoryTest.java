@@ -5,7 +5,12 @@
 
 package cn.effine.lab.pattern.factorymethod;
 
-/*测试简单工厂方法类*/
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ *
+ * 测试简单工厂方法类
+ */
 public class SimpleFactoryTest {
     public static void main(String[] args) {
 

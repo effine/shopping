@@ -18,12 +18,14 @@ import java.util.Collection;
  */
 public class SolrJ {
 
-    // 如果不指定Core的名称product，则默认为collection1
-    private static String baseURL = "http://localhost:8010/solr/product";
+    /**
+     * 如果不指定Core的名称product，则默认为collection1
+     */
+    private static final String BASE_URL = "http://localhost:8010/solr/product";
     private static SolrServer solrServer = null;
 
     static {
-        solrServer = new HttpSolrServer(baseURL);
+        solrServer = new HttpSolrServer(BASE_URL);
     }
 
     public static void main(String[] args) throws IOException, SolrServerException {
@@ -83,7 +85,6 @@ public class SolrJ {
      * 删除索引
      */
     public static void removeIndex() throws IOException, SolrServerException {
-        // solrServer.deleteByQuery("*:*");
         solrServer.deleteByQuery("name:刘川");
         solrServer.commit();
     }

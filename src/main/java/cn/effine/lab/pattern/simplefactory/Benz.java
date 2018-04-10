@@ -5,7 +5,12 @@
 
 package cn.effine.lab.pattern.simplefactory;
 
-/*具体产品角色类：汽车-奔驰Benz*/
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ *
+ * 具体产品角色类：汽车-奔驰Benz
+ */
 public class Benz implements ICar {
 
     @Override

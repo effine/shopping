@@ -15,7 +15,9 @@ import java.io.IOException;
  */
 public class IndexProcess<T> {
 
-    // TODO solr服务器地址添加到配置文件
+    /**
+     * TODO solr服务器地址添加到配置文件
+     */
     private SolrServer server = new HttpSolrServer("http://localhost:8030/solr");
 
     /**

@@ -13,7 +13,9 @@ package cn.effine.lab.pattern.singleton;
  */
 public class HungrySingleton {
 
-    // 饿汉式单例模式,声明的同时初始化对象
+    /**
+     * 饿汉式单例模式,声明的同时初始化对象
+     */
     public static HungrySingleton hungry = new HungrySingleton();
 
     /**
