@@ -11,11 +11,8 @@ package cn.effine.lab.http;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.HttpException;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.*;
-import org.apache.http.client.params.CookiePolicy;
-import org.apache.http.client.params.HttpClientParams;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
@@ -137,10 +134,6 @@ public class HttpRequestUtils {
             method.setHeader(key, request.getHeader(key));
         }
         method.setHeader("apiVersion", "2.0");
-        // 保持登录
-        HttpClientParams.setCookiePolicy(httpClient.getParams(), CookiePolicy.BROWSER_COMPATIBILITY);
-        String cookie = "";
-        method.setHeader("cookie", cookie);
 
         // 传递参数Param
         List<NameValuePair> params = new ArrayList<>();
