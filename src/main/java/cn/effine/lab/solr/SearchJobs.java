@@ -137,9 +137,9 @@ public class SearchJobs {
             // 设置排序
             for (int i = 0; i < sortfield.length; i++) {
                 if (flag[i]) {
-                    query.addSortField(sortfield[i], SolrQuery.ORDER.asc);
+                    query.addSort(sortfield[i], SolrQuery.ORDER.asc);
                 } else {
-                    query.addSortField(sortfield[i], SolrQuery.ORDER.desc);
+                    query.addSort(sortfield[i], SolrQuery.ORDER.desc);
                 }
             }
             // 设置高亮
@@ -462,9 +462,9 @@ public class SearchJobs {
                     || sortfield.length != flag.length)) {
                 for (int i = 0; i < sortfield.length; i++) {
                     if (flag[i]) {
-                        query.addSortField(sortfield[i], SolrQuery.ORDER.asc);
+                        query.addSort(sortfield[i], SolrQuery.ORDER.asc);
                     } else {
-                        query.addSortField(sortfield[i], SolrQuery.ORDER.desc);
+                        query.addSort(sortfield[i], SolrQuery.ORDER.desc);
                     }
                 }
             }
