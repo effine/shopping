@@ -1,10 +1,8 @@
 package cn.effine;
 
 import java.io.IOException;
-import java.math.RoundingMode;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.text.DecimalFormat;
 
 public class FileTest {
 
@@ -20,9 +18,6 @@ public class FileTest {
         String deTarger = "0k%E7%89%9B%E5%A5%B6";
         String decoder = URLDecoder.decode(deTarger, "utf-8");
         System.out.println("解码：" + decoder);
-
-
-
 
 
     }

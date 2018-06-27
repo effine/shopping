@@ -5,11 +5,16 @@
 
 package cn.effine.lab.pattern.observer;
 
-/*具体观察者角色*/
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ *
+ * 具体观察者角色
+ */
 public class ConcreteWitchers implements IWitchers {
 
-	@Override
+    @Override
     public void update(Object o) {
-		System.out.println(o);
-	}
+        System.out.println(o);
+    }
 }

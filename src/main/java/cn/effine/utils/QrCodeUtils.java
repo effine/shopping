@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 二维码操作类
  */
 public class QrCodeUtils {
@@ -52,8 +54,10 @@ public class QrCodeUtils {
             return "二维码内容为空";
         }
 
-        String format = "png";    // 图片类型
-        String fileName = System.currentTimeMillis() + "." + format;    // 文件名
+        // 图片类型
+        String format = "png";
+        // 文件名
+        String fileName = System.currentTimeMillis() + "." + format;
 
         Map<EncodeHintType, String> hints = new HashMap<>(1);
         hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");

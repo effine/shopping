@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 支付
  */
-@RestController("pay")
+@RestController
+@RequestMapping("pay")
 public class PayController {
 
     /**
@@ -31,7 +34,7 @@ public class PayController {
      *
      * @return
      */
-    //@RequestMapping("wechat")
+    @RequestMapping("wechat")
     public String wechatPay() {
         return null;
     }

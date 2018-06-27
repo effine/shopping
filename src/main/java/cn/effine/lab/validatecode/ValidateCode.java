@@ -14,17 +14,29 @@ import java.util.Random;
  * @author dsna
  */
 public class ValidateCode {
-    // 图片的宽度。
+    /**
+     * 图片的宽度
+     */
     private int width = 160;
-    // 图片的高度。
+    /**
+     * 图片的高度
+     */
     private int height = 40;
-    // 验证码字符个数
+    /**
+     * 验证码字符个数
+     */
     private int codeCount = 5;
-    // 验证码干扰线数
+    /**
+     * 验证码干扰线数
+     */
     private int lineCount = 150;
-    // 验证码
+    /**
+     * 验证码
+     */
     private String code = null;
-    // 验证码图片Buffer
+    /**
+     * 验证码图片Buffer
+     */
     private BufferedImage buffImg = null;
 
     private char[] codeSequence = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -63,8 +75,10 @@ public class ValidateCode {
         int x = 0, fontHeight = 0, codeY = 0;
         int red = 0, green = 0, blue = 0;
 
-        x = width / (codeCount + 2);//每个字符的宽度
-        fontHeight = height - 2;//字体的高度
+        //每个字符的宽度
+        x = width / (codeCount + 2);
+        //字体的高度
+        fontHeight = height - 2;
         codeY = height - 4;
 
         // 图像buffer

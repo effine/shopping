@@ -6,6 +6,8 @@
 package cn.effine.lab.pattern.factorymethod;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 抽象的工厂类
  */
 public abstract class AbstractFactory {

@@ -40,7 +40,7 @@ public class TestLRUCache {
             System.err.println(iterator.next());
         }
 
-        // List cache content.
+        // LIST cache content.
         for (Map.Entry<String, String> e : c.getAll())
             System.out.println(e.getKey() + " : " + e.getValue());
     }

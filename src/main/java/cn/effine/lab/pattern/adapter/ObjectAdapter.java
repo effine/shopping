@@ -7,27 +7,27 @@ package cn.effine.lab.pattern.adapter;
 
 public class ObjectAdapter implements Target {
 
-	private Adaptee adaptee;
+    private Adaptee adaptee;
 
-	public ObjectAdapter(Adaptee adaptee) {
-		super();
-		this.adaptee = adaptee;
-	}
+    public ObjectAdapter(Adaptee adaptee) {
+        super();
+        this.adaptee = adaptee;
+    }
 
-	/**
-	 * 源类（客户端类）的方法method1(),适配器直接委派即可
-	 */
-	@Override
+    /**
+     * 源类（客户端类）的方法method1(),适配器直接委派即可
+     */
+    @Override
     public void method1() {
-		adaptee.method1();
-	}
+        adaptee.method1();
+    }
 
-	/**
-	 * 由于源类（客户端类）没有方法method2(),因此适配器补上该方法
-	 */
-	@Override
+    /**
+     * 由于源类（客户端类）没有方法method2(),因此适配器补上该方法
+     */
+    @Override
     public void method2() {
-		/* method body */
-	}
+        /* method body */
+    }
 
 }

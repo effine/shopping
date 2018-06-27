@@ -9,11 +9,15 @@ import org.apache.solr.client.solrj.response.UpdateResponse;
 import java.io.IOException;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 索引加工类
  */
 public class IndexProcess<T> {
 
-    // TODO solr服务器地址添加到配置文件
+    /**
+     * TODO solr服务器地址添加到配置文件
+     */
     private SolrServer server = new HttpSolrServer("http://localhost:8030/solr");
 
     /**

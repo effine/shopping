@@ -27,6 +27,8 @@ import java.io.*;
 import java.util.Iterator;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 图片工具类
  */
 public class ImagesUtils {
@@ -68,7 +70,9 @@ public class ImagesUtils {
         return false;
     }
 
-    // TODO 阿里simpleimage无法使用
+    /**
+     * TODO 阿里simpleimage无法使用
+     */
     public static void aliCompressImg() {
         //原图片
         File in = new File("d:/test/mac.jpg");

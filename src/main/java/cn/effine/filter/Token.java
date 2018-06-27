@@ -14,6 +14,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * Token操作类
  */
 public class Token {

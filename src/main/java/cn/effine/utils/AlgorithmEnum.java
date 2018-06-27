@@ -9,5 +9,13 @@ package cn.effine.utils;
  * @site http://www.effine.cn
  */
 public enum AlgorithmEnum {
-    MD5, BCRYPT
+    /**
+     * MD5
+     */
+    MD5,
+
+    /**
+     * BCRYPT
+     */
+    BCRYPT
 }

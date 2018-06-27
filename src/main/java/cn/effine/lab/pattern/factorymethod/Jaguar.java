@@ -5,16 +5,21 @@
 
 package cn.effine.lab.pattern.factorymethod;
 
-/*具体产品角色类：汽车-捷豹-Jaguar*/
+/**
+ * @author effine
+ * @Date 2017-10-15 20:37
+ *
+ * 具体产品角色类：汽车-捷豹-Jaguar
+ */
 public class Jaguar implements ICar {
 
-	@Override
+    @Override
     public void run() {
-		System.out.println("捷豹启动");
-	}
+        System.out.println("捷豹启动");
+    }
 
-	@Override
+    @Override
     public void stop() {
-		System.out.println("捷豹停止");
-	}
+        System.out.println("捷豹停止");
+    }
 }

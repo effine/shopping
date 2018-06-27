@@ -41,13 +41,14 @@ public class ImgFontByte {
         }
         String str = font.trim();
         int len = str.length();
-        if (len == 0 || len % 2 == 1) {
+        int divisor = 2;
+        if (len == 0 || len % divisor == 1) {
             return new byte[0];
         }
 
         byte[] b = new byte[len / 2];
         try {
-            for (int i = 0; i < str.length(); i += 2) {
+            for (int i = 0; i < str.length(); i += divisor) {
                 b[i / 2] = (byte) Integer
                         .decode("0x" + str.substring(i, i + 2)).intValue();
             }

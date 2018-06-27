@@ -6,6 +6,8 @@
 package cn.effine.lab.pattern.simplefactory;
 
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 抽象产品角色接口：汽车Car
  */
 public interface ICar {

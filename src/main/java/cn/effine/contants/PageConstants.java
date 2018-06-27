@@ -7,27 +7,15 @@
 
 package cn.effine.contants;
 
-import java.io.UnsupportedEncodingException;
-
 /**
+ * @author effine
+ * @Date 2017-10-15 20:37
  * 页面常量管理
  */
 public class PageConstants {
 
-    public static final String SIGNUP = "signup"; // 注册
+    public static final String SIGNUP = "signup";
 
     private PageConstants() {
     }
-
-    public static void main(String[] args) throws UnsupportedEncodingException {
-
-        int i = 0;
-        for (i++; i++ < 10; i++) {
-            System.out.println(i);
-        }
-
-
-    }
-
-
 }
