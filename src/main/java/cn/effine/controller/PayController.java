@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date 2017-10-15 20:37
  * 支付
  */
-@RestController("pay")
+@RestController
+@RequestMapping("pay")
 public class PayController {
 
     /**

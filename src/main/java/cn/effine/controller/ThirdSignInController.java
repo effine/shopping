@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
  * 第三方登录
  * TODO effine 第三方登录
  */
-@RestController("signin")
+@RestController
+@RequestMapping("signin")
 public class ThirdSignInController {
 
     /**
