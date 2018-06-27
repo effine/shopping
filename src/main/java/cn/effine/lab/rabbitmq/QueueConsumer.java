@@ -12,7 +12,8 @@ import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.Envelope;
 import com.rabbitmq.client.ShutdownSignalException;
 import org.apache.commons.lang.SerializationUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Map;
@@ -24,7 +25,7 @@ import java.util.Map;
  */
 public class QueueConsumer extends BaseEndPoint implements Runnable, Consumer {
 
-    private static Logger logger = Logger.getLogger(QueueConsumer.class);
+    private static Logger logger = LoggerFactory.getLogger(QueueConsumer.class);
 
     public QueueConsumer(String queueName) throws IOException {
         super(queueName);
@@ -36,7 +37,7 @@ public class QueueConsumer extends BaseEndPoint implements Runnable, Consumer {
             // start consuming messages. Auto acknowledge messages.
             channel.basicConsume(queueName, true, this);
         } catch (IOException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
     }
 

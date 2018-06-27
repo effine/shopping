@@ -8,13 +8,14 @@
 
 package cn.effine.lab.md5;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.security.MessageDigest;
 
 public class Md5Utils {
 
-    private static Logger logger = Logger.getLogger(Md5Utils.class);
+    private static final Logger logger = LoggerFactory.getLogger(Md5Utils.class);
 
     /**
      * 将字符串MD5加密
@@ -45,7 +46,7 @@ public class Md5Utils {
             }
             return new String(str);
         } catch (Exception e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             return null;
         }
     }

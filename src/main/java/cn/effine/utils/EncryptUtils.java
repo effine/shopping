@@ -7,7 +7,8 @@
 package cn.effine.utils;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import java.security.MessageDigest;
@@ -28,7 +29,7 @@ public class EncryptUtils {
      */
     private static final String[] DIGITS = {"0", "1", "2", "3", "4", "5",
             "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
-    private static Logger logger = Logger.getLogger(EncryptUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(EncryptUtils.class);
 
     private EncryptUtils() {
     }
@@ -82,7 +83,7 @@ public class EncryptUtils {
             try {
                 md = MessageDigest.getInstance(AlgorithmEnum.MD5.name());
             } catch (NoSuchAlgorithmException e) {
-                logger.error(e);
+                logger.error(e.getMessage());
             }
             if (null != md) {
                 byte[] byteArr = source.getBytes();

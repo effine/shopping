@@ -5,7 +5,8 @@
 
 package cn.effine.filter;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +23,7 @@ import java.io.PrintWriter;
 public class RepeatSubmitServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private static Logger logger = Logger.getLogger(RepeatSubmitServlet.class);
+    private static Logger logger = LoggerFactory.getLogger(RepeatSubmitServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -57,7 +58,7 @@ public class RepeatSubmitServlet extends HttpServlet {
             }
             out.close();
         } catch (Exception e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
     }
 }

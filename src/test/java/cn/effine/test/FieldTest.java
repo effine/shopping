@@ -1,6 +1,7 @@
 package cn.effine.test;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
@@ -13,7 +14,7 @@ import java.util.Map;
  */
 public class FieldTest {
 
-    private static Logger logger = Logger.getLogger(FieldTest.class);
+    private static Logger logger = LoggerFactory.getLogger(FieldTest.class);
 
     @Deprecated
     public static void main(String[] args) {
@@ -54,7 +55,7 @@ public class FieldTest {
                         }
                         map.put(field.getName(), field.get(bean));
                     } catch (IllegalArgumentException | IllegalAccessException e) {
-                        logger.error(e);
+                        logger.error(e.getMessage());
                     }
                 }
                 return map;

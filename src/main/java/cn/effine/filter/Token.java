@@ -6,7 +6,8 @@
 
 package cn.effine.filter;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,7 +22,7 @@ import java.security.NoSuchAlgorithmException;
 public class Token {
 
     static final String TOKEN_KEY = "ltai701";
-    private static Logger logger = Logger.getLogger(Token.class);
+    private static final Logger logger = LoggerFactory.getLogger(Token.class);
     private static Token instance = new Token();
 
     /**
@@ -118,7 +119,7 @@ public class Token {
             md.update(now);
             return toHex(md.digest());
         } catch (NoSuchAlgorithmException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             return null;
         }
     }

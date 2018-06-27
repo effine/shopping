@@ -14,7 +14,8 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -32,7 +33,7 @@ import java.util.Map;
  */
 public class QrCodeUtils {
 
-    private static Logger logger = Logger.getLogger(QrCodeUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(QrCodeUtils.class);
 
     private QrCodeUtils() {
     }
@@ -68,7 +69,7 @@ public class QrCodeUtils {
             // 输出图像
             MatrixToImageWriter.writeToPath(bitMatrix, format, fullName);
         } catch (IOException | WriterException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
         return fileName;
     }
@@ -87,8 +88,8 @@ public class QrCodeUtils {
         BufferedImage image = null;
         try {
             image = ImageIO.read(new File(fullName));
-        } catch (IOException e1) {
-            logger.error(e1);
+        } catch (IOException e) {
+            logger.error(e.getMessage());
         }
         LuminanceSource source = new BufferedImageLuminanceSource(image);
         Binarizer binarizer = new HybridBinarizer(source);
@@ -101,7 +102,7 @@ public class QrCodeUtils {
             result = new MultiFormatReader().decode(binaryBitmap, hints);
             return result.getText();
         } catch (NotFoundException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
         return null;
     }

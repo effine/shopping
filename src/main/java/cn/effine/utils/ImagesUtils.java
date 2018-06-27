@@ -15,7 +15,8 @@ import com.alibaba.simpleimage.render.ScaleRender;
 import com.alibaba.simpleimage.render.WriteRender;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.*;
 import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
@@ -33,7 +34,7 @@ import java.util.Iterator;
  */
 public class ImagesUtils {
 
-    private static Logger logger = Logger.getLogger(ImagesUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(ImagesUtils.class);
 
     private ImagesUtils() {
     }
@@ -63,9 +64,9 @@ public class ImagesUtils {
             BufferedImage bi = reader.read(0, param);
             return ImageIO.write(bi, suffix, new File(distname));
         } catch (FileNotFoundException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
         return false;
     }
@@ -94,7 +95,7 @@ public class ImagesUtils {
             //触发图像处理
             wr.render();
         } catch (Exception e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         } finally {
             IOUtils.closeQuietly(inStream);
             IOUtils.closeQuietly(outStream);
@@ -102,7 +103,7 @@ public class ImagesUtils {
                 try {
                     wr.dispose();                   //释放simpleImage的内部资源
                 } catch (SimpleImageException e) {
-                    logger.error(e);
+                    logger.error(e.getMessage());
                 }
             }
         }
@@ -141,13 +142,13 @@ public class ImagesUtils {
                 // 调用write方法，就可以向输入流写图片
                 imgWrier.write(null, new IIOImage(src, null, null), imgWriteParams);
             } catch (IOException e) {
-                logger.error(e);
+                logger.error(e.getMessage());
             } finally {
                 try {
                     out.flush();
                     out.close();
                 } catch (IOException e) {
-                    logger.error(e);
+                    logger.error(e.getMessage());
                 }
             }
         }

@@ -11,7 +11,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +31,7 @@ public class DaoSupport {
     private static String configurePath = "mybatis-config.xml";
     private static SqlSessionFactory sqlSessionFactory;
     private static SqlSessionFactory sqlSessionFactory2;
-    private static Logger logger = Logger.getLogger(DaoSupport.class);
+    private static final Logger logger = LoggerFactory.getLogger(DaoSupport.class);
 
     static {
         try {
@@ -39,10 +40,10 @@ public class DaoSupport {
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 
             // 方式2
-             InputStream stream = Resources.getResourceAsStream(configurePath);
+            InputStream stream = Resources.getResourceAsStream(configurePath);
             sqlSessionFactory2 = new SqlSessionFactoryBuilder().build(stream);
         } catch (IOException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
     }
 

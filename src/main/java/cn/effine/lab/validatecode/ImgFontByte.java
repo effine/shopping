@@ -1,7 +1,8 @@
 package cn.effine.lab.validatecode;
 
 import cn.effine.utils.PropertiesUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 import java.io.ByteArrayInputStream;
@@ -13,7 +14,7 @@ import java.io.ByteArrayInputStream;
  */
 public class ImgFontByte {
 
-    private Logger logger = Logger.getLogger(ImgFontByte.class);
+    private static Logger logger = LoggerFactory.getLogger(ImgFontByte.class);
 
     /**
      * 获得字体
@@ -26,7 +27,7 @@ public class ImgFontByte {
             Font baseFont = Font.createFont(Font.TRUETYPE_FONT, new ByteArrayInputStream(hex2byte(PropertiesUtils.getProp("font"))));
             return baseFont.deriveFont(Font.PLAIN, fontHeight);
         } catch (Exception e) {
-            logger.error(e);
+            logger.error(e.getMessage());
             return new Font("Arial", Font.PLAIN, fontHeight);
         }
     }
@@ -54,7 +55,7 @@ public class ImgFontByte {
             }
             return b;
         } catch (Exception e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
         return new byte[0];
     }

@@ -5,7 +5,8 @@
 
 package cn.effine.lab.jedis;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -15,7 +16,7 @@ import java.util.Set;
 
 public class TestJedis {
 
-    static Logger logger = Logger.getLogger(TestJedis.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestJedis.class);
     private static String extranetHost = "127.0.0.1";
     private static int extranetPort = 6379;
 

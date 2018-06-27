@@ -1,6 +1,8 @@
 package cn.effine.utils;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +15,7 @@ import java.util.Properties;
  */
 public class PropertiesUtils {
 
-    private static Logger logger = Logger.getLogger(PropertiesUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(PropertiesUtils.class);
     private static Properties confProperties;
 
     static {
@@ -24,7 +26,7 @@ public class PropertiesUtils {
             confProperties.load(is);
             is.close();
         } catch (IOException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
     }
 

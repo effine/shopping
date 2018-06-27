@@ -6,7 +6,8 @@
 package cn.effine.lab.email;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -26,7 +27,7 @@ import java.util.Properties;
  */
 public class MailUtils {
 
-    private static Logger logger = Logger.getLogger(MailUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(MailUtils.class);
 
     private MailUtils() {
     }

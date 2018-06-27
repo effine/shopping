@@ -10,14 +10,15 @@ package cn.effine.lab.rabbitmq;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public abstract class BaseEndPoint {
 
-    private static Logger logger = Logger.getLogger(BaseEndPoint.class);
+    private static Logger logger = LoggerFactory.getLogger(BaseEndPoint.class);
     protected Channel channel;
     protected Connection connection;
     protected String queueName;
@@ -31,7 +32,7 @@ public abstract class BaseEndPoint {
         try {
             connection = factory.newConnection();
         } catch (TimeoutException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
 
         channel = connection.createChannel();

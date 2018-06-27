@@ -7,13 +7,14 @@
 
 package cn.effine.utils;
 
-import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -28,7 +29,7 @@ import java.util.Iterator;
  */
 public class XmlUtils {
 
-    private static Logger logger = Logger.getLogger(XmlUtils.class);
+    private static Logger logger = LoggerFactory.getLogger(XmlUtils.class);
 
     private XmlUtils() {
     }
@@ -54,7 +55,7 @@ public class XmlUtils {
             xmlWriter.write(document);
             xmlWriter.close();
         } catch (IOException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
 
     }
@@ -81,7 +82,7 @@ public class XmlUtils {
 
             }
         } catch (DocumentException e) {
-            logger.error(e);
+            logger.error(e.getMessage());
         }
     }
 }
