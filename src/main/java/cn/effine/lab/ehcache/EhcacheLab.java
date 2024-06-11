@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * @author effine
  * @Date 2017-03-15 10:53
- * @email zhangyafei#co-mall.com
+ * @email iballad#163.com
  */
 public class EhcacheLab {
 

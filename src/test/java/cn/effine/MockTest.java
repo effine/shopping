@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 /**
  * @author effine
  * @Date 2017-02-27 10:35
- * @email zhangyafei#co-mall.com
+ * @email iballad#163.com
  */
 @RunWith(MockitoJUnitRunner.class)
 public class MockTest {

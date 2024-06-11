@@ -31,7 +31,7 @@ public class FieldTest {
      * @param bean          待转换的实体
      * @param isContainNull 返回值集合是否包含null属性
      * @return 实体对应Map(key为属性 ， value为属性值)
-     * @author effine[zhangyafei@co-mall.com]
+     * @author effine
      */
     private Map<String, Object> beanToMap(OrderDataConsistency bean,
                                           boolean isContainNull) {
